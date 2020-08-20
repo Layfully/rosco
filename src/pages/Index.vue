@@ -13,7 +13,7 @@
 
 <page-query>
 query {
-  posts: allPost(filter: { published: { eq: true }}) {
+  posts: allOffer(filter: { published: { eq: true }}) {
     edges {
       node {
         id
@@ -22,17 +22,12 @@ query {
         timeToRead
         description
         cover_image (width: 770, height: 380, blur: 10)
-        ...on Post {
+        ...on Offer {
         id
         title
         path
         }
         path
-        tags {
-          id
-          title
-          path
-        }
       }
     }
   }

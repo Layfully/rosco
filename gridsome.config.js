@@ -10,25 +10,16 @@ module.exports = {
     "A simple, hackable & minimalistic starter for Gridsome that uses Netlify CMS for content.",
 
   templates: {
-    Post: "/:title",
     Offer: "/:title",
-    Tag: "/tag/:id",
   },
 
   plugins: [
     {
-      // Create posts from markdown files
+      // Create offers from markdown files
       use: "@gridsome/source-filesystem",
       options: {
-        typeName: "Oferta",
+        typeName: "Offer",
         path: "content/offers/*.md",
-        /*refs: {
-          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
-          tags: {
-            typeName: "Tag",
-            create: true,
-          },
-        },*/
       },
     },
   ],

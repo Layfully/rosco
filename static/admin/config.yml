@@ -21,3 +21,17 @@ collections:
       - {label: "Cover Image", name: "cover_image", widget: "image", required: false}
       - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "oferta" # Used in routes, e.g., /admin/collections/blog
+    label: "Oferty" # Used in the UI
+    folder: "content/offers" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    extension: 'md'
+    fields: # The fields for each document, usually in front matter
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Opublikowana", name: "published", widget: "boolean", default: true}
+      - {label: "Zdjęcie", name: "cover_image", widget: "image", required: true}
+      - {label: "Opis", name: "description", widget: "markdown"}
+      - {label: "Zawartość", name: "body", widget: "markdown"}
+

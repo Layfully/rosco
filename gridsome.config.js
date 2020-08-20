@@ -13,7 +13,10 @@ module.exports = {
     Post: "/:title",
     Tag: "/tag/:id",
   },
-
+  icon: {
+    favicon: "./src/favicon.png",
+    touchicon: "./src/touchicon.png",
+  },
   plugins: [
     {
       // Create posts from markdown files
@@ -39,6 +42,15 @@ module.exports = {
       externalLinksRel: ["nofollow", "noopener", "noreferrer"],
       anchorClassName: "icon icon-link",
       plugins: ["@gridsome/remark-prismjs"],
+    },
+  },
+
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData:
+          '@import "@/assets/style/_variables", "@/assets/style/_mixins";',
+      },
     },
   },
 };

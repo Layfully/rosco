@@ -1,6 +1,13 @@
 <template>
   <g-link class="logo" to="/">
-    <g-image src="@/assets/image/rosco_logo.png" alt="Rosco" width="100%"></g-image>
+    <g-image
+      src="@/assets/image/rosco_logo.png"
+      class="logo__image"
+      alt="Rosco"
+      width="200px"
+      height="80%"
+      fit="inside"
+    ></g-image>
   </g-link>
 </template>
 
@@ -14,16 +21,10 @@ query {
 
 <style lang="scss">
 .logo {
-  text-decoration: none;
-  color: var(--body-color) !important;
-  font-size: 0.9em;
-
+  margin-left: 2em;
   &__image {
     vertical-align: middle;
-    border-radius: 99px;
-    height: 40px;
-    width: 40px;
-    margin-right: 0.5em;
+    filter: var(--logo-filter-shadow) var(--logo-filter-brightness);
   }
 }
 </style>

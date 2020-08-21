@@ -38,7 +38,7 @@ export default {
 
   &__image {
     height: 100%;
-    max-width: 100%;
+    width: 100%;
     object-fit: cover;
     transition: all ease 0.4s;
     filter: brightness(75%);

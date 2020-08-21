@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="true">
     <!-- Author intro -->
-    <Author :show-title="true" />
+    <!--<Author :show-title="true" /> -->
     <!-- List offers -->
     <div class="grid">
       <h2>Nasza oferta</h2>

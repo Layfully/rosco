@@ -73,7 +73,7 @@
           Designed by
           <a class="footer__link" href="//www.suits.at">Adrian Gaborek</a>
         </span>
-      </div>
+      </div>>>>>>>> 18f9ce8f3e644958d8e961c2e1b73390d578fee4
     </footer>
   </div>
 </template>
@@ -161,7 +161,7 @@ export default {
 
 .main {
   margin: 0 auto;
-  padding: 1.5vw 15px 0;
+  padding: 1.5vw var(--space) 0;
 }
 
 .footer {
@@ -170,9 +170,13 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: calc(var(--space) / 2);
+  text-align: center;
+  font-size: 0.8em;
 
-  padding-left: calc(var(--space) / 2);
-  padding-right: calc(var(--space) / 2);
+  padding-top: calc(var(--space) / 4);
+  padding-left: calc(var(--space));
+  padding-right: calc(var(--space));
   padding-bottom: calc(var(--space) / 4);
 
   &__container {

@@ -5,6 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+header,
 body {
   background-color: var(--bg-color);
   color: var(--body-color);
@@ -22,6 +23,7 @@ a:not(.button) {
   &:hover {
     opacity: 0.8;
   }
+  text-decoration: none;
 }
 
 img {

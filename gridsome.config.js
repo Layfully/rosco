@@ -6,31 +6,27 @@
 
 module.exports = {
   siteName: "Rosco",
+
   siteDescription:
     "A simple, hackable & minimalistic starter for Gridsome that uses Netlify CMS for content.",
 
   templates: {
-    Post: "/:title",
-    Tag: "/tag/:id",
+
+    Offer: "/:title",
   },
   icon: {
     favicon: "./src/favicon.png",
     touchicon: "./src/touchicon.png",
+
   },
   plugins: [
     {
-      // Create posts from markdown files
+
+      // Create offers from markdown files
       use: "@gridsome/source-filesystem",
       options: {
-        typeName: "Post",
-        path: "content/posts/*.md",
-        refs: {
-          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
-          tags: {
-            typeName: "Tag",
-            create: true,
-          },
-        },
+        typeName: "Offer",
+        path: "content/offers/*.md",
       },
     },
   ],

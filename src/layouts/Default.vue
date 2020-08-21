@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <header class="header">
       <div class="header__left">
         <Logo v-if="showLogo" />
@@ -12,30 +11,32 @@
     </header>
 
     <main class="main">
-      <slot/>
+      <slot />
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. </span>
-      <span class="footer__links">Powered by <a href="//www.suits.at"> SUITS </a></span>
+      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
+      <span class="footer__links">
+        Powered by
+        <a href="//www.suits.at">SUITS</a>
+      </span>
     </footer>
-
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import ToggleTheme from '~/components/ToggleTheme.vue'
+import Logo from "~/components/Logo.vue";
+import ToggleTheme from "~/components/ToggleTheme.vue";
 
 export default {
   props: {
-    showLogo: { default: true }
+    showLogo: { default: true },
   },
   components: {
     Logo,
-    ToggleTheme
-  }
-}
+    ToggleTheme,
+  },
+};
 </script>
 
 <style lang="scss">
@@ -45,7 +46,7 @@ export default {
   align-items: center;
   min-height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
-  top:0;
+  top: 0;
   z-index: 10;
 
   &__left,
@@ -63,7 +64,7 @@ export default {
 
 .main {
   margin: 0 auto;
-  padding: 1.5vw 15px 0;
+  padding: 1.5vw var(--space) 0;
 }
 
 .footer {
@@ -72,10 +73,63 @@ export default {
   justify-content: center;
   padding: calc(var(--space) / 2);
   text-align: center;
-  font-size: .8em;
+  font-size: 0.8em;
 
-  > span {
-    margin: 0 .35em;
+  padding-top: calc(var(--space) / 4);
+  padding-left: calc(var(--space));
+  padding-right: calc(var(--space));
+  padding-bottom: calc(var(--space) / 4);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    @include lg {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include lg {
+      display: block;
+    }
+  }
+
+  &__column {
+    padding: 0px calc(var(--space) / 2) calc(var(--space) / 2)
+      calc(var(--space) / 4);
+    margin-left: calc(var(--space) / 4);
+    margin-right: calc(var(--space) / 4);
+    width: 100%;
+  }
+
+  &__link {
+    color: var(--body-color) !important;
+    transition: all ease 0.3s !important;
+    padding-bottom: 1px !important;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      border-color: var(--body-color);
+    }
+  }
+
+  &__meta {
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.9em;
+    > span {
+      margin-right: var(--icon-space);
+    }
   }
 
   a {

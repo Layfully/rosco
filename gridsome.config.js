@@ -33,4 +33,13 @@ module.exports = {
       plugins: ["@gridsome/remark-prismjs"],
     },
   },
+
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData:
+          '@import "@/assets/style/_variables", "@/assets/style/_mixins";',
+      },
+    },
+  },
 };

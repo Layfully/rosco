@@ -1,0 +1,27 @@
+// Small devices
+@mixin sm {
+  @media (min-width: #{$sm-breakpoint}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$md-breakpoint}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$lg-breakpoint}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$xl-breakpoint}) {
+    @content;
+  }
+}

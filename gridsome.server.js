@@ -5,8 +5,15 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
+module.exports = function(api) {
   api.loadSource(({ addCollection }) => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
-  })
-}
+  });
+
+  api.createPages(({ createPage }) => {
+    createPage({
+      path: "/o-firmie",
+      component: "./src/pages/About.vue",
+    });
+  });
+};

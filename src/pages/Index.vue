@@ -1,5 +1,5 @@
 <template>
-  <Layout :show-logo="true">
+  <Layout :show-logo="true" :applyMargin="false">
     <!-- Author intro -->
     <!--<Author :show-title="true" /> -->
     <!-- List offers -->
@@ -63,7 +63,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .grid {
   display: flex;
   flex-direction: column;

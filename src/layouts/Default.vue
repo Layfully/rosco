@@ -18,7 +18,7 @@
       </div>
     </header>
 
-    <main class="main">
+    <main :class="applyMargin ? 'main-margin' : 'main-nomargin'">
       <slot />
     </main>
 
@@ -73,7 +73,7 @@
           Designed by
           <a class="footer__link" href="//www.suits.at">Adrian Gaborek</a>
         </span>
-      </div>>>>>>>> 18f9ce8f3e644958d8e961c2e1b73390d578fee4
+      </div>
     </footer>
   </div>
 </template>
@@ -85,6 +85,7 @@ import ToggleTheme from "~/components/ToggleTheme.vue";
 export default {
   props: {
     showLogo: { default: true },
+    applyMargin: { type: Boolean, default: true },
   },
   data: function () {
     return {
@@ -159,9 +160,14 @@ export default {
   }
 }
 
-.main {
-  margin: 0 auto;
+.main-margin {
   padding: 1.5vw var(--space) 0;
+  margin: 0 calc(var(--space) / 4);
+}
+
+.main-nomargin {
+  padding: 1.5vw var(--space) 0;
+  margin: 0;
 }
 
 .footer {

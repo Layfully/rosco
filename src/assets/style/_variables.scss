@@ -17,6 +17,7 @@ body {
   --title-color: #111;
   --link-color: #6b17e6;
   --border-color: rgba(0, 0, 0, 0.1);
+  --hr-color: rgba(0, 0, 0, 0.75);
   --space: 3.5rem;
   --content-width: 860px;
   --header-height: 80px;
@@ -42,6 +43,7 @@ body[data-theme="dark"] {
   --bg-color: #0d2538;
   --bg-content-color: #0f2d44;
   --bg-code: rgba(0, 0, 0, 0.3);
+  --hr-color: rgba(255, 255, 255, 0.75);
   --border-color: rgba(255, 255, 255, 0.1);
   --body-color: #ced8de;
   --title-color: #fff;

@@ -4,10 +4,13 @@
     <!--<Author :show-title="true" /> -->
     <!-- List offers -->
     <div class="grid">
-      <h2>Nasza oferta</h2>
+      <h2>{{ $page.pageData.title }}</h2>
       <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
         <OfferCard
-          v-for="offer in $page.posts.edges.slice((i - 1) * offerRowCount, i * offerRowCount)"
+          v-for="offer in $page.posts.edges.slice(
+            (i - 1) * offerRowCount,
+            i * offerRowCount
+          )"
           :key="offer.node.id"
           :offer="offer.node"
         />
@@ -35,6 +38,10 @@ query {
         path
       }
     }
+  }
+
+  pageData: pageData(path: "/content/pages/home/"){
+    title
   }
 }
 </page-query>

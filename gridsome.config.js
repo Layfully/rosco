@@ -11,22 +11,26 @@ module.exports = {
     "A simple, hackable & minimalistic starter for Gridsome that uses Netlify CMS for content.",
 
   templates: {
-
     Offer: "/:title",
   },
   icon: {
     favicon: "./src/favicon.png",
     touchicon: "./src/touchicon.png",
-
   },
   plugins: [
     {
-
       // Create offers from markdown files
       use: "@gridsome/source-filesystem",
       options: {
         typeName: "Offer",
         path: "content/offers/*.md",
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "PageData",
+        path: "content/pages/**/*.md",
       },
     },
   ],

@@ -9,12 +9,62 @@ collections:
     folder: "content/offers" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    extension: 'md'
+    extension: "md"
     fields: # The fields for each document, usually in front matter
-      - {label: "Tytuł", name: "title", widget: "string"}
-      - {label: "Data", name: "date", widget: "datetime"}
-      - {label: "Opublikowana", name: "published", widget: "boolean", default: true}
-      - {label: "Zdjęcie", name: "cover_image", widget: "image", required: true}
-      - {label: "Opis", name: "description", widget: "markdown"}
-      - {label: "Zawartość", name: "body", widget: "markdown"}
+      - { label: "Tytuł", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - {
+          label: "Opublikowana",
+          name: "published",
+          widget: "boolean",
+          default: true,
+        }
+      - {
+          label: "Zdjęcie",
+          name: "cover_image",
+          widget: "image",
+          required: true,
+        }
+      - { label: "Opis", name: "description", widget: "markdown" }
+      - { label: "Zawartość", name: "body", widget: "markdown" }
 
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "About Us"
+        file: "content/pages/about/index.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Content, name: content, widget: markdown }
+          - label: Business Profile
+            name: profile
+            widget: list
+            fields:
+              - { label: Body, name: body, widget: string }
+
+      - name: "home"
+        label: "Home Page"
+        file: "content/pages/home/index.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+
+  - name: "footer"
+    label: "Footer"
+    files:
+      - name: "about"
+        label: "About Us"
+        file: "content/pages/footer/footer_about.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Content, name: content, widget: markdown }
+      - name: "contact_details"
+        label: "Contact Details"
+        file: "content/pages/footer/footer_contact_details.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Contact Type
+            name: contacts
+            widget: list
+            fields:
+              - { label: Contact, name: contact, widget: markdown }

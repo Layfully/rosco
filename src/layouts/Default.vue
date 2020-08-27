@@ -17,7 +17,8 @@
           :to="link.src"
           class="header__menu__link"
           exact-active-class="header__menu__link__active "
-        >{{link.name}}</g-link>
+          >{{ link.name }}</g-link
+        >
       </nav>
       <div class="header__right">
         <ToggleTheme />
@@ -30,50 +31,39 @@
 
     <footer class="footer">
       <div class="footer__container">
-        <div class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">O nas</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam euismod
-            purus sit amet ultrices. Ut dictum aliquet mollis. Pellentesque posuere mattis augue, ac vehicula erat bibendum in. Pellentesque vel massa quis nisi malesuada sollicitudin.
-            Phasellus nisl erat, consequat sodales tempus sit amet, dignissim sit amet tortor.
-          </p>
-        </div>
-        <div class="footer__column footer__menu space-bottom-small content-box">
+        <section class="footer__column space-bottom-small content-box">
+          <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
+          <div v-html="$static.footer_about.content"></div>
+        </section>
+        <section
+          class="footer__column footer__menu space-bottom-small content-box"
+        >
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
-              <g-link :to="link.src" class="footer__link">{{link.name}}</g-link>
+              <g-link :to="link.src" class="footer__link">{{
+                link.name
+              }}</g-link>
             </p>
           </nav>
-        </div>
-        <div class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">Dane teleadresowe</h4>
-          <p class="footer__text">
-            <span class="material-icons">call</span>
-            <a class="footer__link" href="tel:+48184414032">(+48) 18 441 40 32</a>
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">business</span>ul. Węgierska 188, 33-300 Nowy Sącz
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">email</span>
-            <a class="footer__link" href="mailto:rosco-serwis@mail.pl">rosco-serwis@mail.pl</a>
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>NIP: 734 357 88 31
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>REGON: 385289456
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>KRS:0000822991
-          </p>
-        </div>
+        </section>
+        <section class="footer__column space-bottom-small content-box">
+          <h4 class="space-bottom-small">
+            {{ $static.contact_data.title }}
+          </h4>
+          <p
+            class="footer__text footer__contact"
+            v-for="(contact_detail, i) in $static.contact_data.contact_details"
+            :key="'contact-' + i"
+            v-html="contact_detail.contact"
+          ></p>
+        </section>
       </div>
       <div class="footer__meta text-center">
-        <span
-          class="footer__copyright"
-        >Wszystkie prawa zastrzeżone Copyright © {{ new Date().getFullYear() }} Rosco sp. z o.o.</span>
+        <span class="footer__copyright"
+          >Wszystkie prawa zastrzeżone Copyright ©
+          {{ new Date().getFullYear() }} Rosco sp. z o.o.</span
+        >
         |
         <span class="footer__links">
           Designed by
@@ -102,6 +92,18 @@ query {
         }
         path
       }
+    }
+  }
+
+  footer_about: pageData(path: "/content/pages/footer/footer-about/") {
+    title
+    content
+  }
+
+  contact_data: pageData(path: "/content/pages/footer/footer-contact-details/") {
+    title
+    contact_details {
+      contact
     }
   }
 }
@@ -276,7 +278,7 @@ export default {
     opacity: 0.8;
   }
 
-  p {
+  &__contact {
     display: flex;
     align-items: center;
     margin-bottom: 0.9em;

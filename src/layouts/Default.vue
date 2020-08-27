@@ -5,69 +5,65 @@
         <Logo v-if="showLogo" />
       </div>
       <nav class="header__menu">
+        <Dropdown
+          v-for="link in dropdownLinks"
+          :key="link.name"
+          :title="link.name"
+          :items="link.src"
+        />
         <g-link
-          v-for="link in links"
+          v-for="link in singleLinks"
           :key="link.name"
           :to="link.src"
           class="header__menu__link"
           exact-active-class="header__menu__link__active "
-        >{{link.name}}</g-link>
+          >{{ link.name }}</g-link
+        >
       </nav>
       <div class="header__right">
         <ToggleTheme />
       </div>
     </header>
 
-    <main class="main">
+    <main :class="applyMargin ? 'main-margin' : 'main-nomargin'">
       <slot />
     </main>
 
     <footer class="footer">
       <div class="footer__container">
-        <div class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">O nas</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam euismod
-            purus sit amet ultrices. Ut dictum aliquet mollis. Pellentesque posuere mattis augue, ac vehicula erat bibendum in. Pellentesque vel massa quis nisi malesuada sollicitudin.
-            Phasellus nisl erat, consequat sodales tempus sit amet, dignissim sit amet tortor.
-          </p>
-        </div>
-        <div class="footer__column footer__menu space-bottom-small content-box">
+        <section class="footer__column space-bottom-small content-box">
+          <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
+          <div v-html="$static.footer_about.content"></div>
+        </section>
+        <section
+          class="footer__column footer__menu space-bottom-small content-box"
+        >
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
-            <p v-for="link in links" :key="link.name">
-              <g-link :to="link.src" class="footer__link">{{link.name}}</g-link>
+            <p v-for="link in singleLinks" :key="link.name">
+              <g-link :to="link.src" class="footer__link">{{
+                link.name
+              }}</g-link>
             </p>
           </nav>
-        </div>
-        <div class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">Dane teleadresowe</h4>
-          <p class="footer__text">
-            <span class="material-icons">call</span>
-            <a class="footer__link" href="tel:+48184414032">(+48) 18 441 40 32</a>
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">business</span>ul. Węgierska 188, 33-300 Nowy Sącz
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">email</span>
-            <a class="footer__link" href="mailto:rosco-serwis@mail.pl">rosco-serwis@mail.pl</a>
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>NIP: 734 357 88 31
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>REGON: 385289456
-          </p>
-          <p class="footer__text">
-            <span class="material-icons">menu_book</span>KRS:0000822991
-          </p>
-        </div>
+        </section>
+        <section class="footer__column space-bottom-small content-box">
+          <h4 class="space-bottom-small">
+            {{ $static.contact_data.title }}
+          </h4>
+          <p
+            class="footer__text footer__contact"
+            v-for="(contact_detail, i) in $static.contact_data.contact_details"
+            :key="'contact-' + i"
+            v-html="contact_detail.contact"
+          ></p>
+        </section>
       </div>
       <div class="footer__meta text-center">
-        <span
-          class="footer__copyright"
-        >Wszystkie prawa zastrzeżone Copyright © {{ new Date().getFullYear() }} Rosco sp. z o.o.</span>
+        <span class="footer__copyright"
+          >Wszystkie prawa zastrzeżone Copyright ©
+          {{ new Date().getFullYear() }} Rosco sp. z o.o.</span
+        >
         |
         <span class="footer__links">
           Designed by
@@ -78,26 +74,78 @@
   </div>
 </template>
 
+<static-query>
+query {
+  posts: allOffer(filter: { published: { eq: true }}) {
+    edges {
+      node {
+        id
+        title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 380, blur: 10)
+        ...on Offer {
+          id
+          title
+          path
+        }
+        path
+      }
+    }
+  }
+
+  footer_about: pageData(path: "/content/pages/footer/footer-about/") {
+    title
+    content
+  }
+
+  contact_data: pageData(path: "/content/pages/footer/footer-contact-details/") {
+    title
+    contact_details {
+      contact
+    }
+  }
+}
+</static-query>
+
 <script>
 import Logo from "~/components/Logo.vue";
 import ToggleTheme from "~/components/ToggleTheme.vue";
+import Dropdown from "~/components/Dropdown.vue";
 
 export default {
   props: {
     showLogo: { default: true },
+    applyMargin: { type: Boolean, default: true },
   },
-  data: function () {
+  data() {
     return {
       links: [
         { name: "O firmie", src: "/o-firmie/" },
-        { name: "Oferta", src: "/oferta/" },
+        {
+          name: "Oferta",
+          src: "",
+        },
         { name: "Kontakt", src: "/kontakt/" },
       ],
     };
   },
+  mounted() {
+    this.links[1].src = this.$static.posts.edges;
+  },
   components: {
     Logo,
     ToggleTheme,
+    Dropdown,
+  },
+  computed: {
+    singleLinks() {
+      return this.links.filter((link) => !Array.isArray(link.src));
+    },
+    dropdownLinks() {
+      return this.links.filter((link) => Array.isArray(link.src));
+    },
   },
 };
 </script>
@@ -107,7 +155,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: var(--header-height);
+  height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
   top: 0;
   z-index: 10;
@@ -123,10 +171,12 @@ export default {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+
     &__link {
       margin: 0 15px;
       font-size: 1.05rem;
-      color: var(--bg-title) !important;
+      line-height: calc(var(--header-height) - 1px) !important;
+
       &:after {
         content: "";
         display: block;
@@ -135,11 +185,12 @@ export default {
         border-bottom: 3px solid;
         border-color: transparent;
         transition: 0.3s;
+        margin-top: -3px;
       }
       &:hover:after {
         visibility: visible;
         width: 100%;
-        border-color: var(--link-color);
+        border-color: var(--link-border-color);
       }
       &__active:after {
         content: "";
@@ -147,7 +198,7 @@ export default {
         display: block;
         width: 100% !important;
         border-bottom: 3px solid;
-        border-color: var(--link-color) !important;
+        border-color: var(--link-border-color) !important;
       }
     }
   }
@@ -159,9 +210,14 @@ export default {
   }
 }
 
-.main {
-  margin: 0 auto;
-  padding: 1.5vw 15px 0;
+.main-margin {
+  padding: 1.5vw var(--space) 0;
+  margin: 0 calc(var(--space) / 4);
+}
+
+.main-nomargin {
+  padding: 1.5vw var(--space) 0;
+  margin: 0;
 }
 
 .footer {
@@ -170,9 +226,13 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: calc(var(--space) / 2);
+  text-align: center;
+  font-size: 0.8em;
 
-  padding-left: calc(var(--space) / 2);
-  padding-right: calc(var(--space) / 2);
+  padding-top: calc(var(--space) / 4);
+  padding-left: calc(var(--space));
+  padding-right: calc(var(--space));
   padding-bottom: calc(var(--space) / 4);
 
   &__container {
@@ -218,7 +278,7 @@ export default {
     opacity: 0.8;
   }
 
-  p {
+  &__contact {
     display: flex;
     align-items: center;
     margin-bottom: 0.9em;

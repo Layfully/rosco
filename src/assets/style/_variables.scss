@@ -11,12 +11,16 @@ html {
 // Light default theme
 body {
   --bg-color: #f3f7f9;
+  --bg-color-dark: rgb(230, 230, 230);
   --bg-content-color: #fff;
   --bg-code: #fffbf3;
   --body-color: #444;
   --title-color: #111;
-  --link-color: #6b17e6;
-  --border-color: rgba(0, 0, 0, 0.1);
+  --link-color: #444;
+  --link-border-color: #6b17e6;
+  --border-color: #ddd;
+  --border-color-dark: #ddd;
+  --hr-color: rgba(0, 0, 0, 0.75);
   --space: 3.5rem;
   --content-width: 860px;
   --header-height: 80px;
@@ -40,12 +44,15 @@ body {
 // Override variables for Dark theme
 body[data-theme="dark"] {
   --bg-color: #0d2538;
+  --bg-color-dark: rgba(243, 247, 249, 0.2);
   --bg-content-color: #0f2d44;
   --bg-code: rgba(0, 0, 0, 0.3);
+  --hr-color: rgba(255, 255, 255, 0.75);
   --border-color: rgba(255, 255, 255, 0.1);
   --body-color: #ced8de;
   --title-color: #fff;
-  --link-color: #af9cef;
+  --link-color: #ced8de;
+  --link-border-color: #af9cef;
   --logo-filter-brightness: brightness(100);
   --logo-filter-shadow: drop-shadow(1px 1px 3px white);
 }

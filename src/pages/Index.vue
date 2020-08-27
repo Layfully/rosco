@@ -1,13 +1,16 @@
 <template>
-  <Layout :show-logo="true">
+  <Layout :show-logo="true" :applyMargin="false">
     <!-- Author intro -->
-    <Author :show-title="true" />
+    <!--<Author :show-title="true" /> -->
     <!-- List offers -->
     <div class="grid">
-      <h2>Nasza oferta</h2>
+      <h2>{{ $page.pageData.title }}</h2>
       <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
         <OfferCard
-          v-for="offer in $page.posts.edges.slice((i - 1) * offerRowCount, i * offerRowCount)"
+          v-for="offer in $page.posts.edges.slice(
+            (i - 1) * offerRowCount,
+            i * offerRowCount
+          )"
           :key="offer.node.id"
           :offer="offer.node"
         />
@@ -36,6 +39,10 @@ query {
       }
     }
   }
+
+  pageData: pageData(path: "/content/pages/home/"){
+    title
+  }
 }
 </page-query>
 
@@ -63,7 +70,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .grid {
   display: flex;
   flex-direction: column;

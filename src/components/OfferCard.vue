@@ -38,13 +38,13 @@ export default {
 
   &__image {
     height: 100%;
-    max-width: 100%;
+    width: 100%;
     object-fit: cover;
     transition: all ease 0.4s;
-    filter: brightness(75%);
+    filter: brightness(80%) blur(1px);
     &:hover {
-      transform: scale(1.1);
-      filter: brightness(120%);
+      transform: scale(1.05);
+      filter: brightness(65%);
     }
   }
 
@@ -56,7 +56,8 @@ export default {
     pointer-events: none;
     > h3 {
       margin: 0;
-      color: whitesmoke;
+      color: white;
+      text-shadow: 0 4px 4px black;
     }
   }
 }

@@ -5,8 +5,14 @@
         <Logo v-if="showLogo" />
       </div>
       <nav class="header__menu">
+        <Dropdown
+          v-for="link in dropdownLinks"
+          :key="link.name"
+          :title="link.name"
+          :items="link.src"
+        />
         <g-link
-          v-for="link in links"
+          v-for="link in singleLinks"
           :key="link.name"
           :to="link.src"
           class="header__menu__link"
@@ -35,7 +41,7 @@
         <div class="footer__column footer__menu space-bottom-small content-box">
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
-            <p v-for="link in links" :key="link.name">
+            <p v-for="link in singleLinks" :key="link.name">
               <g-link :to="link.src" class="footer__link">{{link.name}}</g-link>
             </p>
           </nav>
@@ -78,27 +84,66 @@
   </div>
 </template>
 
+<static-query>
+query {
+  posts: allOffer(filter: { published: { eq: true }}) {
+    edges {
+      node {
+        id
+        title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 380, blur: 10)
+        ...on Offer {
+          id
+          title
+          path
+        }
+        path
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
 import Logo from "~/components/Logo.vue";
 import ToggleTheme from "~/components/ToggleTheme.vue";
+import Dropdown from "~/components/Dropdown.vue";
 
 export default {
   props: {
     showLogo: { default: true },
     applyMargin: { type: Boolean, default: true },
   },
-  data: function () {
+  data() {
     return {
       links: [
         { name: "O firmie", src: "/o-firmie/" },
-        { name: "Oferta", src: "/oferta/" },
+        {
+          name: "Oferta",
+          src: "",
+        },
         { name: "Kontakt", src: "/kontakt/" },
       ],
     };
   },
+  mounted() {
+    this.links[1].src = this.$static.posts.edges;
+  },
   components: {
     Logo,
     ToggleTheme,
+    Dropdown,
+  },
+  computed: {
+    singleLinks() {
+      return this.links.filter((link) => !Array.isArray(link.src));
+    },
+    dropdownLinks() {
+      return this.links.filter((link) => Array.isArray(link.src));
+    },
   },
 };
 </script>
@@ -108,7 +153,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: var(--header-height);
+  height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
   top: 0;
   z-index: 10;
@@ -124,10 +169,12 @@ export default {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+
     &__link {
       margin: 0 15px;
       font-size: 1.05rem;
-      color: var(--bg-title) !important;
+      line-height: calc(var(--header-height) - 1px) !important;
+
       &:after {
         content: "";
         display: block;
@@ -136,11 +183,12 @@ export default {
         border-bottom: 3px solid;
         border-color: transparent;
         transition: 0.3s;
+        margin-top: -3px;
       }
       &:hover:after {
         visibility: visible;
         width: 100%;
-        border-color: var(--link-color);
+        border-color: var(--link-border-color);
       }
       &__active:after {
         content: "";
@@ -148,7 +196,7 @@ export default {
         display: block;
         width: 100% !important;
         border-bottom: 3px solid;
-        border-color: var(--link-color) !important;
+        border-color: var(--link-border-color) !important;
       }
     }
   }

@@ -1,27 +1,33 @@
 <template>
   <div id="app">
     <header class="header">
-      <div class="header__left">
+      <div>
         <Logo v-if="showLogo" />
       </div>
+      <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
-        <Dropdown
-          v-for="link in dropdownLinks"
-          :key="link.name"
-          :title="link.name"
-          :items="link.src"
-        />
-        <g-link
-          v-for="link in singleLinks"
-          :key="link.name"
-          :to="link.src"
-          class="header__menu__link"
-          exact-active-class="header__menu__link__active "
-          >{{ link.name }}</g-link
-        >
+        <ul class="header__menu__list">
+          <li v-for="link in singleLinks" :key="link.name">
+            <g-link
+              :to="link.src"
+              class="header__menu__link"
+              exact-active-class="header__menu__link__active "
+            >{{ link.name }}</g-link>
+          </li>
+          <li v-for="link in dropdownLinks" :key="link.name">
+            <Dropdown :title="link.name" :items="link.src" />
+          </li>
+        </ul>
       </nav>
-      <div class="header__right">
-        <ToggleTheme />
+      <div class="header__menu__buttons">
+        <label for="nav-toggle" class="header__menu__toggle__label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div>
+          <ToggleTheme />
+        </div>
       </div>
     </header>
 
@@ -35,22 +41,20 @@
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
-        <section
-          class="footer__column footer__menu space-bottom-small content-box"
-        >
+        <section class="footer__column footer__menu space-bottom-small content-box">
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
-              <g-link :to="link.src" class="footer__link">{{
+              <g-link :to="link.src" class="footer__link">
+                {{
                 link.name
-              }}</g-link>
+                }}
+              </g-link>
             </p>
           </nav>
         </section>
         <section class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">
-            {{ $static.contact_data.title }}
-          </h4>
+          <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
           <p
             class="footer__text footer__contact"
             v-for="(contact_detail, i) in $static.contact_data.contact_details"
@@ -60,10 +64,10 @@
         </section>
       </div>
       <div class="footer__meta text-center">
-        <span class="footer__copyright"
-          >Wszystkie prawa zastrzeżone Copyright ©
-          {{ new Date().getFullYear() }} Rosco sp. z o.o.</span
-        >
+        <span class="footer__copyright">
+          Wszystkie prawa zastrzeżone Copyright ©
+          {{ new Date().getFullYear() }} Rosco sp. z o.o.
+        </span>
         |
         <span class="footer__links">
           Designed by
@@ -151,65 +155,6 @@ export default {
 </script>
 
 <style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top: 0;
-  z-index: 10;
-  border-bottom: solid 1px var(--border-color);
-
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
-  }
-
-  &__menu {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-
-    &__link {
-      margin: 0 15px;
-      font-size: 1.05rem;
-      line-height: calc(var(--header-height) - 1px) !important;
-
-      &:after {
-        content: "";
-        display: block;
-        visibility: hidden;
-        width: 0px;
-        border-bottom: 3px solid;
-        border-color: transparent;
-        transition: 0.3s;
-        margin-top: -3px;
-      }
-      &:hover:after {
-        visibility: visible;
-        width: 100%;
-        border-color: var(--link-border-color);
-      }
-      &__active:after {
-        content: "";
-        visibility: visible;
-        display: block;
-        width: 100% !important;
-        border-bottom: 3px solid;
-        border-color: var(--link-border-color) !important;
-      }
-    }
-  }
-
-  @include lg {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
-  }
-}
-
 .main-margin {
   padding: 1.5vw var(--space) 0;
   margin: 0 calc(var(--space) / 4);
@@ -265,7 +210,6 @@ export default {
 
   &__link {
     color: var(--body-color) !important;
-    transition: all ease 0.3s !important;
     padding-bottom: 1px !important;
     border-bottom: 2px solid transparent;
     &:hover {
@@ -290,6 +234,178 @@ export default {
   h4 {
     margin-top: 1rem;
     text-align: center;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 calc(var(--space) / 2);
+  top: 0;
+  z-index: 10;
+  border-bottom: solid 1px var(--border-color);
+  position: sticky;
+
+  &__menu {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--bg-color);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform var(--transition-time) ease-in-out,
+      background-color var(--transition-time-long) ease;
+    border-bottom: solid 1px var(--border-color);
+
+    @include md {
+      position: relative;
+      text-align: left;
+      transform: scale(1, 1);
+      background: none;
+      top: initial;
+      left: initial;
+      border: none;
+      /* end Edge support stuff */
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @include md {
+        display: flex;
+      }
+
+      li {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        @include md {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__link {
+      transition: var(--transition-time) !important;
+      margin: 0 15px;
+      font-size: 1.05rem;
+      line-height: calc(var(--header-height) - 1px) !important;
+      color: var(--title-color) !important;
+      width: calc(100% - 30px);
+
+      @include md {
+        width: initial;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        visibility: hidden;
+        width: 0;
+        border-bottom: 3px solid;
+        border-color: transparent;
+        transition: var(--transition-time);
+        margin-top: -3px;
+      }
+      &:hover:after {
+        visibility: visible;
+        width: 100%;
+        border-color: var(--link-border-color);
+      }
+      &__active:after {
+        content: "";
+        visibility: visible;
+        display: block;
+        width: 100% !important;
+        border-bottom: 3px solid;
+        border-color: var(--link-border-color) !important;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__toggle {
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
+
+      &:checked ~ div > &__label {
+        span {
+          opacity: 1;
+          transform: rotate(45deg) translate(1px, -5px);
+        }
+        span:nth-child(2) {
+          transform: rotate(0deg);
+          opacity: 0;
+        }
+        span:last-child {
+          transform: rotate(-45deg) translate(-1px, 4px);
+        }
+      }
+
+      &:checked ~ nav {
+        transform: scale(1, 1);
+      }
+
+      &:checked ~ nav a {
+        opacity: 1;
+        transition: opacity var(--transition-time) ease;
+      }
+
+      &__label {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        @include md {
+          display: none;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        span {
+          display: flex;
+          width: 29px;
+          height: 2px;
+          margin: 2.5px 0;
+          position: relative;
+          background: var(--title-color);
+          border-radius: 3px;
+          z-index: 1;
+          transform-origin: 5px 0px;
+          transition: transform var(--transition-time)
+              cubic-bezier(0.77, 0.2, 0.05, 1),
+            background-color var(--transition-time)
+              cubic-bezier(0.77, 0.2, 0.05, 1),
+            opacity var(--transition-time) ease;
+
+          &:first-child {
+            transform-origin: 0% 0%;
+          }
+          &:last-child {
+            transform-origin: 0% 0%;
+          }
+        }
+      }
+    }
   }
 }
 </style>

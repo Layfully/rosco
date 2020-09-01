@@ -28,8 +28,6 @@ body {
   --logo-filter-brightness: brightness(1);
   --logo-filter-shadow: drop-shadow(1px 1px 3px blue);
   --icon-space: 5px;
-  --transition-time: 0.3s;
-  --transition-time-long: 0.6s;
 }
 
 // Make  things smaller for mobile
@@ -46,7 +44,7 @@ body {
 // Override variables for Dark theme
 body[data-theme="dark"] {
   --bg-color: #0d2538;
-  --bg-color-dark: #0b1e2e;
+  --bg-color-dark: rgba(243, 247, 249, 0.2);
   --bg-content-color: #0f2d44;
   --bg-code: rgba(0, 0, 0, 0.3);
   --hr-color: rgba(255, 255, 255, 0.75);

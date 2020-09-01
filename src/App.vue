@@ -1,9 +1,9 @@
 <template>
-  <Default :show-logo="true">
+  <Layout :show-logo="true">
     <transition name="fade" appear>
       <router-view />
     </transition>
-  </Default>
+  </Layout>
 </template>
 
 <static-query>
@@ -16,12 +16,7 @@ query {
 </static-query>
 
 <script>
-import Default from "~/layouts/Default.vue";
-
 export default {
-  components: {
-    Default,
-  },
   metaInfo() {
     return {
       title: this.$static.metadata.siteName,

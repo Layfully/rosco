@@ -359,6 +359,7 @@ export default {
       position: absolute !important;
       top: -9999px !important;
       left: -9999px !important;
+      display: none;
 
       &:checked ~ div > &__label {
         span {
@@ -430,7 +431,7 @@ export default {
 
   @for $i from 1 through 10 {
     &:nth-of-type(#{$i}) {
-      transition-delay: $i * 0.2s;
+      transition-delay: 1.5s - 1s / ($i) + $i / 5;
     }
   }
 }

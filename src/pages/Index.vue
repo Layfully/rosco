@@ -82,6 +82,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    width: 100%;
 
     @include md {
       flex-direction: row;

@@ -35,6 +35,7 @@ export default {
   text-align: center;
   color: white;
   position: relative;
+  width: 100%;
 
   &__image {
     height: 100%;

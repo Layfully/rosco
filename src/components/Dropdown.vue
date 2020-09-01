@@ -1,6 +1,6 @@
 <template>
   <div
-    class="dropdown header-new__menu__link"
+    class="dropdown header__menu__link"
     :class="{'header__menu__link__active': isDropdownActive}"
   >
     <span>{{ title }}</span>

@@ -7,12 +7,13 @@
       <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
         <ul class="header__menu__list">
-          <li v-for="link in singleLinks" :key="link.name">
+          <li v-for="link in singleLinks" :key="link.name" v-scrollAnimation>
             <g-link
               :to="link.src"
               class="header__menu__link"
               exact-active-class="header__menu__link__active "
-            >{{ link.name }}</g-link>
+              >{{ link.name }}</g-link
+            >
           </li>
           <li v-for="link in dropdownLinks" :key="link.name">
             <Dropdown :title="link.name" :items="link.src" />
@@ -31,9 +32,7 @@
       </div>
     </header>
 
-    <main :class="applyMargin ? 'main-margin' : 'main-nomargin'">
-      <slot />
-    </main>
+    <slot />
 
     <footer class="footer">
       <div class="footer__container">
@@ -41,14 +40,14 @@
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
-        <section class="footer__column footer__menu space-bottom-small content-box">
+        <section
+          class="footer__column footer__menu space-bottom-small content-box"
+        >
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
               <g-link :to="link.src" class="footer__link">
-                {{
-                link.name
-                }}
+                {{ link.name }}
               </g-link>
             </p>
           </nav>
@@ -121,7 +120,6 @@ import Dropdown from "~/components/Dropdown.vue";
 export default {
   props: {
     showLogo: { default: true },
-    applyMargin: { type: Boolean, default: true },
   },
   data() {
     return {
@@ -309,28 +307,45 @@ export default {
         width: initial;
       }
 
-      &:after {
-        content: "";
-        display: block;
-        visibility: hidden;
-        width: 0;
-        border-bottom: 3px solid;
-        border-color: transparent;
-        transition: var(--transition-time);
-        margin-top: -3px;
+      &__active {
+        background-color: var(--bg-color-dark);
       }
-      &:hover:after {
-        visibility: visible;
-        width: 100%;
-        border-color: var(--link-border-color);
+
+      &:hover {
+        background-color: var(--bg-color-dark);
       }
-      &__active:after {
-        content: "";
-        visibility: visible;
-        display: block;
-        width: 100% !important;
-        border-bottom: 3px solid;
-        border-color: var(--link-border-color) !important;
+
+      @include md {
+        &:after {
+          content: "";
+          display: block;
+          visibility: hidden;
+          width: 0;
+          border-bottom: 3px solid;
+          border-color: transparent;
+          transition: var(--transition-time);
+          margin-top: -3px;
+        }
+        &:hover {
+          background-color: initial;
+          &:after {
+            visibility: visible;
+            width: 100%;
+            border-color: var(--link-border-color);
+          }
+        }
+        &__active {
+          background-color: initial;
+
+          &:after {
+            content: "";
+            visibility: visible;
+            display: block;
+            width: 100% !important;
+            border-bottom: 3px solid;
+            border-color: var(--link-border-color) !important;
+          }
+        }
       }
     }
 
@@ -405,6 +420,27 @@ export default {
           }
         }
       }
+    }
+  }
+}
+
+.before-enter {
+  opacity: 0;
+  transition: all var(--transition-time-long) ease;
+
+  @for $i from 1 through 10 {
+    &:nth-of-type(#{$i}) {
+      transition-delay: $i * 0.2s;
+    }
+  }
+}
+
+.enter {
+  opacity: 1;
+  transform: translateY(0px);
+  @for $i from 1 through 10 {
+    &:nth-of-type(#{$i}) {
+      transform: translateY(0px);
     }
   }
 }

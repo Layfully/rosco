@@ -1,8 +1,5 @@
 <template>
-  <Layout :show-logo="true" :applyMargin="false">
-    <!-- Author intro -->
-    <!--<Author :show-title="true" /> -->
-    <!-- List offers -->
+  <main class="main-nomargin">
     <div class="grid">
       <h2>{{ $page.pageData.title }}</h2>
       <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
@@ -16,7 +13,7 @@
         />
       </div>
     </div>
-  </Layout>
+  </main>
 </template>
 
 <page-query>

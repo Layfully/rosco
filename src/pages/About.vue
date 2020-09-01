@@ -1,9 +1,11 @@
 <template>
-  <Layout :show-logo="true">
-    <h2 class="text-center space-bottom-zero">{{ $page.pageData.title }}</h2>
-    <hr />
-    <section v-html="$page.pageData.content"></section>
-  </Layout>
+  <main class="main-margin">
+    <article>
+      <h2 class="text-center space-bottom-zero">{{ $page.pageData.title }}</h2>
+      <hr />
+      <section v-html="$page.pageData.content"></section>
+    </article>
+  </main>
 </template>
 
 <page-query>

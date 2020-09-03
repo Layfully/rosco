@@ -14,6 +14,8 @@ body {
   --bg-color-dark: rgb(230, 230, 230);
   --bg-content-color: #fff;
   --bg-code: #fffbf3;
+  --submit-color: #fff;
+  --submit-color-hover: rgb(220, 220, 220);
   --body-color: #444;
   --title-color: #111;
   --link-color: #444;
@@ -50,6 +52,8 @@ body[data-theme="dark"] {
   --bg-color-dark: #0b1e2e;
   --bg-content-color: #0f2d44;
   --bg-code: rgba(0, 0, 0, 0.3);
+  --submit-color: #0d2538;
+  --submit-color-hover: #0a1a27;
   --hr-color: rgba(255, 255, 255, 0.75);
   --border-color: rgba(255, 255, 255, 0.1);
   --body-color: #ced8de;
@@ -59,4 +63,5 @@ body[data-theme="dark"] {
   --logo-filter-invert: invert(1);
   --logo-filter-brightness: brightness(0);
   --logo-filter-shadow: drop-shadow(1px 1px 3px white);
+  --google-map-filter: invert(1) hue-rotate(190deg);
 }

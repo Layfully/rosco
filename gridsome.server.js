@@ -15,5 +15,10 @@ module.exports = function(api) {
       path: "/o-firmie",
       component: "./src/pages/About.vue",
     });
+
+    createPage({
+      path: "/kontakt",
+      component: "./src/pages/Contact.vue",
+    });
   });
 };

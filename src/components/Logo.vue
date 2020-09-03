@@ -35,7 +35,8 @@ export default {
   margin-left: 2em;
   &__image {
     vertical-align: middle;
-    filter: var(--logo-filter-shadow) var(--logo-filter-brightness);
+    filter: var(--logo-filter-shadow) var(--logo-filter-brightness)
+      var(--logo-filter-invert);
     max-width: 50%;
 
     @include md {

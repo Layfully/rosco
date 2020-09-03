@@ -11,6 +11,7 @@
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
+    "@sendgrid/mail": "^7.2.4",
     "gridsome": "^0.7.19"
   },
   "devDependencies": {

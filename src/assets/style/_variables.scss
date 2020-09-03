@@ -25,6 +25,7 @@ body {
   --content-width: 860px;
   --header-height: 80px;
   --radius: 5px;
+  --logo-filter-invert: invert(0);
   --logo-filter-brightness: brightness(1);
   --logo-filter-shadow: drop-shadow(1px 1px 3px blue);
   --icon-space: 5px;
@@ -55,6 +56,7 @@ body[data-theme="dark"] {
   --title-color: #fff;
   --link-color: #ced8de;
   --link-border-color: #af9cef;
-  --logo-filter-brightness: brightness(100);
+  --logo-filter-invert: invert(1);
+  --logo-filter-brightness: brightness(0);
   --logo-filter-shadow: drop-shadow(1px 1px 3px white);
 }

@@ -7,17 +7,18 @@
       <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
         <ul class="header__menu__list">
-          <li v-for="link in singleLinks" :key="link.name" v-scrollAnimation>
-            <g-link
-              :to="link.src"
-              class="header__menu__link"
-              exact-active-class="header__menu__link__active "
-              >{{ link.name }}</g-link
-            >
-          </li>
-          <li v-for="link in dropdownLinks" :key="link.name">
-            <Dropdown :title="link.name" :items="link.src" />
-          </li>
+          <transition-group name="slide" appear tag="li">
+            <span v-for="link in singleLinks" :key="link.name" class>
+              <g-link
+                :to="link.src"
+                class="header__menu__link"
+                exact-active-class="header__menu__link__active "
+              >{{ link.name }}</g-link>
+            </span>
+            <span v-for="link in dropdownLinks" :key="link.name">
+              <Dropdown :title="link.name" :items="link.src" />
+            </span>
+          </transition-group>
         </ul>
       </nav>
       <div class="header__menu__buttons">
@@ -40,22 +41,18 @@
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
-        <section
-          class="footer__column footer__menu space-bottom-small content-box"
-        >
+        <section class="footer__column footer__menu space-bottom-small content-box">
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
-              <g-link :to="link.src" class="footer__link">
-                {{ link.name }}
-              </g-link>
+              <g-link :to="link.src" class="footer__link">{{ link.name }}</g-link>
             </p>
           </nav>
         </section>
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
           <p
-            class="footer__text footer__contact"
+            class="footer__text footer__contact-center"
             v-for="(contact_detail, i) in $static.contact_data.contact_details"
             :key="'contact-' + i"
             v-html="contact_detail.contact"
@@ -224,8 +221,19 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 0.9em;
+    justify-content: center;
+
     > span {
       margin-right: var(--icon-space);
+    }
+
+    @include md {
+      justify-content: flex-start;
+    }
+
+    &-center {
+      @extend .footer__contact;
+      justify-content: center;
     }
   }
 
@@ -279,18 +287,26 @@ export default {
       margin: 0;
       padding: 0;
       list-style: none;
+      flex-direction: column;
 
       @include md {
         display: flex;
       }
 
       li {
+        flex-direction: column;
+
         text-align: center;
         display: flex;
         justify-content: center;
 
         @include md {
           margin-bottom: 0;
+          flex-direction: row;
+        }
+
+        & > span {
+          display: flex;
         }
       }
     }
@@ -425,24 +441,12 @@ export default {
   }
 }
 
-.before-enter {
-  opacity: 0;
-  transition: all var(--transition-time-long) ease;
-
-  @for $i from 1 through 10 {
-    &:nth-of-type(#{$i}) {
-      transition-delay: 1.5s - 1s / ($i) + $i / 5;
-    }
-  }
+.slide-enter-active {
+  transition: opacity 1s, transform var(--transition-time-long);
 }
 
-.enter {
-  opacity: 1;
-  transform: translateY(0px);
-  @for $i from 1 through 10 {
-    &:nth-of-type(#{$i}) {
-      transform: translateY(0px);
-    }
-  }
+.slide-enter {
+  opacity: 0;
+  transform: translateY(-100px);
 }
 </style>

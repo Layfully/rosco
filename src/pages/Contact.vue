@@ -119,7 +119,6 @@ query {
 
 <script>
 const axios = require("axios");
-
 export default {
   name: "About",
   metaInfo: {
@@ -138,7 +137,7 @@ export default {
   methods: {
     async sendEmail() {
       try {
-        await axios.post("/.netlify/functions/sendgrid", {
+          await axios.post("/.netlify/functions/sendgrid", {
           emailSender: this.formData.email,
           senderName: this.formData.sender,
           message: this.formData.message,

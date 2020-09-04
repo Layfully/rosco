@@ -5,7 +5,7 @@
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10346.79074415049!2d20.667892!3d49.5845913!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2704aba2804e3887!2sROSCO%20SERWIS!5e0!3m2!1spl!2spl!4v1599122860461!5m2!1spl!2spl"
           width="100%"
-          height="300px"
+          height="400"
           frameborder="0"
           style="border:0;"
           allowfullscreen
@@ -19,7 +19,9 @@
           <h3 class="text-center">Dane kontaktowe</h3>
           <p>
             Dziękujemy za zainteresowanie ofertą Rosco Serwis.
-            <br />Aby uzyskać więcej informacji na temat naszej firmy zapraszamy do kontaktu z nami codziennie od poniedziałku do piątku w godzinach od 7:00 do 15:00
+            <br />Aby uzyskać więcej informacji na temat naszej firmy zapraszamy
+            do kontaktu z nami codziennie od poniedziałku do piątku w godzinach
+            od 7:00 do 15:00
           </p>
           <p
             class="footer__contact"
@@ -32,20 +34,30 @@
           <form class="contact__form">
             <h3 class="text-center">Napisz do nas!</h3>
             <fieldset class="contact__form__fieldset">
-              <legend class="contact__form__fieldset__legend">Formularz kontaktowy</legend>
-              <label class="contact__form__fieldset__label-required" for="sender">Imię i nazwisko</label>
+              <legend class="contact__form__fieldset__legend">
+                Formularz kontaktowy
+              </legend>
+              <label
+                class="contact__form__fieldset__label-required"
+                for="sender"
+                >Imię i nazwisko</label
+              >
               <input
                 class="contact__form__fieldset__input"
                 v-model="formData.sender"
+                id="sender"
                 name="sender"
                 type="text"
                 placeholder="Podaj imię i nazwisko"
                 required
               />
-              <label class="contact__form__fieldset__label-required" for="email">Adres e-mail</label>
+              <label class="contact__form__fieldset__label-required" for="email"
+                >Adres e-mail</label
+              >
               <input
                 class="contact__form__fieldset__input"
                 v-model="formData.email"
+                id="email"
                 name="email"
                 type="email"
                 placeholder="Podaj email"
@@ -54,18 +66,25 @@
               <label
                 class="contact__form__fieldset__label-required"
                 for="emailConfirmation"
-              >Potwierdź email</label>
+                >Potwierdź email</label
+              >
               <input
                 class="contact__form__fieldset__input"
                 v-model="formData.emailConfirmation"
-                name="email-confirmation"
+                id="emailConfirmation"
+                name="emailConfirmation"
                 type="email"
                 placeholder="Podaj numer telefonu"
               />
-              <label class="contact__form__fieldset__label-required" for="message">Wiadomość</label>
+              <label
+                class="contact__form__fieldset__label-required"
+                for="message"
+                >Wiadomość</label
+              >
               <textarea
-                class="contact__form__fieldset__input"
+                class="contact__form__fieldset__input-textarea"
                 v-model="formData.message"
+                id="message"
                 name="message"
                 cols="50"
                 rows="7"
@@ -99,6 +118,8 @@ query {
 </page-query>
 
 <script>
+const axios = require("axios");
+
 export default {
   name: "About",
   metaInfo: {
@@ -117,7 +138,7 @@ export default {
   methods: {
     async sendEmail() {
       try {
-        await this.$axios.post("/.netlify/functions/sendgrid", {
+        await axios.post("/.netlify/functions/sendgrid", {
           emailSender: this.formData.email,
           senderName: this.formData.sender,
           message: this.formData.message,
@@ -203,10 +224,10 @@ query {
       padding-inline-start: 0.75em;
       min-inline-size: min-content;
 
-      padding: 0 calc(var(--space) / 2);
+      padding: 0 calc(var(--space));
 
       @include sm {
-        padding: calc(var(--space) / 2);
+        padding: 0 25px 25px;
       }
 
       &__legend {
@@ -240,7 +261,7 @@ query {
         font-size: 0.8rem;
 
         @include sm {
-          padding: calc(var(--space) / 6);
+          padding: 10px 15px;
         }
 
         &::placeholder {
@@ -251,20 +272,21 @@ query {
         &[type="submit"] {
           background: var(--submit-color);
           padding: calc(var(--space) / 2) var(--space);
-          margin: calc(var(--space) / 2) 0;
+          margin: calc(var(--space)) 0;
           border: 1px solid var(--title-color);
           color: var(--title-color);
           text-transform: uppercase;
           font-weight: bold;
 
           @include sm {
-            padding: calc(var(--space) / 6) var(--space);
+            padding: 10px;
             margin: 0;
-            margin-top: calc(var(--space) / 4);
+            margin-top: 20px;
           }
 
           &:hover {
             background: var(--submit-color-hover);
+            cursor: pointer;
           }
         }
 
@@ -273,6 +295,11 @@ query {
           -webkit-box-shadow: 0 0 8px var(--link-border-color);
           box-shadow: 0 0 8px var(--link-border-color);
           border: 1px solid var(--body-color);
+        }
+
+        &-textarea {
+          @extend .contact__form__fieldset__input;
+          resize: vertical;
         }
       }
     }

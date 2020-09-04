@@ -27,7 +27,7 @@ exports.handler = function(event, context, callback) {
   const body = JSON.parse(event.body);
   const emailSender = "RoscoStrona@em2257.roscoserwis.pl";
   const message =
-    `Prośba o kontakt z maila: ${body.emailSender}` + body.message;
+    `Prośba o kontakt z maila: ${body.emailSender} ` + body.message;
   const senderName = body.senderName;
 
   client.setApiKey(SENDGRID_API_KEY);

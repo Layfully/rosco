@@ -12,7 +12,9 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
     "@sendgrid/mail": "^7.2.4",
-    "gridsome": "^0.7.19"
+    "axios": "^0.20.0",
+    "gridsome": "^0.7.19",
+    "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",

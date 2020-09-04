@@ -8,16 +8,20 @@ function sendEmail(client, message, emailSender, senderName) {
         name: senderName,
       },
       subject: "Rosco serwis - strona, prośba o kontakt",
-      to: "k.igielski@roscoserwis.pl",
+      to: "adriangaborek3@gmail.com",
       html: `<br/>Wiadomość: ${message}`,
     };
-
+    console.log("sending email");
     client
       .send(data)
       .then(([response, body]) => {
+        console.log("email sent sucessfully");
         fulfill(response);
       })
-      .catch((error) => reject(error));
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
   });
 }
 
@@ -33,6 +37,10 @@ exports.handler = function(event, context, callback) {
   client.setApiKey(SENDGRID_API_KEY);
 
   sendEmail(client, message, emailSender, senderName)
+    .then((response) => callback(null, { statusCode: response.statusCode }))
+    .catch((err) => callback(err, null));
+
+  sendEmail(client, message, "RoscoStrona@.roscoserwis.pl", senderName)
     .then((response) => callback(null, { statusCode: response.statusCode }))
     .catch((err) => callback(err, null));
 };

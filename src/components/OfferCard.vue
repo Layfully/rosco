@@ -42,7 +42,7 @@ export default {
     width: 100%;
     object-fit: cover;
     transition: all ease 0.4s;
-    filter: brightness(80%) blur(1px);
+    filter: brightness(80%) blur(0px);
     &:hover {
       transform: scale(1.05);
       filter: brightness(65%);
@@ -64,12 +64,10 @@ export default {
 }
 
 .before-enter {
-  opacity: 0.3;
-  transform: scale(0.3);
-  transition: all var(--transition-time-long) ease-out;
+  opacity: 0;
+  transition: all calc(var(--transition-time-long) * 2);
 }
 .enter {
   opacity: 1;
-  transform: scale(1);
 }
 </style>

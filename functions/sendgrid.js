@@ -8,7 +8,7 @@ function sendEmail(client, message, emailSender, senderName) {
         name: senderName,
       },
       subject: "Rosco serwis - strona, prośba o kontakt",
-      to: "adriangaborek3@gmail.com",
+      to: "adriantest@roscoserwis.pl",
       html: `<br/>Wiadomość: ${message}`,
     };
     console.log("sending email");

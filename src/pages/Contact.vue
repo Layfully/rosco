@@ -20,11 +20,14 @@
             <h3 class="text-center">Dane kontaktowe</h3>
             <p>
               Dziękujemy za zainteresowanie ofertą Rosco Serwis.
-              <br />Aby uzyskać więcej informacji na temat naszej firmy zapraszamy do kontaktu z nami codziennie od poniedziałku do piątku w godzinach od 7:00 do 15:00
+              <br />Aby uzyskać więcej informacji na temat naszej firmy
+              zapraszamy do kontaktu z nami codziennie od poniedziałku do piątku
+              w godzinach od 7:00 do 15:00
             </p>
             <p
               class="footer__contact"
-              v-for="(contact_detail, i) in $static.contact_data.contact_details"
+              v-for="(contact_detail, i) in $static.contact_data
+                .contact_details"
               :key="'contact-' + i"
               v-html="contact_detail.contact"
             ></p>
@@ -33,8 +36,14 @@
             <form class="contact__form">
               <h3 class="text-center">Napisz do nas!</h3>
               <fieldset class="contact__form__fieldset">
-                <legend class="contact__form__fieldset__legend">Formularz kontaktowy</legend>
-                <label class="contact__form__fieldset__label-required" for="sender">Imię i nazwisko</label>
+                <legend class="contact__form__fieldset__legend">
+                  Formularz kontaktowy
+                </legend>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="sender"
+                  >Imię i nazwisko</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.sender"
@@ -44,7 +53,11 @@
                   placeholder="Podaj imię i nazwisko"
                   required
                 />
-                <label class="contact__form__fieldset__label-required" for="email">Adres e-mail</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="email"
+                  >Adres e-mail</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.email"
@@ -57,7 +70,8 @@
                 <label
                   class="contact__form__fieldset__label-required"
                   for="emailConfirmation"
-                >Potwierdź email</label>
+                  >Potwierdź email</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.emailConfirmation"
@@ -66,7 +80,11 @@
                   type="email"
                   placeholder="Potwierdź email"
                 />
-                <label class="contact__form__fieldset__label-required" for="message">Wiadomość</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="message"
+                  >Wiadomość</label
+                >
                 <textarea
                   class="contact__form__fieldset__input-textarea"
                   v-model="formData.message"
@@ -92,8 +110,14 @@
         <modal v-if="showModal" @close="showModal = false">
           <h4
             slot="header"
-            :class="modalMessage.success ? 'modal__title-success' : 'modal__title-error' "
-          >{{modalMessage.title}}</h4>
+            :class="
+              modalMessage.success
+                ? 'modal__title-success'
+                : 'modal__title-error'
+            "
+          >
+            {{ modalMessage.title }}
+          </h4>
           <div slot="body" v-html="modalMessage.body"></div>
         </modal>
         <!--<section v-html="$page.pageData.content"></section>-->
@@ -199,6 +223,7 @@ export default {
         this.modalMessage.title = "Nie udało się wysłać wiadomości";
         this.modalMessage.body =
           "<p>Nie udało się wysłać wiadomości, prosimy o kontakt przy użyciu innych metod.</p>";
+        console.log(e);
       }
       this.showModal = true;
     },

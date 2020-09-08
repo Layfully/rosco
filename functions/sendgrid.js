@@ -17,6 +17,7 @@ function sendEmail(client, message, emailSender, senderName) {
         fulfill(response);
       })
       .catch((error) => {
+        console.log(error);
         reject(error);
       });
   });

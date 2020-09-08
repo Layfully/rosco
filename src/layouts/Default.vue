@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <header class="header">
+    <slot name="heading" />
+
+    <header id="content-start" class="header">
       <div>
         <Logo v-if="showLogo" />
       </div>
@@ -250,7 +252,7 @@ export default {
   align-items: center;
   height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
-  top: 0;
+  top: -1px;
   z-index: 10;
   border-bottom: solid 1px var(--border-color);
   position: sticky;

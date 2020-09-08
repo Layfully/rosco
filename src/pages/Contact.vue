@@ -137,6 +137,7 @@ query {
 
 <script>
 import Modal from "@/components/Modal.vue";
+const axios = require("axios");
 
 export default {
   name: "About",

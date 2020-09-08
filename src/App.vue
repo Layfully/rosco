@@ -1,9 +1,7 @@
 <template>
-  <Layout :show-logo="true">
-    <transition name="fade" appear>
-      <router-view />
-    </transition>
-  </Layout>
+  <transition name="fade" appear>
+    <router-view />
+  </transition>
 </template>
 
 <static-query>
@@ -32,7 +30,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active {
   transition: opacity 1s, transform var(--transition-time-long);
 }

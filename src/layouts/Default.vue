@@ -15,7 +15,8 @@
                 :to="link.src"
                 class="header__menu__link"
                 exact-active-class="header__menu__link__active "
-              >{{ link.name }}</g-link>
+                >{{ link.name }}</g-link
+              >
             </span>
             <span v-for="link in dropdownLinks" :key="link.name">
               <Dropdown :title="link.name" :items="link.src" />
@@ -43,12 +44,31 @@
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
-        <section class="footer__column footer__menu space-bottom-small content-box">
+        <section
+          class="footer__column footer__menu space-bottom-small content-box"
+        >
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
-              <g-link :to="link.src" class="footer__link">{{ link.name }}</g-link>
+              <g-link :to="link.src" class="footer__link">{{
+                link.name
+              }}</g-link>
             </p>
+
+            <span v-for="link in dropdownLinks" :key="link.name">
+              <div>
+                <div class="footer__dropdown__container content-box">
+                  <h5>{{ link.name }}</h5>
+                  <g-link
+                    v-for="(item, i) in link.src"
+                    :key="i"
+                    :to="item.node.path"
+                    class="footer__link"
+                    >{{ item.node.title }}</g-link
+                  >
+                </div>
+              </div>
+            </span>
           </nav>
         </section>
         <section class="footer__column space-bottom-small content-box">
@@ -62,6 +82,8 @@
         </section>
       </div>
       <div class="footer__meta text-center">
+        <slot name="footer" />
+
         <span class="footer__copyright">
           Wszystkie prawa zastrzeżone Copyright ©
           {{ new Date().getFullYear() }} Rosco sp. z o.o.
@@ -206,9 +228,12 @@ export default {
   }
 
   &__link {
-    color: var(--body-color) !important;
     padding-bottom: 1px !important;
     border-bottom: 2px solid transparent;
+    &-alt-color {
+      @extend .footer__link;
+      color: var(--link-alt-color) !important;
+    }
     &:hover {
       border-color: var(--body-color);
     }
@@ -217,6 +242,16 @@ export default {
   &__meta {
     font-size: 0.8em;
     opacity: 0.8;
+  }
+
+  &__dropdown__container {
+    background: var(--bg-color);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    > * {
+      margin: 5px 0;
+    }
   }
 
   &__contact {

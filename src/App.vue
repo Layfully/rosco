@@ -39,3 +39,8 @@ export default {
   opacity: 0;
 }
 </style>
+<style>
+.grecaptcha-badge {
+  visibility: hidden;
+}
+</style>

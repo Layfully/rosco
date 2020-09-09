@@ -8,6 +8,9 @@ import DefaultLayout from "~/layouts/Default.vue";
 import ScrollAnimation from "~/directives/scrollAnimation.js";
 var VueScrollTo = require("vue-scrollto");
 
+//Import recaptcha v3
+import { VueReCaptcha } from "vue-recaptcha-v3";
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
@@ -23,6 +26,9 @@ export default function(Vue, { router, head, isClient }) {
     onCancel: false,
     x: false,
     y: true,
+  });
+  Vue.use(VueReCaptcha, {
+    siteKey: "6Le8cskZAAAAAIYn4d6487DGYYuM90XKJ79SMIHs",
   });
 
   // Set default layout as a global component

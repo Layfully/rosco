@@ -18,9 +18,10 @@ function sendEmail(client, message, emailSender, senderName) {
       .send(data)
       .then(([response, body]) => {
         fulfill(response);
+        console.log("Email sent to sendgrid");
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Email couldnt be sent to sendgrid: " + error);
         reject(error);
       });
   });
@@ -31,7 +32,10 @@ function isHuman(recaptchaToken) {
     .post(
       `${RECAPTCHA_VERIFY_URL}?response=${recaptchaToken}&secret=${RECAPTCHA_SECRET_KEY}`
     )
-    .then(({ data }) => data.score >= 0.5);
+    .then(({ data }) => {
+      console.log(data);
+      return data.score >= 0.5;
+    });
 }
 
 exports.handler = function(event, context, callback) {
@@ -45,11 +49,14 @@ exports.handler = function(event, context, callback) {
 
   client.setApiKey(SENDGRID_API_KEY);
 
+  console.log("Token:" + recaptchaToken);
   if (isHuman(recaptchaToken)) {
+    console.log("is human");
     sendEmail(client, message, emailSender, senderName)
       .then((response) => callback(null, { statusCode: response.statusCode }))
       .catch((err) => callback(err, null));
   } else {
+    console.log("is bot");
     callback(null, {
       statusCode: 200,
       body: JSON.stringify({ status: "Bot detected" }),

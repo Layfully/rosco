@@ -1,5 +1,22 @@
 <template>
   <Layout>
+    <template #footer>
+      <p>
+        Ta strona jest chroniona przez reCAPTCHA.
+        <a
+          class="footer__link-alt-color"
+          href="https://policies.google.com/privacy"
+          >Polityka Prywatności</a
+        >
+        oraz
+        <a
+          class="footer__link-alt-color"
+          href="https://policies.google.com/terms"
+          >Warunki Usługi</a
+        >
+        Google zobowiązują.
+      </p>
+    </template>
     <main class="main-margin">
       <article>
         <div class="contact__map">
@@ -101,7 +118,6 @@
                   name="submit"
                   value="Wyślij"
                 />
-                <RecaptchaInfo />
               </fieldset>
             </form>
           </section>

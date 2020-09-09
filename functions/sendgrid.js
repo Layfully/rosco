@@ -1,4 +1,7 @@
 const client = require("@sendgrid/mail");
+const axios = require("axios");
+const { RECAPTCHA_SECRET_KEY, SENDGRID_API_KEY } = process.env;
+const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
 function sendEmail(client, message, emailSender, senderName) {
   return new Promise((fulfill, reject) => {
@@ -23,10 +26,17 @@ function sendEmail(client, message, emailSender, senderName) {
   });
 }
 
-exports.handler = function(event, context, callback) {
-  const { SENDGRID_API_KEY } = process.env;
+function isHuman(recaptchaToken) {
+  return axios
+    .post(
+      `${RECAPTCHA_VERIFY_URL}?response=${recaptchaToken}&secret=${RECAPTCHA_SECRET_KEY}`
+    )
+    .then(({ data }) => data.score >= 0.5);
+}
 
+exports.handler = function(event, context, callback) {
   const body = JSON.parse(event.body);
+  const recaptchaToken = event.body.recaptchaToken;
   const emailSender = "RoscoStrona@em2257.roscoserwis.pl";
   const message = `Prośba o kontakt z maila: ${
     body.emailSender
@@ -35,7 +45,14 @@ exports.handler = function(event, context, callback) {
 
   client.setApiKey(SENDGRID_API_KEY);
 
-  sendEmail(client, message, emailSender, senderName)
-    .then((response) => callback(null, { statusCode: response.statusCode }))
-    .catch((err) => callback(err, null));
+  if (isHuman(recaptchaToken)) {
+    sendEmail(client, message, emailSender, senderName)
+      .then((response) => callback(null, { statusCode: response.statusCode }))
+      .catch((err) => callback(err, null));
+  } else {
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify({ status: "Bot detected" }),
+    });
+  }
 };

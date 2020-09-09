@@ -33,17 +33,11 @@
             ></p>
           </section>
           <section>
-            <form class="contact__form">
+            <form class="contact__form" @submit.prevent="sendEmail">
               <h3 class="text-center">Napisz do nas!</h3>
               <fieldset class="contact__form__fieldset">
-                <legend class="contact__form__fieldset__legend">
-                  Formularz kontaktowy
-                </legend>
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="sender"
-                  >Imię i nazwisko</label
-                >
+                <legend class="contact__form__fieldset__legend">Formularz kontaktowy</legend>
+                <label class="contact__form__fieldset__label-required" for="sender">Imię i nazwisko</label>
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.sender"
@@ -53,11 +47,7 @@
                   placeholder="Podaj imię i nazwisko"
                   required
                 />
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="email"
-                  >Adres e-mail</label
-                >
+                <label class="contact__form__fieldset__label-required" for="email">Adres e-mail</label>
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.email"
@@ -70,8 +60,7 @@
                 <label
                   class="contact__form__fieldset__label-required"
                   for="emailConfirmation"
-                  >Potwierdź email</label
-                >
+                >Potwierdź email</label>
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.emailConfirmation"
@@ -80,11 +69,7 @@
                   type="email"
                   placeholder="Potwierdź email"
                 />
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="message"
-                  >Wiadomość</label
-                >
+                <label class="contact__form__fieldset__label-required" for="message">Wiadomość</label>
                 <textarea
                   class="contact__form__fieldset__input-textarea"
                   v-model="formData.message"
@@ -97,11 +82,11 @@
                 />
                 <input
                   class="contact__form__fieldset__input"
-                  @click.prevent="sendEmail()"
                   type="submit"
                   name="submit"
                   value="Wyślij"
                 />
+                <RecaptchaInfo />
               </fieldset>
             </form>
           </section>
@@ -115,9 +100,7 @@
                 ? 'modal__title-success'
                 : 'modal__title-error'
             "
-          >
-            {{ modalMessage.title }}
-          </h4>
+          >{{ modalMessage.title }}</h4>
           <div slot="body" v-html="modalMessage.body"></div>
         </modal>
         <!--<section v-html="$page.pageData.content"></section>-->
@@ -137,6 +120,8 @@ query {
 
 <script>
 import Modal from "@/components/Modal.vue";
+import RecaptchaInfo from "@/components/RecaptchaInfo.vue";
+
 const axios = require("axios");
 
 export default {
@@ -146,6 +131,7 @@ export default {
   },
   components: {
     Modal,
+    RecaptchaInfo,
   },
   data() {
     return {
@@ -161,10 +147,8 @@ export default {
     };
   },
   methods: {
-    async sendEmail() {
-      this.formData.errors = [];
-      this.modalMessage.title = "";
-      this.modalMessage.body = "";
+    async sendEmail(event) {
+      this.resetModal();
 
       if (!this.formData.sender) {
         this.formData.errors.push(
@@ -208,25 +192,48 @@ export default {
         return;
       }
 
-      try {
-        await axios.post("/.netlify/functions/sendgrid", {
-          emailSender: this.formData.email,
-          senderName: this.formData.sender,
-          message: this.formData.message,
-        });
+      await this.$recaptchaLoaded();
 
-        this.modalMessage.success = true;
-        this.modalMessage.title = "Pomyślnie wysłano wiadomość";
-        this.modalMessage.body =
-          "<p>Wiadomość została dostarczona. Nasz zespół odpowie najszybciej jak tylko to możliwe.</p>";
-      } catch (e) {
-        this.modalMessage.success = false;
-        this.modalMessage.title = "Nie udało się wysłać wiadomości";
-        this.modalMessage.body =
-          "<p>Nie udało się wysłać wiadomości, prosimy o kontakt przy użyciu innych metod.</p>";
-        console.log(e);
-      }
+      this.$recaptcha("sendEmail")
+        .then((token) => {
+          axios
+            .post("/.netlify/functions/sendgrid", {
+              recaptchaToken: token,
+              emailSender: this.formData.email,
+              senderName: this.formData.sender,
+              message: this.formData.message,
+            })
+            .then(() => {
+              this.modalMessage.success = true;
+              this.modalMessage.title = "Pomyślnie wysłano wiadomość";
+              this.modalMessage.body =
+                "<p>Wiadomość została dostarczona. Nasz zespół odpowie najszybciej jak tylko to możliwe.</p>";
+              this.clearForm(event);
+            })
+            .catch(() => {
+              this.setErrorModal();
+            });
+        })
+        .catch(() => {
+          this.setErrorModal();
+        });
       this.showModal = true;
+    },
+    clearForm(event) {
+      this.formData.sender = this.formData.email = this.formData.emailConfirmation = this.formData.message =
+        "";
+      event.target.reset();
+    },
+    resetModal() {
+      this.formData.errors = [];
+      this.modalMessage.title = "";
+      this.modalMessage.body = "";
+    },
+    setErrorModal() {
+      this.modalMessage.success = false;
+      this.modalMessage.title = "Nie udało się wysłać wiadomości";
+      this.modalMessage.body =
+        "<p>Nie udało się wysłać wiadomości. Prosimy spróbować ponownie, lub o kontakt przy użyciu innych metod.</p>";
     },
   },
 };

@@ -49,7 +49,7 @@ collections:
         fields:
           - label: "Ekran powitalny"
             name: "welcomeScreen"
-            widget: object,
+            widget: "object",
             collapsed: true,
             fields:
               - { label: Tekst powitalny, name: welcomeText, widget: string }

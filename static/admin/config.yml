@@ -44,10 +44,21 @@ collections:
               - { label: Body, name: body, widget: string }
 
       - name: "home"
-        label: "Home Page"
+        label: "Strona Główna"
         file: "content/pages/home/index.md"
         fields:
-          - { label: Title, name: title, widget: string }
+          - label: "Ekran powitalny"
+            name: "welcomeScreen"
+            widget: object,
+            collapsed: true,
+            fields:
+              - { label: Tekst powitalny, name: welcomeText, widget: string }
+              - {
+                  label: Tekst w przycisku,
+                  name: welcomeButton,
+                  widget: string,
+                }
+          - { label: Nagłówek nad ofertami, name: offerTitle, widget: string }
 
   - name: "footer"
     label: "Footer"

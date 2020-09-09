@@ -21,7 +21,7 @@
     </template>
     <main class="main-nomargin">
       <div class="grid">
-        <h2>{{ $page.pageData.title }}</h2>
+        <h2>{{ $page.pageData.offerTitle }}</h2>
         <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
           <OfferCard
             v-for="offer in $page.posts.edges.slice(
@@ -59,7 +59,7 @@ query {
   }
 
   pageData: pageData(path: "/content/pages/home/"){
-    title
+    offerTitle
   }
 }
 </page-query>

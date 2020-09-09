@@ -1,5 +1,5 @@
 <template>
-  <div class="offer-card">
+  <div class="offer-card" v-scrollAnimation>
     <g-link :to="offer.path">
       <span>
         <g-image
@@ -9,7 +9,7 @@
           :src="offer.cover_image"
         />
         <span class="offer-card__title">
-          <h3>{{offer.title}}</h3>
+          <h3>{{ offer.title }}</h3>
         </span>
       </span>
     </g-link>
@@ -27,7 +27,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .offer-card {
   height: 300px;
   overflow: hidden;
@@ -35,13 +35,14 @@ export default {
   text-align: center;
   color: white;
   position: relative;
+  width: 100%;
 
   &__image {
     height: 100%;
     width: 100%;
     object-fit: cover;
     transition: all ease 0.4s;
-    filter: brightness(80%) blur(1px);
+    filter: brightness(80%) blur(0px);
     &:hover {
       transform: scale(1.05);
       filter: brightness(65%);
@@ -60,5 +61,13 @@ export default {
       text-shadow: 0 4px 4px black;
     }
   }
+}
+
+.before-enter {
+  opacity: 0;
+  transition: all calc(var(--transition-time-long) * 2);
+}
+.enter {
+  opacity: 1;
 }
 </style>

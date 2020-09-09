@@ -1,23 +1,24 @@
 <template>
-  <Layout>
-  </Layout>
+  <div>
+    test
+  </div>
 </template>
 
 <script>
 export default {
   components: {},
-  metaInfo () {
+  metaInfo() {
     return {
       //title: this.$page.post.title,
       meta: [
         {
-        //  name: 'description',
-        //  content: this.$page.post.description
-        }
-      ]
-    }
-  }
-}
+          //  name: 'description',
+          //  content: this.$page.post.description
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <page-query>
@@ -41,7 +42,6 @@ query Offer ($id: ID!) {
 }
 
 .post {
-
   &__header {
     width: calc(100% + var(--space) * 2);
     margin-left: calc(var(--space) * -1);

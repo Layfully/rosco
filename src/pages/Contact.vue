@@ -36,8 +36,14 @@
             <form class="contact__form" @submit.prevent="sendEmail">
               <h3 class="text-center">Napisz do nas!</h3>
               <fieldset class="contact__form__fieldset">
-                <legend class="contact__form__fieldset__legend">Formularz kontaktowy</legend>
-                <label class="contact__form__fieldset__label-required" for="sender">Imię i nazwisko</label>
+                <legend class="contact__form__fieldset__legend">
+                  Formularz kontaktowy
+                </legend>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="sender"
+                  >Imię i nazwisko</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.sender"
@@ -47,7 +53,11 @@
                   placeholder="Podaj imię i nazwisko"
                   required
                 />
-                <label class="contact__form__fieldset__label-required" for="email">Adres e-mail</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="email"
+                  >Adres e-mail</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.email"
@@ -60,7 +70,8 @@
                 <label
                   class="contact__form__fieldset__label-required"
                   for="emailConfirmation"
-                >Potwierdź email</label>
+                  >Potwierdź email</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.emailConfirmation"
@@ -69,7 +80,11 @@
                   type="email"
                   placeholder="Potwierdź email"
                 />
-                <label class="contact__form__fieldset__label-required" for="message">Wiadomość</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="message"
+                  >Wiadomość</label
+                >
                 <textarea
                   class="contact__form__fieldset__input-textarea"
                   v-model="formData.message"
@@ -100,7 +115,9 @@
                 ? 'modal__title-success'
                 : 'modal__title-error'
             "
-          >{{ modalMessage.title }}</h4>
+          >
+            {{ modalMessage.title }}
+          </h4>
           <div slot="body" v-html="modalMessage.body"></div>
         </modal>
         <!--<section v-html="$page.pageData.content"></section>-->
@@ -209,15 +226,17 @@ export default {
               this.modalMessage.body =
                 "<p>Wiadomość została dostarczona. Nasz zespół odpowie najszybciej jak tylko to możliwe.</p>";
               this.clearForm(event);
+              this.showModal = true;
             })
             .catch(() => {
               this.setErrorModal();
+              this.showModal = true;
             });
         })
         .catch(() => {
           this.setErrorModal();
+          this.showModal = true;
         });
-      this.showModal = true;
     },
     clearForm(event) {
       this.formData.sender = this.formData.email = this.formData.emailConfirmation = this.formData.message =

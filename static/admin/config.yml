@@ -47,18 +47,22 @@ collections:
         label: "Strona Główna"
         file: "content/pages/home/index.md"
         fields:
-          - label: "Ekran powitalny"
-            name: "welcomeScreen"
-            widget: "object",
-            collapsed: true,
+          - label: Ekran powitalny
+            name: welcomeScreen
+            widget: object
             fields:
-              - { label: Tekst powitalny, name: welcomeText, widget: string }
-              - {
-                  label: Tekst w przycisku,
-                  name: welcomeButton,
-                  widget: string,
-                }
-          - { label: Nagłówek nad ofertami, name: offerTitle, widget: string }
+              - label: Tekst powitalny
+                name: welcomeText
+                widget: string
+
+              - label: Teskt Przycisk
+                name: welcomeButton
+                widget: string
+
+              - label: Obraz tła
+                name: welcomeImage
+                widget: image
+                allow_multiple: false
 
   - name: "footer"
     label: "Footer"

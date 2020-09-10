@@ -1,27 +1,29 @@
 <template>
   <Layout>
     <template #heading>
-      <header class="main__image">
+      <header
+        class="main__image"
+        :style="{ backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' + $page.pageData.welcome_screen.welcome_image + ')' }"
+      >
         <div class="main__image__container">
           <transition name="fade-image" appear>
-            <h2 class="main__image__message text-center">
-              Witaj w Rosco Serwis
-            </h2>
+            <h2
+              class="main__image__message text-center"
+            >{{$page.pageData.welcome_screen.welcome_text }}</h2>
           </transition>
           <transition name="fade-image" appear>
             <a
               href="#"
               v-scroll-to="'#content-start'"
               class="main__image__button"
-              >Pokaż więcej</a
-            >
+            >{{$page.pageData.welcome_screen.welcome_button }}</a>
           </transition>
         </div>
       </header>
     </template>
     <main class="main-nomargin">
       <div class="grid">
-        <h2>{{ $page.pageData.offerTitle }}</h2>
+        <h2>{{ $page.pageData.offer_title }}</h2>
         <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
           <OfferCard
             v-for="offer in $page.posts.edges.slice(
@@ -59,7 +61,13 @@ query {
   }
 
   pageData: pageData(path: "/content/pages/home/"){
-    offerTitle
+    welcome_screen {
+      welcome_text
+      welcome_button
+      welcome_image
+    }
+
+    offer_title
   }
 }
 </page-query>

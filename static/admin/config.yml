@@ -38,9 +38,9 @@ collections:
           - { label: Tytuł, name: title, widget: string }
           - { label: Tekst o firmie, name: content, widget: markdown }
 
-      - name: "home"
-        label: "Strona Główna"
-        file: "content/pages/home/index.md"
+      - name: home
+        label: Strona Główna
+        file: content/pages/home/index.md
         fields:
           - label: Ekran powitalny
             name: welcome_screen
@@ -61,6 +61,22 @@ collections:
 
           - label: Tytuł nad ofertami
             name: offer_title
+            widget: string
+
+      - name: contact
+        label: Kontakt
+        file: content/pages/contact/index.md
+        fields:
+          - label: Nagłówek nad danymi kontaktowymi
+            name: contact_title
+            widget: string
+
+          - label: Tekst informacyjny
+            name: contact_content
+            widget: markdown
+
+          - label: Nagłówek nad formularzem
+            name: form_title
             widget: string
 
   - name: "footer"

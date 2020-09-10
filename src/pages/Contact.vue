@@ -6,12 +6,14 @@
         <a
           class="footer__link-alt-color"
           href="https://policies.google.com/privacy"
-        >Polityka Prywatności</a>
+          >Polityka Prywatności</a
+        >
         oraz
         <a
           class="footer__link-alt-color"
           href="https://policies.google.com/terms"
-        >Warunki Usługi</a>
+          >Warunki Usługi</a
+        >
         Google zobowiązują.
       </p>
     </template>
@@ -32,8 +34,8 @@
 
         <div class="contact">
           <section>
-            <h3 class="text-center">{{$page.pageData.contact_title}}</h3>
-            <div v-html="$page.pageData.contact_content"></div>
+            <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
+            <p v-html="$page.pageData.contact_content"></p>
             <p
               class="footer__contact"
               v-for="(contact_detail, i) in $static.contact_data
@@ -44,10 +46,16 @@
           </section>
           <section>
             <form class="contact__form" @submit.prevent="sendEmail">
-              <h3 class="text-center">{{$page.pageData.form_title}}</h3>
+              <h3 class="text-center">{{ $page.pageData.form_title }}</h3>
               <fieldset class="contact__form__fieldset">
-                <legend class="contact__form__fieldset__legend">Formularz kontaktowy</legend>
-                <label class="contact__form__fieldset__label-required" for="sender">Imię i nazwisko</label>
+                <legend class="contact__form__fieldset__legend">
+                  Formularz kontaktowy
+                </legend>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="sender"
+                  >Imię i nazwisko</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.sender"
@@ -57,7 +65,11 @@
                   placeholder="Podaj imię i nazwisko"
                   required
                 />
-                <label class="contact__form__fieldset__label-required" for="email">Adres e-mail</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="email"
+                  >Adres e-mail</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.email"
@@ -70,7 +82,8 @@
                 <label
                   class="contact__form__fieldset__label-required"
                   for="emailConfirmation"
-                >Potwierdź email</label>
+                  >Potwierdź email</label
+                >
                 <input
                   class="contact__form__fieldset__input"
                   v-model="formData.emailConfirmation"
@@ -79,7 +92,11 @@
                   type="email"
                   placeholder="Potwierdź email"
                 />
-                <label class="contact__form__fieldset__label-required" for="message">Wiadomość</label>
+                <label
+                  class="contact__form__fieldset__label-required"
+                  for="message"
+                  >Wiadomość</label
+                >
                 <textarea
                   class="contact__form__fieldset__input-textarea"
                   v-model="formData.message"
@@ -109,7 +126,9 @@
                 ? 'modal__title-success'
                 : 'modal__title-error'
             "
-          >{{ modalMessage.title }}</h4>
+          >
+            {{ modalMessage.title }}
+          </h4>
           <div slot="body" v-html="modalMessage.body"></div>
         </modal>
         <!--<section v-html="$page.pageData.content"></section>-->

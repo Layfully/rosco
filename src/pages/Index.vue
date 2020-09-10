@@ -3,20 +3,23 @@
     <template #heading>
       <header
         class="main__image"
-        :style="{ backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' + $page.pageData.welcome_screen.welcome_image + ')' }"
+        :style="{
+          backgroundImage:
+            'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
+            $page.pageData.welcome_screen.welcome_image +
+            ')',
+        }"
       >
         <div class="main__image__container">
           <transition name="fade-image" appear>
-            <h2
-              class="main__image__message text-center"
-            >{{$page.pageData.welcome_screen.welcome_text }}</h2>
+            <h2 class="main__image__message text-center">
+              {{ $page.pageData.welcome_screen.welcome_text }}
+            </h2>
           </transition>
           <transition name="fade-image" appear>
-            <a
-              href="#"
-              v-scroll-to="'#content-start'"
-              class="main__image__button"
-            >{{$page.pageData.welcome_screen.welcome_button }}</a>
+            <a href="#" @click="scrollDown()" class="main__image__button">{{
+              $page.pageData.welcome_screen.welcome_button
+            }}</a>
           </transition>
         </div>
       </header>

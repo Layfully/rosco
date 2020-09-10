@@ -5,7 +5,7 @@ media_folder: "static/images/uploads" # Media files will be stored in the repo u
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
   - name: "offers" # Used in routes, e.g., /admin/collections/blog
-    label: "Offers" # Used in the UI
+    label: "Oferty" # Used in the UI
     folder: "content/offers" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -29,57 +29,56 @@ collections:
       - { label: "Zawartość", name: "body", widget: "markdown" }
 
   - name: "pages"
-    label: "Pages"
+    label: "Strony"
     files:
       - name: "about"
-        label: "About Us"
+        label: "O firmie"
         file: "content/pages/about/index.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Content, name: content, widget: markdown }
-          - label: Business Profile
-            name: profile
-            widget: list
-            fields:
-              - { label: Body, name: body, widget: string }
+          - { label: Tytuł, name: title, widget: string }
+          - { label: Tekst o firmie, name: content, widget: markdown }
 
       - name: "home"
         label: "Strona Główna"
         file: "content/pages/home/index.md"
         fields:
           - label: Ekran powitalny
-            name: welcomeScreen
+            name: welcome_screen
             widget: object
             fields:
               - label: Tekst powitalny
-                name: welcomeText
+                name: welcome_text
                 widget: string
 
               - label: Teskt Przycisk
-                name: welcomeButton
+                name: welcome_button
                 widget: string
 
               - label: Obraz tła
-                name: welcomeImage
+                name: welcome_image
                 widget: image
                 allow_multiple: false
 
+          - label: Tytuł nad ofertami
+            name: offer_title
+            widget: string
+
   - name: "footer"
-    label: "Footer"
+    label: "Stopka"
     files:
       - name: "about"
-        label: "About Us"
+        label: "O firmie"
         file: "content/pages/footer/footer_about.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Content, name: content, widget: markdown }
+          - { label: Nagłówek, name: title, widget: string }
+          - { label: Notka o firmie, name: content, widget: markdown }
       - name: "contact_details"
-        label: "Contact Details"
+        label: "Lista kontaktów"
         file: "content/pages/footer/footer_contact_details.md"
         fields:
           - { label: Title, name: title, widget: string }
-          - label: Contact Type
+          - label: kontakt
             name: contacts
             widget: list
             fields:
-              - { label: Contact, name: contact, widget: markdown }
+              - { label: Nazwa, name: contact, widget: markdown }

@@ -11,6 +11,9 @@ var VueScrollTo = require("vue-scrollto");
 //Import recaptcha v3
 import { VueReCaptcha } from "vue-recaptcha-v3";
 
+//Import checkView
+import checkView from 'vue-check-view'
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
@@ -30,6 +33,7 @@ export default function(Vue, { router, head, isClient }) {
   Vue.use(VueReCaptcha, {
     siteKey: "6Le8cskZAAAAAIYn4d6487DGYYuM90XKJ79SMIHs",
   });
+  Vue.use(checkView)
 
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);

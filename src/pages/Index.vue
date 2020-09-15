@@ -28,32 +28,14 @@
     </template>
     <main class="main-nomargin">
       <CountTo
+        v-for="(counter, i) in counters"
+        :key="'counter' + i"
+        ref="counter"
         :startVal="0"
-        :endVal="700000"
+        :endVal="counter.endValue"
         :duration="3000"
         :autoplay="false"
-        v-view="countHandler()"
-      ></CountTo>
-      <CountTo
-        :startVal="0"
-        :endVal="1800"
-        :duration="3000"
-        :autoplay="false"
-        v-view="countHandler()"
-      ></CountTo>
-      <CountTo
-        :startVal="0"
-        :endVal="1800"
-        :duration="3000"
-        :autoplay="false"
-        v-view="countHandler()"
-      ></CountTo>
-      <CountTo
-        :startVal="0"
-        :endVal="1800"
-        :duration="3000"
-        :autoplay="false"
-        v-view="countHandler()"
+        v-view="viewHandler"
       ></CountTo>
       <div class="grid">
         <h2>{{ $page.pageData.offer_title }}</h2>
@@ -122,6 +104,10 @@ export default {
   data() {
     return {
       offersPerRow: 2,
+      isMounted: false,
+      counters : [
+        { endValue: 700000 },{ endValue: 700000 },{ endValue: 700000 },{ endValue: 700000 },
+      ]
     };
   },
   computed: {
@@ -130,7 +116,13 @@ export default {
     },
   },
   methods: {
-    viewHandler() {},
+    viewHandler(event) {
+      if(event.type === 'enter'){
+        for (const iterator of this.$refs['counter']) {
+          iterator.start()
+        }
+      }
+    },
   },
 };
 </script>

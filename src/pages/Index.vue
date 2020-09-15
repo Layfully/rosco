@@ -12,19 +12,49 @@
       >
         <div class="main__image__container">
           <transition name="fade-image" appear>
-            <h2 class="main__image__message text-center">
-              {{ $page.pageData.welcome_screen.welcome_text }}
-            </h2>
+            <h2
+              class="main__image__message text-center"
+            >{{ $page.pageData.welcome_screen.welcome_text }}</h2>
           </transition>
           <transition name="fade-image" appear>
-            <a href="#" @click="scrollDown()" class="main__image__button">{{
-              $page.pageData.welcome_screen.welcome_button
-            }}</a>
+            <a
+              href="#"
+              v-scroll-to="'#content-start'"
+              class="main__image__button"
+            >{{ $page.pageData.welcome_screen.welcome_button }}</a>
           </transition>
         </div>
       </header>
     </template>
     <main class="main-nomargin">
+      <CountTo
+        :startVal="0"
+        :endVal="700000"
+        :duration="3000"
+        :autoplay="false"
+        v-view="countHandler()"
+      ></CountTo>
+      <CountTo
+        :startVal="0"
+        :endVal="1800"
+        :duration="3000"
+        :autoplay="false"
+        v-view="countHandler()"
+      ></CountTo>
+      <CountTo
+        :startVal="0"
+        :endVal="1800"
+        :duration="3000"
+        :autoplay="false"
+        v-view="countHandler()"
+      ></CountTo>
+      <CountTo
+        :startVal="0"
+        :endVal="1800"
+        :duration="3000"
+        :autoplay="false"
+        v-view="countHandler()"
+      ></CountTo>
       <div class="grid">
         <h2>{{ $page.pageData.offer_title }}</h2>
         <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
@@ -78,11 +108,13 @@ query {
 <script>
 import Author from "@/components/Author.vue";
 import OfferCard from "@/components/OfferCard.vue";
+import CountTo from "vue-count-to";
 
 export default {
   components: {
     Author,
     OfferCard,
+    CountTo,
   },
   metaInfo: {
     title: "Home",
@@ -96,6 +128,9 @@ export default {
     offerRowCount() {
       return Math.ceil(this.$page.posts.edges.length / this.offersPerRow);
     },
+  },
+  methods: {
+    viewHandler() {},
   },
 };
 </script>

@@ -355,8 +355,7 @@ export default {
       transition: var(--transition-time) !important;
       margin: 0 15px;
       font-size: 0.9rem;
-      font-family: "Montserrat";
-      line-height: calc(var(--header-height) - 1px) !important;
+      line-height: var(--header-height) !important;
       color: var(--title-color) !important;
       width: calc(100% - 30px);
 

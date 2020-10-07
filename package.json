@@ -7,13 +7,13 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@gridsome/plugin-google-analytics": "^0.1.1",
+    "@gridsome/plugin-google-analytics": "^0.1.2",
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.1",
-    "@sendgrid/mail": "^7.2.4",
+    "@gridsome/transformer-remark": "^0.6.3",
+    "@sendgrid/mail": "^7.2.6",
     "axios": "^0.20.0",
-    "gridsome": "^0.7.19",
+    "gridsome": "^0.7.21",
     "vue": "^2.6.12",
     "vue-check-view": "^0.3.0",
     "vue-count-to": "^1.0.13",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.2",
+    "sass-loader": "^9.0.3",
     "vue-template-compiler": "^2.6.12"
   }
 }

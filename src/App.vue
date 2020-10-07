@@ -56,6 +56,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -72,6 +73,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -88,6 +90,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -108,6 +111,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -119,7 +123,7 @@ export default {
     url("./assets/fonts/icons.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 [class^="icon-"],

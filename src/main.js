@@ -44,41 +44,6 @@ export default function (Vue, { router, head, isClient }) {
       return { selector: to.hash }
     }
     return { x: 0, y: 0 }
-
-
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Gotu&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Raleway&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Halant&display=swap'
-    })
-    // Set default layout as a global component
-    Vue.component("Layout", DefaultLayout);
-
   }
 
   // Set default layout as a global component

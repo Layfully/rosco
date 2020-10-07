@@ -58,7 +58,8 @@ export default {
 <style lang="scss" scoped>
 .counter-card {
   margin: var(--space) 0;
-  font-family: "Montserrat";
+  font-family: "Montserrat", "Verdana", "sans-serif";
+  letter-spacing: 0.03rem;
   text-align: center;
   color: white;
   position: relative;

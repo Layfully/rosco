@@ -206,7 +206,6 @@ export default {
     @include sm {
       margin-bottom: 1em;
     }
-    font-family: "Montserrat", "New York,", serif !important;
   }
 
   &__button {

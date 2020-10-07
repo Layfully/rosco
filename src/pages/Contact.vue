@@ -34,13 +34,8 @@
 
         <div class="contact">
           <section>
-            <h3 class="text-center">Dane kontaktowe</h3>
-            <p>
-              Dziękujemy za zainteresowanie ofertą Rosco Serwis.
-              <br />Aby uzyskać więcej informacji na temat naszej firmy
-              zapraszamy do kontaktu z nami codziennie od poniedziałku do piątku
-              w godzinach od 7:00 do 15:00
-            </p>
+            <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
+            <p v-html="$page.pageData.contact_content"></p>
             <p
               class="footer__contact"
               v-for="(contact_detail, i) in $static.contact_data
@@ -51,7 +46,7 @@
           </section>
           <section>
             <form class="contact__form" @submit.prevent="sendEmail">
-              <h3 class="text-center">Napisz do nas!</h3>
+              <h3 class="text-center">{{ $page.pageData.form_title }}</h3>
               <fieldset class="contact__form__fieldset">
                 <legend class="contact__form__fieldset__legend">
                   Formularz kontaktowy
@@ -145,8 +140,9 @@
 <page-query>
 query {
   pageData: pageData(path: "/content/pages/contact/") {
-    title
-    content
+    contact_title
+    contact_content
+    form_title
   }
 }
 </page-query>

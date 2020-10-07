@@ -220,8 +220,9 @@ export default {
   }
 
   &__column {
-    padding: 0px calc(var(--space) / 2) calc(var(--space) / 2)
-      calc(var(--space) / 4);
+    padding: 0px calc(var(--space) / 2) calc(var(--space) / 4)
+      calc(var(--space) / 2);
+
     margin-left: calc(var(--space) / 4);
     margin-right: calc(var(--space) / 4);
     width: 100%;

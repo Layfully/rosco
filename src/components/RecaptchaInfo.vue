@@ -3,11 +3,14 @@
     <span class="material-icons">info</span>
     <p class="recaptcha__content">
       Ta strona jest chroniona przez reCAPTCHA.
-      <a
-        class="recaptcha__link"
-        href="https://policies.google.com/privacy"
-      >Polityka Prywatności</a> oraz
-      <a class="recaptcha__link" href="https://policies.google.com/terms">Warunki Usługi</a> Google zobowiązują.
+      <a class="recaptcha__link" href="https://policies.google.com/privacy"
+        >Polityka Prywatności</a
+      >
+      oraz
+      <a class="recaptcha__link" href="https://policies.google.com/terms"
+        >Warunki Usługi</a
+      >
+      Google zobowiązują.
     </p>
   </div>
 </template>
@@ -38,7 +41,6 @@
   }
 
   &__content {
-    white-space: normal;
     width: 100%;
     font-size: 0.8rem;
     margin: 0 0 0 15px;

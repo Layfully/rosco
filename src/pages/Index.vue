@@ -1,27 +1,44 @@
 <template>
   <Layout>
     <template #heading>
-      <header class="main__image">
+      <header
+        class="main__image"
+        :style="{
+          backgroundImage:
+            'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
+            $page.pageData.welcome_screen.welcome_image +
+            ')',
+        }"
+      >
         <div class="main__image__container">
           <transition name="fade-image" appear>
-            <h2 class="main__image__message text-center">
-              Witaj w Rosco Serwis
-            </h2>
+            <h2
+              class="main__image__message text-center"
+            >{{ $page.pageData.welcome_screen.welcome_text }}</h2>
           </transition>
           <transition name="fade-image" appear>
             <a
               href="#"
               v-scroll-to="'#content-start'"
               class="main__image__button"
-              >Pokaż więcej</a
-            >
+            >{{ $page.pageData.welcome_screen.welcome_button }}</a>
           </transition>
         </div>
       </header>
     </template>
     <main class="main-nomargin">
+      <CountTo
+        v-for="(counter, i) in counters"
+        :key="'counter' + i"
+        ref="counter"
+        :startVal="0"
+        :endVal="counter.endValue"
+        :duration="3000"
+        :autoplay="false"
+        v-view="viewHandler"
+      ></CountTo>
       <div class="grid">
-        <h2>{{ $page.pageData.title }}</h2>
+        <h2>{{ $page.pageData.offer_title }}</h2>
         <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
           <OfferCard
             v-for="offer in $page.posts.edges.slice(
@@ -59,7 +76,13 @@ query {
   }
 
   pageData: pageData(path: "/content/pages/home/"){
-    title
+    welcome_screen {
+      welcome_text
+      welcome_button
+      welcome_image
+    }
+
+    offer_title
   }
 }
 </page-query>
@@ -67,11 +90,13 @@ query {
 <script>
 import Author from "@/components/Author.vue";
 import OfferCard from "@/components/OfferCard.vue";
+import CountTo from "vue-count-to";
 
 export default {
   components: {
     Author,
     OfferCard,
+    CountTo,
   },
   metaInfo: {
     title: "Home",
@@ -79,11 +104,24 @@ export default {
   data() {
     return {
       offersPerRow: 2,
+      isMounted: false,
+      counters : [
+        { endValue: 700000 },{ endValue: 700000 },{ endValue: 700000 },{ endValue: 700000 },
+      ]
     };
   },
   computed: {
     offerRowCount() {
       return Math.ceil(this.$page.posts.edges.length / this.offersPerRow);
+    },
+  },
+  methods: {
+    viewHandler(event) {
+      if(event.type === 'enter'){
+        for (const iterator of this.$refs['counter']) {
+          iterator.start()
+        }
+      }
     },
   },
 };

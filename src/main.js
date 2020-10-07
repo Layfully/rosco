@@ -46,6 +46,29 @@ export default function (Vue, { router, head, isClient }) {
     return { x: 0, y: 0 }
   }
 
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'crossorigin',
+    type: 'font/otf',
+    href: './assets/fonts/MontserratRegular.otf'
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'crossorigin',
+    type: 'font/otf',
+    href: './assets/fonts/MontserratBold.otf'
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'crossorigin',
+    type: 'font/otf',
+    href: './assets/fonts/MontserratSemiBold.otf'
+  })
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 }

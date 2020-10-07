@@ -427,16 +427,6 @@ query {
   }
 }
 
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    var(--hr-color),
-    rgba(0, 0, 0, 0)
-  );
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:active {

@@ -110,6 +110,39 @@ export default {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "icons";
+  src: url("./assets/fonts/icons.eot");
+  src: url("./assets/fonts/icons.eot#iefix") format("embedded-opentype"),
+    url("./assets/fonts/icons.svg?#icons") format("svg"),
+    url("./assets/fonts/icons.ttf") format("truetype"),
+    url("./assets/fonts/icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+}
+
 .grecaptcha-badge {
   visibility: hidden;
 }

@@ -77,6 +77,6 @@ li {
 }
 
 #app {
-  background: url("~@/assets/image/background.jpg");
+  background: url("~@/assets/image/background.webp");
 }
 </style>

@@ -3,7 +3,7 @@
     :href="anchor"
     v-scroll-to="{
       el: anchor,
-      offset: () => (isMobile() ? -76 : -99),
+      offset: () => (isMobile() ? -76 : -111),
     }"
     class="scroll-down"
   >

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    test
-  </div>
+  <div>test</div>
 </template>
 
 <script>
@@ -30,7 +28,7 @@ query Offer ($id: ID!) {
     timeToRead
     description
     content
-    cover_image (width: 860, blur: 10)
+    cover_image (width: 100, height: 100)
   }
 }
 </page-query>

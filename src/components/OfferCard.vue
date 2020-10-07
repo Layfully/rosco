@@ -6,6 +6,7 @@
         v-if="offer.cover_image"
         class="offer-card__image"
         :src="offer.cover_image"
+        fit="contain"
       />
       <div class="offer-card__overlay">
         <span class="offer-card__title">

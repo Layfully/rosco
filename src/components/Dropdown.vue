@@ -1,7 +1,7 @@
 <template>
   <div
     class="dropdown header__menu__link"
-    :class="{'header__menu__link__active': isDropdownActive}"
+    :class="{ header__menu__link__active: isDropdownActive }"
   >
     <span>{{ title }}</span>
     <svg class="dropdown__triangle" viewBox="0 0 1030 638" width="10">
@@ -14,7 +14,7 @@
         v-for="(item, i) in items"
         :key="i"
         class="dropdown__menu__item"
-        :class="{'dropdown__menu__item__active': isActive(item.node.path)}"
+        :class="{ dropdown__menu__item__active: isActive(item.node.path) }"
       >
         <g-link :to="item.node.path">{{ item.node.title }}</g-link>
       </div>
@@ -100,7 +100,7 @@ export default {
       transition: background-color var(--transition-time) ease;
 
       @include md {
-        font-size: 0.75em;
+        font-size: 0.8em;
         border-bottom: 1px solid var(--border-color);
       }
 

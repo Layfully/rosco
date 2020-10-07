@@ -14,6 +14,10 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 //Import checkView
 import checkView from 'vue-check-view'
 
+import MontserratRegular from "~/assets/fonts/MontserratRegular.otf"
+import MontserratBold from "~/assets/fonts/MontserratBold.otf"
+import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.otf"
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
@@ -51,23 +55,23 @@ export default function (Vue, { router, head, isClient }) {
     as: 'font',
     crossorigin: 'crossorigin',
     type: 'font/otf',
-    href: './assets/fonts/MontserratRegular.otf'
+    href: MontserratRegular
   })
 
   head.link.push({
     rel: 'preload',
     as: 'font',
-    crossorigin: 'crossorigin',
+    crossorigin: 'anonymous',
     type: 'font/otf',
-    href: './assets/fonts/MontserratBold.otf'
+    href: MontserratBold
   })
 
   head.link.push({
     rel: 'preload',
     as: 'font',
-    crossorigin: 'crossorigin',
+    crossorigin: 'anonymous',
     type: 'font/otf',
-    href: './assets/fonts/MontserratSemiBold.otf'
+    href: MontserratSemiBold
   })
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);

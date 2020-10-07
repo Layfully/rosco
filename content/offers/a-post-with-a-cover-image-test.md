@@ -2,7 +2,7 @@
 title: Remonty i serwis maszyn i urządzeń elektrycznych
 date: 2019-01-07T00:00:00.000Z
 published: true
-cover_image: /images/uploads/silniki.webp
+cover_image: ../../static/images/uploads/silniki.webp
 description: Markdown is intended to be as easy-to-read and easy-to-write as is
   feasible. Readability, however, is emphasized above all else. A
   Markdown-formatted document should be publishable as-is, as plain text,

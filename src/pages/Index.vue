@@ -82,7 +82,7 @@ query {
         date (format: "D. MMMM YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 380, blur: 10)
+        cover_image (width: 300, height: 400, quality:100, fit: outside)
         ...on Offer {
         id
         title
@@ -162,7 +162,7 @@ export default {
 <style lang="scss">
 .main__image {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
-    url("/images/uploads/landing_photo.jpg");
+    url("/images/uploads/landing_photo.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -245,7 +245,7 @@ export default {
 }
 
 .gradient {
-  background: url("~@/assets/image/bar.jpg");
+  background: url("~@/assets/image/bar.webp");
   background-size: cover;
   background-attachment: fixed;
 }

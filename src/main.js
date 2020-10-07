@@ -15,7 +15,7 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 import checkView from 'vue-check-view'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function(Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
   Vue.use(VueScrollTo, {
     container: "body",
@@ -35,7 +35,52 @@ export default function(Vue, { router, head, isClient }) {
   });
   Vue.use(checkView)
 
+  router.options.scrollBehavior = function (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+
+    if (to.hash) {
+      return { selector: to.hash }
+    }
+    return { x: 0, y: 0 }
+
+
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
+    })
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
+    })
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Gotu&display=swap'
+    })
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Raleway&display=swap'
+    })
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'
+    })
+
+    head.link.push({
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Halant&display=swap'
+    })
+    // Set default layout as a global component
+    Vue.component("Layout", DefaultLayout);
+
+  }
+
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
-  
 }

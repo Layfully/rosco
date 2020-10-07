@@ -3,3 +3,8 @@
   publish = "dist"
 [build.environment]
   NODE_VERSION = "10"
+
+[[headers]]
+ for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' font-src 'self' data: ;"

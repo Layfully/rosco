@@ -17,7 +17,7 @@
         Google zobowiązują.
       </p>
     </template>
-    <main class="main-margin">
+    <main>
       <article>
         <div class="contact__map">
           <iframe
@@ -25,14 +25,14 @@
             width="100%"
             height="400"
             frameborder="0"
-            style="border:0;"
+            style="border: 0"
             allowfullscreen
             aria-hidden="false"
             tabindex="0"
           ></iframe>
         </div>
 
-        <div class="contact">
+        <div class="contact page-container">
           <section>
             <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
             <p v-html="$page.pageData.contact_content"></p>
@@ -323,7 +323,6 @@ query {
 
   &__map {
     filter: var(--google-map-filter);
-    margin: -1.5vw calc(var(--space) / -4 - var(--space)) 0;
   }
 
   &__form {
@@ -395,6 +394,9 @@ query {
           color: var(--title-color);
           text-transform: uppercase;
           font-weight: bold;
+          transition: background-color var(--transition-time-long) ease,
+            color var(--transition-time-long) ease,
+            border-color var(--transition-time-long) ease;
 
           @include sm {
             padding: 10px;
@@ -403,7 +405,8 @@ query {
           }
 
           &:hover {
-            background: var(--submit-color-hover);
+            background: black;
+            color: white;
             cursor: pointer;
           }
         }

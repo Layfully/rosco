@@ -39,7 +39,7 @@
     <slot />
 
     <footer class="footer">
-      <div class="footer__container">
+      <div v-if="showFooter" class="footer__container">
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
@@ -141,6 +141,7 @@ import Dropdown from "~/components/Dropdown.vue";
 export default {
   props: {
     showLogo: { default: true },
+    showFooter: { default: true },
   },
   data() {
     return {
@@ -175,12 +176,12 @@ export default {
 
 <style lang="scss">
 .main-margin {
-  padding: 1.5vw var(--space) 0;
+  padding: 0;
   margin: 0 calc(var(--space) / 4);
 }
 
 .main-nomargin {
-  padding: 1.5vw var(--space) 0;
+  padding: 1.5vw 0 0;
   margin: 0;
 }
 
@@ -282,6 +283,7 @@ export default {
 }
 
 .header {
+  background: var(--header-color);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -352,13 +354,15 @@ export default {
     &__link {
       transition: var(--transition-time) !important;
       margin: 0 15px;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
+      font-family: "Montserrat";
       line-height: calc(var(--header-height) - 1px) !important;
       color: var(--title-color) !important;
       width: calc(100% - 30px);
 
       @include md {
         width: initial;
+        font-size: 0.8rem;
       }
 
       &__active {

@@ -12,6 +12,13 @@
   }
 }
 
+// Big devices
+@mixin big {
+  @media (min-width: #{$big-breakpoint}) {
+    @content;
+  }
+}
+
 // Large devices
 @mixin lg {
   @media (min-width: #{$lg-breakpoint}) {

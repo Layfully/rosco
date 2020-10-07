@@ -2,7 +2,7 @@
 title: Utrzymanie ruchu w zakładach przemysłowych
 date: 2020-08-21T07:42:28.562Z
 published: true
-cover_image: /images/uploads/zaklad_przemyslowy.jpg
+cover_image: ../../static/images/uploads/zaklad_przemyslowy.webp
 description: lorem ipsum
 ---
 lorem ipsum

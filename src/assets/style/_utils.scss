@@ -3,7 +3,11 @@
 }
 
 .space-bottom {
-  margin-bottom: var(--space);
+  margin-bottom: var(--space) !important;
+
+  @include sm {
+    margin-bottom: calc(var(--space) / 2) !important;
+  }
 }
 
 .space-bottom-small {
@@ -12,4 +16,24 @@
 
 .space-bottom-zero {
   margin-bottom: 0;
+}
+
+.text-medium {
+  font-size: 1.1em;
+
+  @include lg {
+    font-size: 1.2em;
+  }
+}
+
+.text-large {
+  font-size: 2em;
+
+  @include lg {
+    font-size: 3em;
+  }
+}
+
+.text-bold {
+  font-weight: bold;
 }

@@ -1,6 +1,23 @@
 <template>
   <Layout>
-    <main class="main-margin">
+    <template #footer>
+      <p>
+        Ta strona jest chroniona przez reCAPTCHA.
+        <a
+          class="footer__link-alt-color"
+          href="https://policies.google.com/privacy"
+          >Polityka Prywatności</a
+        >
+        oraz
+        <a
+          class="footer__link-alt-color"
+          href="https://policies.google.com/terms"
+          >Warunki Usługi</a
+        >
+        Google zobowiązują.
+      </p>
+    </template>
+    <main>
       <article>
         <div class="contact__map">
           <iframe
@@ -8,22 +25,17 @@
             width="100%"
             height="400"
             frameborder="0"
-            style="border:0;"
+            style="border: 0"
             allowfullscreen
             aria-hidden="false"
             tabindex="0"
           ></iframe>
         </div>
 
-        <div class="contact">
+        <div class="contact page-container">
           <section>
-            <h3 class="text-center">Dane kontaktowe</h3>
-            <p>
-              Dziękujemy za zainteresowanie ofertą Rosco Serwis.
-              <br />Aby uzyskać więcej informacji na temat naszej firmy
-              zapraszamy do kontaktu z nami codziennie od poniedziałku do piątku
-              w godzinach od 7:00 do 15:00
-            </p>
+            <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
+            <p v-html="$page.pageData.contact_content"></p>
             <p
               class="footer__contact"
               v-for="(contact_detail, i) in $static.contact_data
@@ -33,8 +45,8 @@
             ></p>
           </section>
           <section>
-            <form class="contact__form">
-              <h3 class="text-center">Napisz do nas!</h3>
+            <form class="contact__form" @submit.prevent="sendEmail">
+              <h3 class="text-center">{{ $page.pageData.form_title }}</h3>
               <fieldset class="contact__form__fieldset">
                 <legend class="contact__form__fieldset__legend">
                   Formularz kontaktowy
@@ -97,7 +109,6 @@
                 />
                 <input
                   class="contact__form__fieldset__input"
-                  @click.prevent="sendEmail()"
                   type="submit"
                   name="submit"
                   value="Wyślij"
@@ -129,14 +140,17 @@
 <page-query>
 query {
   pageData: pageData(path: "/content/pages/contact/") {
-    title
-    content
+    contact_title
+    contact_content
+    form_title
   }
 }
 </page-query>
 
 <script>
 import Modal from "@/components/Modal.vue";
+import RecaptchaInfo from "@/components/RecaptchaInfo.vue";
+
 const axios = require("axios");
 
 export default {
@@ -146,6 +160,7 @@ export default {
   },
   components: {
     Modal,
+    RecaptchaInfo,
   },
   data() {
     return {
@@ -161,10 +176,8 @@ export default {
     };
   },
   methods: {
-    async sendEmail() {
-      this.formData.errors = [];
-      this.modalMessage.title = "";
-      this.modalMessage.body = "";
+    async sendEmail(event) {
+      this.resetModal();
 
       if (!this.formData.sender) {
         this.formData.errors.push(
@@ -208,25 +221,50 @@ export default {
         return;
       }
 
-      try {
-        await axios.post("/.netlify/functions/sendgrid", {
-          emailSender: this.formData.email,
-          senderName: this.formData.sender,
-          message: this.formData.message,
-        });
+      await this.$recaptchaLoaded();
 
-        this.modalMessage.success = true;
-        this.modalMessage.title = "Pomyślnie wysłano wiadomość";
-        this.modalMessage.body =
-          "<p>Wiadomość została dostarczona. Nasz zespół odpowie najszybciej jak tylko to możliwe.</p>";
-      } catch (e) {
-        this.modalMessage.success = false;
-        this.modalMessage.title = "Nie udało się wysłać wiadomości";
-        this.modalMessage.body =
-          "<p>Nie udało się wysłać wiadomości, prosimy o kontakt przy użyciu innych metod.</p>";
-        console.log(e);
-      }
-      this.showModal = true;
+      this.$recaptcha("sendEmail")
+        .then((token) => {
+          axios
+            .post("/.netlify/functions/sendgrid", {
+              recaptchaToken: token,
+              emailSender: this.formData.email,
+              senderName: this.formData.sender,
+              message: this.formData.message,
+            })
+            .then(() => {
+              this.modalMessage.success = true;
+              this.modalMessage.title = "Pomyślnie wysłano wiadomość";
+              this.modalMessage.body =
+                "<p>Wiadomość została dostarczona. Nasz zespół odpowie najszybciej jak tylko to możliwe.</p>";
+              this.clearForm(event);
+              this.showModal = true;
+            })
+            .catch(() => {
+              this.setErrorModal();
+              this.showModal = true;
+            });
+        })
+        .catch(() => {
+          this.setErrorModal();
+          this.showModal = true;
+        });
+    },
+    clearForm(event) {
+      this.formData.sender = this.formData.email = this.formData.emailConfirmation = this.formData.message =
+        "";
+      event.target.reset();
+    },
+    resetModal() {
+      this.formData.errors = [];
+      this.modalMessage.title = "";
+      this.modalMessage.body = "";
+    },
+    setErrorModal() {
+      this.modalMessage.success = false;
+      this.modalMessage.title = "Nie udało się wysłać wiadomości";
+      this.modalMessage.body =
+        "<p>Nie udało się wysłać wiadomości. Prosimy spróbować ponownie, lub o kontakt przy użyciu innych metod.</p>";
     },
   },
 };
@@ -285,7 +323,6 @@ query {
 
   &__map {
     filter: var(--google-map-filter);
-    margin: -1.5vw calc(var(--space) / -4 - var(--space)) 0;
   }
 
   &__form {
@@ -357,6 +394,9 @@ query {
           color: var(--title-color);
           text-transform: uppercase;
           font-weight: bold;
+          transition: background-color var(--transition-time-long) ease,
+            color var(--transition-time-long) ease,
+            border-color var(--transition-time-long) ease;
 
           @include sm {
             padding: 10px;
@@ -365,7 +405,8 @@ query {
           }
 
           &:hover {
-            background: var(--submit-color-hover);
+            background: black;
+            color: white;
             cursor: pointer;
           }
         }
@@ -386,16 +427,6 @@ query {
   }
 }
 
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    var(--hr-color),
-    rgba(0, 0, 0, 0)
-  );
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:active {

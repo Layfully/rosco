@@ -16,7 +16,9 @@
               <button
                 class="contact__form__fieldset__input modal__button"
                 @click="$emit('close')"
-              >OK</button>
+              >
+                OK
+              </button>
             </slot>
           </div>
         </div>
@@ -24,7 +26,7 @@
     </div>
   </transition>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .modal {
   &__mask {
     position: fixed;

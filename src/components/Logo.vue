@@ -40,7 +40,7 @@ export default {
     max-width: 50%;
 
     @include md {
-      max-width: 100%;
+      max-width: 70%;
     }
   }
 }

@@ -7,4 +7,4 @@
 [[headers]]
  for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src 'report-sample' 'self'; style-src 'report-sample' 'self'; object-src 'none'; base-uri 'self'; connect-src 'self'; frame-src 'self' https://www.google.com; worker-src 'none'; media-src 'self'; manifest-src 'self';"
+    Content-Security-Policy = "default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src 'report-sample' 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'report-sample' 'self'; object-src 'none'; base-uri 'self'; connect-src 'self'; frame-src 'self' https://www.google.com  https://www.google.com/recaptcha/; worker-src 'none'; media-src 'self'; manifest-src 'self';"

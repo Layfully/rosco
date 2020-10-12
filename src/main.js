@@ -51,6 +51,17 @@ export default function (Vue, { router, head, isClient }) {
   }
 
   head.link.push({
+    rel: 'preconnect',
+    href: 'https://www.gstatic.com'
+  })
+
+
+  head.link.push({
+    rel: 'preconnect',
+    href: 'https://www.google.com'
+  })
+
+  head.link.push({
     rel: 'preload',
     as: 'font',
     crossorigin: 'crossorigin',

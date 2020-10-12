@@ -28,7 +28,7 @@ export default {};
 .error-number {
   font-size: 6rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.3)),
-    url("https://www.texturesbackgrounds.com/files/large/electric-power-background.jpg");
+    url("~@/assets/image/electricpower.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

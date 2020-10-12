@@ -14,9 +14,9 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 //Import checkView
 import checkView from 'vue-check-view'
 
-import MontserratRegular from "~/assets/fonts/MontserratRegular.otf"
-import MontserratBold from "~/assets/fonts/MontserratBold.otf"
-import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.otf"
+import MontserratRegular from "~/assets/fonts/MontserratRegular.woff2"
+import MontserratBold from "~/assets/fonts/MontserratBold.woff2"
+import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.woff2"
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
@@ -54,7 +54,7 @@ export default function (Vue, { router, head, isClient }) {
     rel: 'preload',
     as: 'font',
     crossorigin: 'crossorigin',
-    type: 'font/otf',
+    type: 'font/woff2',
     href: MontserratRegular
   })
 
@@ -62,7 +62,7 @@ export default function (Vue, { router, head, isClient }) {
     rel: 'preload',
     as: 'font',
     crossorigin: 'anonymous',
-    type: 'font/otf',
+    type: 'font/woff2',
     href: MontserratBold
   })
 
@@ -70,7 +70,7 @@ export default function (Vue, { router, head, isClient }) {
     rel: 'preload',
     as: 'font',
     crossorigin: 'anonymous',
-    type: 'font/otf',
+    type: 'font/woff2',
     href: MontserratSemiBold
   })
 

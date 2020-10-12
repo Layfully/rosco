@@ -73,6 +73,8 @@ export default function (Vue, { router, head, isClient }) {
     type: 'font/otf',
     href: MontserratSemiBold
   })
+
+  head.script.push({ src: '/assets/js/netlify.js' })
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 }

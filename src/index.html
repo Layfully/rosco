@@ -6,6 +6,7 @@
 </head>
 
 <body ${bodyAttrs}>
+  <!--
   <script>
     // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
     (function () {
@@ -36,20 +37,7 @@
 
       setTheme(preferredTheme || (darkQuery.matches ? "dark" : "light"));
     })();
-  </script>
-
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-
+  </script>-->
   ${app} ${scripts}
 </body>
 

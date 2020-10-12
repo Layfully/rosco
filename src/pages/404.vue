@@ -7,9 +7,8 @@
           <h2>Oops! Ta strona nie istnieje.</h2>
         </header>
         <p>
-          Przykro nam. Ale nie można znaleźć strony, której szukasz. Proszę
-          sprawdzić wprowadzony adres i spróbować ponownie, lub skorzystać z
-          nawigacji.
+          Przykro nam, ale strona, której szukasz nie istnieje. Prosimy o
+          sprawdzenie wprowadzonego adresu, lub o skorzystanie z nawigacji.
         </p>
         <div class="button__container">
           <g-link to="/" class="button">Powrót do strony głównej </g-link>

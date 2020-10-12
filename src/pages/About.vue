@@ -75,8 +75,4 @@ export default {
 li {
   margin-left: 0.5rem;
 }
-
-#app {
-  background: url("~@/assets/image/background.webp");
-}
 </style>

@@ -106,13 +106,11 @@ query {
 </page-query>
 
 <script>
-import Author from "@/components/Author.vue";
 import OfferCard from "@/components/OfferCard.vue";
 import CounterCard from "@/components/CounterCard.vue";
 
 export default {
   components: {
-    Author,
     OfferCard,
     CounterCard,
   },

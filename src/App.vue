@@ -63,23 +63,6 @@ export default {
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("./assets/fonts/MontserratBold.eot"); /* IE9 Compat Modes */
-  src: url("./assets/fonts/MontserratBold.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/MontserratBold.otf") format("opentype"),
-    /* Open Type Font */ url("./assets/fonts/MontserratBold.svg") format("svg"),
-    /* Legacy iOS */ url("./assets/fonts/MontserratBold.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("./assets/fonts/MontserratBold.woff")
-      format("woff"),
-    /* Modern Browsers */ url("./assets/fonts/MontserratBold.woff2")
-      format("woff2"); /* Modern Browsers */
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* font converted using font-converter.net. thank you! */
 @font-face {
   font-family: "Lato";

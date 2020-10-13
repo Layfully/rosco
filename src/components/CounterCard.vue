@@ -59,6 +59,7 @@ export default {
 .counter-card {
   margin: var(--space) 0;
   font-family: "Montserrat", "Verdana", "sans-serif";
+  font-weight: 600;
   letter-spacing: 0.03rem;
   text-align: center;
   color: white;
@@ -84,10 +85,6 @@ export default {
   &__counter {
     font-size: 1.5rem;
     margin: calc(var(--space) / 4) 0;
-  }
-
-  &__title {
-    font-weight: bolder;
   }
 }
 

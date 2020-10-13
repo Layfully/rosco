@@ -209,8 +209,8 @@ export default {
   }
 
   &__button {
-    font-weight: bold;
     border: 2px solid var(--title-color);
+    font-weight: 600;
     padding: 7px 20px;
     color: white !important;
     border-color: white;

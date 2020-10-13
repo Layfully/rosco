@@ -16,6 +16,7 @@ import checkView from 'vue-check-view'
 
 import MontserratRegular from "~/assets/fonts/MontserratRegular.woff2"
 import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.woff2"
+import LatoRegular from "~/assets/fonts/LatoRegular.woff2"
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
@@ -74,6 +75,14 @@ export default function (Vue, { router, head, isClient }) {
     crossorigin: 'anonymous',
     type: 'font/woff2',
     href: MontserratSemiBold
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'anonymous',
+    type: 'font/woff2',
+    href: LatoRegular
   })
 
   // Set default layout as a global component

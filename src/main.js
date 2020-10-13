@@ -14,6 +14,10 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 //Import checkView
 import checkView from 'vue-check-view'
 
+import MontserratRegular from "~/assets/fonts/MontserratRegular.woff2"
+import MontserratBold from "~/assets/fonts/MontserratBold.woff2"
+import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.woff2"
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
@@ -44,43 +48,44 @@ export default function (Vue, { router, head, isClient }) {
       return { selector: to.hash }
     }
     return { x: 0, y: 0 }
-
-
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Gotu&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Raleway&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'
-    })
-
-    head.link.push({
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Halant&display=swap'
-    })
-    // Set default layout as a global component
-    Vue.component("Layout", DefaultLayout);
-
   }
 
+  head.link.push({
+    rel: 'preconnect',
+    href: 'https://www.gstatic.com'
+  })
+
+
+  head.link.push({
+    rel: 'preconnect',
+    href: 'https://www.google.com'
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'crossorigin',
+    type: 'font/woff2',
+    href: MontserratRegular
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'anonymous',
+    type: 'font/woff2',
+    href: MontserratBold
+  })
+
+  head.link.push({
+    rel: 'preload',
+    as: 'font',
+    crossorigin: 'anonymous',
+    type: 'font/woff2',
+    href: MontserratSemiBold
+  })
+
+  head.script.push({ src: '/assets/js/netlify.js' })
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 }

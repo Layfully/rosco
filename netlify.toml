@@ -4,7 +4,23 @@
 [build.environment]
   NODE_VERSION = "10"
 
-[[headers]]
- for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self' font-src 'self' data: ;"
+[[plugins]]
+package = "netlify-plugin-csp-generator"
+
+  [plugins.inputs]
+  buildDir = "dist"
+
+    [plugins.inputs.policies]
+    defaultSrc = "'self'"
+    fontSrc = "'self' data:"
+    imgSrc = "'self' data:"
+    scriptSrc = "'report-sample' 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/"
+    styleSrc = "'report-sample' 'self' 'unsafe-hashes'"
+    objectSrc = "'none'"
+    baseUri = "'self'"
+    connectSrc = "'self'"
+    frameSrc = "'self' https://www.google.com  https://www.google.com/recaptcha/"
+    workerSrc = "'none'"
+    mediaSrc = "'self'"
+    manifestSrc = "'self'"
+

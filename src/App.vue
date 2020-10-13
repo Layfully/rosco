@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+#app {
+  background: url("~@/assets/image/background.webp");
+}
+
 .fade-enter-active {
   transition: opacity 1s, transform var(--transition-time-long);
 }
@@ -56,6 +60,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -72,6 +77,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -88,6 +94,7 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -108,6 +115,19 @@ export default {
       format("woff2"); /* Modern Browsers */
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "icons";
+  src: url("./assets/fonts/icons.eot");
+  src: url("./assets/fonts/icons.eot#iefix") format("embedded-opentype"),
+    url("./assets/fonts/icons.svg?#icons") format("svg"),
+    url("./assets/fonts/icons.ttf") format("truetype"),
+    url("./assets/fonts/icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 .grecaptcha-badge {

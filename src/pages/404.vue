@@ -7,9 +7,8 @@
           <h2>Oops! Ta strona nie istnieje.</h2>
         </header>
         <p>
-          Przykro nam. Ale nie można znaleźć strony, której szukasz. Proszę
-          sprawdzić wprowadzony adres i spróbować ponownie, lub skorzystać z
-          nawigacji.
+          Przykro nam, ale strona, której szukasz nie istnieje. Prosimy o
+          sprawdzenie wprowadzonego adresu, lub o skorzystanie z nawigacji.
         </p>
         <div class="button__container">
           <g-link to="/" class="button">Powrót do strony głównej </g-link>
@@ -28,7 +27,7 @@ export default {};
 .error-number {
   font-size: 6rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.3)),
-    url("https://www.texturesbackgrounds.com/files/large/electric-power-background.jpg");
+    url("~@/assets/image/electricpower.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

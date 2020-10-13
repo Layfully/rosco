@@ -82,7 +82,7 @@ query {
         date (format: "D. MMMM YYYY")
         timeToRead
         description
-        cover_image (width: 300, height: 400, quality:100, fit: outside)
+        cover_image (width: 400, height: 300, quality:100, fit: outside)
         ...on Offer {
         id
         title
@@ -130,13 +130,25 @@ export default {
           endValue: 700000,
           title: "Metrów położonych kabli",
           icon: "swap_calls",
+          iconalt: "ikona kabli",
         },
-        { endValue: 700000, title: "Lat doświadczenia", icon: "access_time" },
-        { endValue: 700000, title: "Wypitych kaw", icon: "local_cafe" },
+        {
+          endValue: 700000,
+          title: "Lat doświadczenia",
+          icon: "access_time",
+          iconalt: "ikona zegaru",
+        },
+        {
+          endValue: 700000,
+          title: "Wypitych kaw",
+          icon: "local_cafe",
+          iconalt: "ikona kubka kawy",
+        },
         {
           endValue: 700000,
           title: "Przewiniętych silników",
           icon: "shutter_speed",
+          iconalt: "ikona silnika",
         },
       ],
     };
@@ -194,7 +206,6 @@ export default {
     @include sm {
       margin-bottom: 1em;
     }
-    font-family: "Montserrat", "New York,", serif !important;
   }
 
   &__button {

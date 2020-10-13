@@ -1,9 +1,13 @@
 <template>
   <div class="counter-card">
     <transition name="slide">
-      <span v-if="isVisible" class="material-icons icon-big">{{
-        counter.icon
-      }}</span>
+      <span
+        v-if="isVisible"
+        role="img"
+        :aria-label="counter.iconalt"
+        class="icon-big"
+        >{{ counter.icon }}</span
+      >
     </transition>
     <CountTo
       ref="counter"
@@ -54,7 +58,8 @@ export default {
 <style lang="scss" scoped>
 .counter-card {
   margin: var(--space) 0;
-  font-family: "Montserrat";
+  font-family: "Montserrat", "Verdana", "sans-serif";
+  letter-spacing: 0.03rem;
   text-align: center;
   color: white;
   position: relative;

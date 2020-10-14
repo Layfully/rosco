@@ -1,7 +1,7 @@
 <template>
   <g-link class="logo" to="/">
     <g-image
-      src="@/assets/image/rosco_logo.png"
+      src="@/assets/image/rosco_logo.webp"
       class="logo__image"
       alt="Rosco"
       height="65"

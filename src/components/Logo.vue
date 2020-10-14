@@ -4,8 +4,8 @@
       src="@/assets/image/rosco_logo.png"
       class="logo__image"
       alt="Rosco"
-      height="65px"
-      width="250px"
+      height="65"
+      width="250"
       fit="inside"
     ></g-image>
   </g-link>

@@ -79,7 +79,7 @@ export default {};
   padding: calc(var(--space) / 4) 5px;
   margin: 0 10px;
 
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
 
   border-color: black;

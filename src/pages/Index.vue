@@ -106,13 +106,11 @@ query {
 </page-query>
 
 <script>
-import Author from "@/components/Author.vue";
 import OfferCard from "@/components/OfferCard.vue";
 import CounterCard from "@/components/CounterCard.vue";
 
 export default {
   components: {
-    Author,
     OfferCard,
     CounterCard,
   },
@@ -209,8 +207,8 @@ export default {
   }
 
   &__button {
-    font-weight: bold;
     border: 2px solid var(--title-color);
+    font-weight: 600;
     padding: 7px 20px;
     color: white !important;
     border-color: white;

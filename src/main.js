@@ -15,8 +15,8 @@ import { VueReCaptcha } from "vue-recaptcha-v3";
 import checkView from 'vue-check-view'
 
 import MontserratRegular from "~/assets/fonts/MontserratRegular.woff2"
-import MontserratBold from "~/assets/fonts/MontserratBold.woff2"
 import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.woff2"
+import LatoRegular from "~/assets/fonts/LatoRegular.woff2"
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
@@ -74,7 +74,7 @@ export default function (Vue, { router, head, isClient }) {
     as: 'font',
     crossorigin: 'anonymous',
     type: 'font/woff2',
-    href: MontserratBold
+    href: MontserratSemiBold
   })
 
   head.link.push({
@@ -82,10 +82,9 @@ export default function (Vue, { router, head, isClient }) {
     as: 'font',
     crossorigin: 'anonymous',
     type: 'font/woff2',
-    href: MontserratSemiBold
+    href: LatoRegular
   })
 
-  head.script.push({ src: '/assets/js/netlify.js' })
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 }

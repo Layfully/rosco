@@ -30,9 +30,6 @@
           <span></span>
           <span></span>
         </label>
-        <div>
-          <ToggleTheme />
-        </div>
       </div>
     </header>
 
@@ -135,7 +132,6 @@ query {
 
 <script>
 import Logo from "~/components/Logo.vue";
-import ToggleTheme from "~/components/ToggleTheme.vue";
 import Dropdown from "~/components/Dropdown.vue";
 
 export default {
@@ -160,7 +156,6 @@ export default {
   },
   components: {
     Logo,
-    ToggleTheme,
     Dropdown,
   },
   computed: {

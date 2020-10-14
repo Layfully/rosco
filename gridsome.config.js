@@ -4,6 +4,9 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
 module.exports = {
   siteName: "Rosco",
 
@@ -52,5 +55,11 @@ module.exports = {
           '@import "@/assets/style/_variables", "@/assets/style/_mixins";',
       },
     },
+  },
+
+  chainWebpack: (config) => {
+    config
+      .plugin("BundleAnalyzerPlugin")
+      .use(BundleAnalyzerPlugin, [{ analyzerMode: "static" }]);
   },
 };

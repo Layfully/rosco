@@ -56,10 +56,4 @@ module.exports = {
       },
     },
   },
-
-  chainWebpack: (config) => {
-    config
-      .plugin("BundleAnalyzerPlugin")
-      .use(BundleAnalyzerPlugin, [{ analyzerMode: "static" }]);
-  },
 };

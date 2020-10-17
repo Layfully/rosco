@@ -108,7 +108,7 @@
                   required
                 />
                 <input
-                  class="contact__form__fieldset__input"
+                  class="button button--black"
                   type="submit"
                   name="submit"
                   value="Wyślij"
@@ -341,10 +341,10 @@ query {
       padding-inline-start: 0.75em;
       min-inline-size: min-content;
 
-      padding: 0 calc(var(--space));
+      padding: 0 var(--space) var(--space);
 
       @include sm {
-        padding: 0 25px 25px;
+        padding: 0 calc(var(--space) / 2) calc(var(--space) / 2);
       }
 
       &__legend {
@@ -366,6 +366,7 @@ query {
           }
         }
       }
+
       &__input {
         width: 100%;
         box-sizing: border-box;
@@ -384,31 +385,6 @@ query {
         &::placeholder {
           opacity: 0.8;
           color: var(--title-color);
-        }
-
-        &[type="submit"] {
-          background: var(--submit-color);
-          padding: calc(var(--space) / 2) var(--space);
-          margin: calc(var(--space)) 0;
-          border: 1px solid var(--title-color);
-          color: var(--title-color);
-          text-transform: uppercase;
-          font-weight: bold;
-          transition: background-color var(--transition-time-long) ease,
-            color var(--transition-time-long) ease,
-            border-color var(--transition-time-long) ease;
-
-          @include sm {
-            padding: 10px;
-            margin: 0;
-            margin-top: 20px;
-          }
-
-          &:hover {
-            background: black;
-            color: white;
-            cursor: pointer;
-          }
         }
 
         &:focus {

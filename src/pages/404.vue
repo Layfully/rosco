@@ -88,8 +88,7 @@ export default {};
   font-size: 0.95rem;
 
   transition: background-color var(--transition-time-long) ease,
-    color var(--transition-time-long) ease,
-    border-color var(--transition-time-long) ease;
+    color var(--transition-time-long) ease;
 
   @include sm {
     font-size: 1rem;

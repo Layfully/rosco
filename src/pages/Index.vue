@@ -24,7 +24,7 @@
                 el: '#content-start',
                 onDone: pageVisitedHanlder,
               }"
-              class="main__image__button"
+              class="button button--white"
               >{{ $page.pageData.welcome_screen.welcome_button }}</a
             >
           </transition>
@@ -203,22 +203,6 @@ export default {
 
     @include sm {
       margin-bottom: 1em;
-    }
-  }
-
-  &__button {
-    border: 2px solid var(--title-color);
-    font-weight: 600;
-    padding: 7px 20px;
-    color: white !important;
-    border-color: white;
-    transition: background-color var(--transition-time-long) ease,
-      color var(--transition-time-long) ease,
-      border-color var(--transition-time-long) ease;
-
-    &:hover {
-      background-color: white;
-      color: black !important;
     }
   }
 }

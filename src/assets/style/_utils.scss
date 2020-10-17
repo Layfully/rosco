@@ -37,3 +37,43 @@
 .text-bold {
   font-weight: bold;
 }
+
+
+.button {
+  padding: calc(var(--space) / 4) var(--space);
+  font-weight: 600; 
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  transition: background-color var(--transition-time-long) ease,
+    color var(--transition-time-long) ease;
+
+  @include sm {
+    font-size: 1rem;
+    padding: calc(var(--space) / 8) calc(var(--space) / 2);
+  }
+
+  &--white {
+    background: black;
+    border: 1px solid white;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  &--black {
+    background: white;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

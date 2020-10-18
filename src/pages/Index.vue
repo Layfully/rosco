@@ -3,7 +3,7 @@
     <template #heading>
       <header
         v-show="!pageVisited"
-        class="main__image"
+        class="main__image flex--content-center"
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
@@ -48,7 +48,7 @@
             />
           </div>
 -->
-          <div class="grid__row">
+          <div class="grid__row flex--content-center">
             <OfferCard
               v-for="offer in $page.posts.edges"
               :key="offer.node.id"
@@ -182,7 +182,6 @@ export default {
   padding: 15% 5%;
   display: flex;
   align-items: center;
-  justify-content: center;
 
   @include md {
     padding: 0;
@@ -194,7 +193,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   &__message {
@@ -224,7 +222,6 @@ export default {
 
   &__row {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;

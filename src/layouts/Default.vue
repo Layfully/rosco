@@ -73,7 +73,7 @@
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
           <p
-            class="footer__text footer__contact-center"
+            class="footer__text footer__contact flex--content-center"
             v-for="(contact_detail, i) in $static.contact_data.contact_details"
             :key="'contact-' + i"
             v-html="contact_detail.contact"
@@ -186,7 +186,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   padding: calc(var(--space) / 2);
   text-align: center;
   font-size: 0.8em;
@@ -201,7 +200,6 @@ export default {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    justify-content: center;
 
     @include lg {
       flex-direction: row;
@@ -256,19 +254,9 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 0.9em;
-    justify-content: center;
 
     > span {
       margin-right: var(--icon-space);
-    }
-
-    @include md {
-      justify-content: flex-start;
-    }
-
-    &-center {
-      @extend .footer__contact;
-      justify-content: center;
     }
   }
 
@@ -328,7 +316,6 @@ export default {
         flex-direction: column;
 
         text-align: center;
-        justify-content: center;
 
         @include md {
           margin-bottom: 0;

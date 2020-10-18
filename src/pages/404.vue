@@ -61,7 +61,6 @@ export default {};
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 
   height: calc(100vh - var(--header-height));

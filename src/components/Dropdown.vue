@@ -13,7 +13,7 @@
       <div
         v-for="(item, i) in items"
         :key="i"
-        class="dropdown__menu__item"
+        class="dropdown__menu__item flex--content-center"
         :class="{ dropdown__menu__item__active: isActive(item.node.path) }"
       >
         <g-link :to="item.node.path">{{ item.node.title }}</g-link>
@@ -85,7 +85,6 @@ export default {
     &__item {
       background-color: var(--bg-color);
       padding: 10px 14px;
-      justify-content: center;
       display: flex;
       transition: background-color var(--transition-time) ease;
 

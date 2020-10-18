@@ -2,7 +2,7 @@
   <Layout>
     <main>
       <header
-        class="main__image"
+        class="main__image flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(' +
@@ -10,7 +10,9 @@
             ')',
         }"
       >
-        <div class="main__image__container text-center">
+        <div
+          class="main__image__container flex--column flex--align-items-center text-center"
+        >
           <transition name="fade-image" appear>
             <h1 class="main__image__message text-large space-bottom">
               {{ $page.pageData.title }}

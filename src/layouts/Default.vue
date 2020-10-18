@@ -2,7 +2,7 @@
   <div id="app">
     <slot name="heading" />
 
-    <header id="content-start" class="header">
+    <header id="content-start" class="header flex--align-items-center">
       <div>
         <Logo v-if="showLogo" />
       </div>
@@ -36,7 +36,7 @@
     <slot />
 
     <footer class="footer flex--column">
-      <div v-if="showFooter" class="footer__container">
+      <div v-if="showFooter" class="footer__container flex--align-items-center">
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
@@ -185,7 +185,6 @@ export default {
 .footer {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   padding: calc(var(--space) / 2);
   text-align: center;
   font-size: 0.8em;
@@ -198,8 +197,6 @@ export default {
   &__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
 
     @include lg {
       flex-direction: row;
@@ -252,7 +249,6 @@ export default {
 
   &__contact {
     display: flex;
-    align-items: center;
     margin-bottom: 0.9em;
 
     > span {
@@ -270,7 +266,6 @@ export default {
   background: var(--header-color);
   display: flex;
   justify-content: space-between;
-  align-items: center;
   height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
   top: -1px;
@@ -303,7 +298,6 @@ export default {
 
       display: flex;
       justify-content: flex-end;
-      align-items: center;
     }
 
     ul {

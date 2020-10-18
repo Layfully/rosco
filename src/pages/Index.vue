@@ -3,7 +3,7 @@
     <template #heading>
       <header
         v-show="!pageVisited"
-        class="main__image flex--content-center"
+        class="main__image flex--content-center flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
@@ -11,7 +11,9 @@
             ')',
         }"
       >
-        <div class="main__image__container">
+        <div
+          class="main__image__container flex--column flex--align-items-center"
+        >
           <transition name="fade-image" appear>
             <h2 class="main__image__message text-large text-center">
               {{ $page.pageData.welcome_screen.welcome_text }}
@@ -32,7 +34,7 @@
       </header>
     </template>
     <main class="main-nomargin">
-      <div class="grid">
+      <div class="grid flex--column">
         <h1>{{ $page.pageData.offer_title }}</h1>
 
         <div class="grid__container">
@@ -59,7 +61,7 @@
         <div class="grid__container gradient">
           <h1>Rosco Serwis w liczbach</h1>
 
-          <section class="grid__row">
+          <section class="grid__row flex--content-center">
             <CounterCard
               v-for="(counter, i) in counters"
               :key="'counter' + i"
@@ -181,7 +183,6 @@ export default {
   width: 100%;
   padding: 15% 5%;
   display: flex;
-  align-items: center;
 
   @include md {
     padding: 0;
@@ -191,8 +192,6 @@ export default {
     height: 100%;
     color: var(--title-color);
     display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   &__message {
@@ -208,7 +207,6 @@ export default {
 .grid {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
 
   &__container {
@@ -223,7 +221,6 @@ export default {
   &__row {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-wrap: wrap;
 
     @include md {

@@ -5,7 +5,7 @@
       el: anchor,
       offset: () => (isMobile() ? -76 : -111),
     }"
-    class="scroll-down"
+    class="scroll-down flex--column"
   >
     <div class="mouse">
       <span></span>
@@ -29,7 +29,6 @@ export default {
 <style lang="scss" scoped>
 .scroll-down {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 

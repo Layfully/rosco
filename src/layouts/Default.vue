@@ -35,7 +35,7 @@
 
     <slot />
 
-    <footer class="footer">
+    <footer class="footer flex--column">
       <div v-if="showFooter" class="footer__container">
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
@@ -54,7 +54,9 @@
 
             <span v-for="link in dropdownLinks" :key="link.name">
               <div>
-                <div class="footer__dropdown__container content-box">
+                <div
+                  class="footer__dropdown__container content-box flex--column"
+                >
                   <h5>{{ link.name }}</h5>
                   <g-link
                     v-for="(item, i) in link.src"
@@ -182,7 +184,6 @@ export default {
 
 .footer {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -201,6 +202,7 @@ export default {
     width: 100%;
     align-items: center;
     justify-content: center;
+
     @include lg {
       flex-direction: row;
       align-items: stretch;
@@ -245,7 +247,6 @@ export default {
     background: var(--bg-color);
     padding: 5px;
     display: flex;
-    flex-direction: column;
     > * {
       margin: 5px 0;
     }
@@ -280,7 +281,6 @@ export default {
 .header {
   background: var(--header-color);
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: var(--header-height);
@@ -322,17 +322,12 @@ export default {
       margin: 0;
       padding: 0;
       list-style: none;
-      flex-direction: column;
-
-      @include md {
-        display: flex;
-      }
 
       li {
+        display: flex;
         flex-direction: column;
 
         text-align: center;
-        display: flex;
         justify-content: center;
 
         @include md {
@@ -399,12 +394,6 @@ export default {
           }
         }
       }
-    }
-
-    &__buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     &__toggle {

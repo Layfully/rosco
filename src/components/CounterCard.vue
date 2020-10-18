@@ -1,5 +1,5 @@
 <template>
-  <div class="counter-card">
+  <div class="counter-card flex--column">
     <transition name="slide">
       <span
         v-if="isVisible"
@@ -63,7 +63,6 @@ export default {
   letter-spacing: 0.03rem;
   color: white;
   display: flex;
-  flex-direction: column;
   font-size: 0.75em;
   align-items: center;
 

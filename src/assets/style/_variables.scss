@@ -48,26 +48,3 @@ body {
     --header-height: 60px;
   }
 }
-
-// Override variables for Dark theme
-body[data-theme="dark"] {
-  --bg-color: #0d2538;
-  --bg-color-dark: #0b1e2e;
-  --bg-content-color: #0f2d44;
-  --bg-code: rgba(0, 0, 0, 0.3);
-  --error-color: red;
-  --success-color: #42b983;
-  --submit-color: #0d2538;
-  --submit-color-hover: #0a1a27;
-  --hr-color: rgba(255, 255, 255, 0.75);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --body-color: #ced8de;
-  --title-color: #fff;
-  --link-color: #ced8de;
-  --link-alt-color: #807eff;
-  --link-border-color: #af9cef;
-  --logo-filter-invert: invert(1);
-  --logo-filter-brightness: brightness(0);
-  --logo-filter-shadow: drop-shadow(1px 1px 3px white);
-  --google-map-filter: invert(1) hue-rotate(190deg);
-}

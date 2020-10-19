@@ -2,15 +2,22 @@
   <div id="app">
     <slot name="heading" />
 
-    <header id="content-start" class="header flex--align-items-center">
+    <header
+      id="content-start"
+      class="header flex--set flex--align-items-center"
+    >
       <div>
         <Logo v-if="showLogo" />
       </div>
       <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
         <ul class="header__menu__list">
-          <transition-group name="slide" appear tag="li">
-            <span v-for="link in singleLinks" :key="link.name" class>
+          <transition-group name="slide" appear tag="li" class="flex--set">
+            <span
+              v-for="link in singleLinks"
+              :key="link.name"
+              class="flex--set"
+            >
               <g-link
                 :to="link.src"
                 class="header__menu__link"
@@ -25,7 +32,10 @@
         </ul>
       </nav>
       <div class="header__menu__buttons">
-        <label for="nav-toggle" class="header__menu__toggle__label">
+        <label
+          for="nav-toggle"
+          class="header__menu__toggle__label flex--set flex--column"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -36,7 +46,10 @@
     <slot />
 
     <footer class="footer flex--column">
-      <div v-if="showFooter" class="footer__container flex--align-items-center">
+      <div
+        v-if="showFooter"
+        class="footer__container flex--set flex--align-items-center"
+      >
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
@@ -55,7 +68,7 @@
             <span v-for="link in dropdownLinks" :key="link.name">
               <div>
                 <div
-                  class="footer__dropdown__container content-box flex--column"
+                  class="footer__dropdown__container content-box flex--set flex--column"
                 >
                   <h5>{{ link.name }}</h5>
                   <g-link
@@ -73,7 +86,7 @@
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
           <p
-            class="footer__text footer__contact flex--content-center"
+            class="footer__text footer__contact flex--set flex--content-center"
             v-for="(contact_detail, i) in $static.contact_data.contact_details"
             :key="'contact-' + i"
             v-html="contact_detail.contact"
@@ -183,8 +196,6 @@ export default {
 }
 
 .footer {
-  display: flex;
-  flex-wrap: wrap;
   padding: calc(var(--space) / 2);
   text-align: center;
   font-size: 0.8em;
@@ -195,7 +206,6 @@ export default {
   padding-bottom: calc(var(--space) / 4);
 
   &__container {
-    display: flex;
     flex-direction: column;
 
     @include lg {
@@ -241,14 +251,12 @@ export default {
   &__dropdown__container {
     background: var(--bg-color);
     padding: 5px;
-    display: flex;
     > * {
       margin: 5px 0;
     }
   }
 
   &__contact {
-    display: flex;
     margin-bottom: 0.9em;
 
     > span {
@@ -264,7 +272,6 @@ export default {
 
 .header {
   background: var(--header-color);
-  display: flex;
   justify-content: space-between;
   height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
@@ -306,7 +313,6 @@ export default {
       list-style: none;
 
       li {
-        display: flex;
         flex-direction: column;
 
         text-align: center;
@@ -314,10 +320,6 @@ export default {
         @include md {
           margin-bottom: 0;
           flex-direction: row;
-        }
-
-        & > span {
-          display: flex;
         }
       }
     }
@@ -407,8 +409,6 @@ export default {
       }
 
       &__label {
-        display: flex;
-        flex-direction: column;
         cursor: pointer;
 
         @include md {
@@ -420,7 +420,6 @@ export default {
         }
 
         span {
-          display: flex;
           width: 29px;
           height: 2px;
           margin: 2.5px 0;

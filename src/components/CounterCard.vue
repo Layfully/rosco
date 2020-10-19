@@ -1,5 +1,5 @@
 <template>
-  <div class="counter-card flex--column flex--align-items-center">
+  <div class="counter-card flex--set flex--column flex--align-items-center">
     <transition name="slide">
       <span
         v-if="isVisible"
@@ -62,7 +62,6 @@ export default {
   font-weight: 600;
   letter-spacing: 0.03rem;
   color: white;
-  display: flex;
   font-size: 0.75em;
 
   > h3 {

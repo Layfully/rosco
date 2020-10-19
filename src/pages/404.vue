@@ -1,6 +1,6 @@
 <template>
   <Layout :showFooter="false">
-    <main class="error__container flex--align-items-center">
+    <main class="error__container flex--set flex--align-items-center">
       <section class="page-container text-center">
         <header>
           <h1 class="error-number">404</h1>
@@ -10,7 +10,7 @@
           Przykro nam, ale strona, której szukasz nie istnieje. Prosimy o
           sprawdzenie wprowadzonego adresu, lub o skorzystanie z nawigacji.
         </p>
-        <div class="button__container">
+        <div class="button__container flex--set">
           <!-- flex classes on button may be not needed review it-->
           <g-link
             to="/"
@@ -49,7 +49,6 @@ export default {};
 }
 
 .button__container {
-  display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
 
@@ -67,7 +66,6 @@ export default {};
 }
 
 .error__container {
-  display: flex;
   flex-wrap: wrap;
 
   height: calc(100vh - var(--header-height));

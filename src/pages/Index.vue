@@ -3,7 +3,7 @@
     <template #heading>
       <header
         v-show="!pageVisited"
-        class="main__image flex--content-center flex--align-items-center"
+        class="main__image flex--set flex--content-center flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
@@ -12,7 +12,7 @@
         }"
       >
         <div
-          class="main__image__container flex--column flex--align-items-center"
+          class="main__image__container flex--set flex--column flex--align-items-center"
         >
           <transition name="fade-image" appear>
             <h2 class="main__image__message text-large text-center">
@@ -34,7 +34,7 @@
       </header>
     </template>
     <main class="main-nomargin">
-      <div class="grid flex--column">
+      <div class="grid flex--set flex--column">
         <h1>{{ $page.pageData.offer_title }}</h1>
 
         <div class="grid__container">
@@ -50,7 +50,7 @@
             />
           </div>
 -->
-          <div class="grid__row flex--content-center">
+          <div class="grid__row flex--set flex--content-center">
             <OfferCard
               v-for="offer in $page.posts.edges"
               :key="offer.node.id"
@@ -61,7 +61,7 @@
         <div class="grid__container gradient">
           <h1>Rosco Serwis w liczbach</h1>
 
-          <section class="grid__row flex--content-center">
+          <section class="grid__row flex--set flex--content-center">
             <CounterCard
               v-for="(counter, i) in counters"
               :key="'counter' + i"
@@ -182,16 +182,13 @@ export default {
   min-height: 100vh;
   width: 100%;
   padding: 15% 5%;
-  display: flex;
 
   @include md {
     padding: 0;
   }
 
   &__container {
-    height: 100%;
     color: var(--title-color);
-    display: flex;
   }
 
   &__message {
@@ -205,8 +202,6 @@ export default {
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 
   &__container {
@@ -219,7 +214,6 @@ export default {
   }
 
   &__row {
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 

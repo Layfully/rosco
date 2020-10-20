@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+#app {
+  background: url("~@/assets/image/background.webp");
+}
+
 .fade-enter-active {
   transition: opacity 1s, transform var(--transition-time-long);
 }
@@ -45,33 +49,19 @@ export default {
   src: url("./assets/fonts/MontserratRegular.eot"); /* IE9 Compat Modes */
   src: url("./assets/fonts/MontserratRegular.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/MontserratRegular.otf") format("opentype"),
+    url("./assets/fonts/MontserratRegular.woff2") format("woff2"),
+    /* Modern Browsers */ /* IE6-IE8 */
+      url("./assets/fonts/MontserratRegular.otf") format("opentype"),
     /* Open Type Font */ url("./assets/fonts/MontserratRegular.svg")
       format("svg"),
     /* Legacy iOS */ url("./assets/fonts/MontserratRegular.ttf")
       format("truetype"),
     /* Safari, Android, iOS */ url("./assets/fonts/MontserratRegular.woff")
-      format("woff"),
-    /* Modern Browsers */ url("./assets/fonts/MontserratRegular.woff2")
-      format("woff2"); /* Modern Browsers */
+      format("woff");
+  /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("./assets/fonts/MontserratBold.eot"); /* IE9 Compat Modes */
-  src: url("./assets/fonts/MontserratBold.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/MontserratBold.otf") format("opentype"),
-    /* Open Type Font */ url("./assets/fonts/MontserratBold.svg") format("svg"),
-    /* Legacy iOS */ url("./assets/fonts/MontserratBold.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("./assets/fonts/MontserratBold.woff")
-      format("woff"),
-    /* Modern Browsers */ url("./assets/fonts/MontserratBold.woff2")
-      format("woff2"); /* Modern Browsers */
-  font-weight: bold;
-  font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -79,15 +69,17 @@ export default {
   font-family: "Lato";
   src: url("./assets/fonts/LatoRegular.eot"); /* IE9 Compat Modes */
   src: url("./assets/fonts/LatoRegular.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/LatoRegular.otf") format("opentype"),
+    url("./assets/fonts/LatoRegular.woff2") format("woff2"),
+    /* Modern Browsers */ /* IE6-IE8 */ url("./assets/fonts/LatoRegular.otf")
+      format("opentype"),
     /* Open Type Font */ url("./assets/fonts/LatoRegular.svg") format("svg"),
     /* Legacy iOS */ url("./assets/fonts/LatoRegular.ttf") format("truetype"),
     /* Safari, Android, iOS */ url("./assets/fonts/LatoRegular.woff")
-      format("woff"),
-    /* Modern Browsers */ url("./assets/fonts/LatoRegular.woff2")
-      format("woff2"); /* Modern Browsers */
+      format("woff");
+  /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* font converted using font-converter.net. thank you! */
@@ -96,18 +88,31 @@ export default {
   src: url("./assets/fonts/MontserratSemiBold.eot"); /* IE9 Compat Modes */
   src: url("./assets/fonts/MontserratSemiBold.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("./assets/fonts/MontserratSemiBold.otf")
-      format("opentype"),
+    url("./assets/fonts/MontserratSemiBold.woff2") format("woff2"),
+    /* Modern Browsers */ /* IE6-IE8 */
+      url("./assets/fonts/MontserratSemiBold.otf") format("opentype"),
     /* Open Type Font */ url("./assets/fonts/MontserratSemiBold.svg")
       format("svg"),
     /* Legacy iOS */ url("./assets/fonts/MontserratSemiBold.ttf")
       format("truetype"),
     /* Safari, Android, iOS */ url("./assets/fonts/MontserratSemiBold.woff")
-      format("woff"),
-    /* Modern Browsers */ url("./assets/fonts/MontserratSemiBold.woff2")
-      format("woff2"); /* Modern Browsers */
+      format("woff");
+  /* Modern Browsers */
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "icons";
+  src: url("./assets/fonts/icons.eot");
+  src: url("./assets/fonts/icons.eot#iefix") format("embedded-opentype"),
+    url("./assets/fonts/icons.svg?#icons") format("svg"),
+    url("./assets/fonts/icons.ttf") format("truetype"),
+    url("./assets/fonts/icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 .grecaptcha-badge {

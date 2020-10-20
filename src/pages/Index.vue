@@ -2,8 +2,8 @@
   <Layout>
     <template #heading>
       <header
-        v-show="!pageVisited"
-        class="main__image"
+        v-if="!pageVisited"
+        class="main__image flex--set flex--content-center flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
@@ -11,7 +11,9 @@
             ')',
         }"
       >
-        <div class="main__image__container">
+        <div
+          class="main__image__container flex--set flex--column flex--align-items-center"
+        >
           <transition name="fade-image" appear>
             <h2 class="main__image__message text-large text-center">
               {{ $page.pageData.welcome_screen.welcome_text }}
@@ -24,7 +26,7 @@
                 el: '#content-start',
                 onDone: pageVisitedHanlder,
               }"
-              class="main__image__button"
+              class="button button--white"
               >{{ $page.pageData.welcome_screen.welcome_button }}</a
             >
           </transition>
@@ -32,7 +34,7 @@
       </header>
     </template>
     <main class="main-nomargin">
-      <div class="grid">
+      <div class="grid flex--set flex--column">
         <h1>{{ $page.pageData.offer_title }}</h1>
 
         <div class="grid__container">
@@ -48,7 +50,7 @@
             />
           </div>
 -->
-          <div class="grid__row">
+          <div class="grid__row flex--set flex--content-center">
             <OfferCard
               v-for="offer in $page.posts.edges"
               :key="offer.node.id"
@@ -59,7 +61,7 @@
         <div class="grid__container gradient">
           <h1>Rosco Serwis w liczbach</h1>
 
-          <section class="grid__row">
+          <section class="grid__row flex--set flex--content-center">
             <CounterCard
               v-for="(counter, i) in counters"
               :key="'counter' + i"
@@ -81,8 +83,7 @@ query {
         title
         date (format: "D. MMMM YYYY")
         timeToRead
-        description
-        cover_image (width: 300, height: 400, quality:100, fit: outside)
+        card_image (width: 400, height: 300, quality:100, fit: outside)
         ...on Offer {
         id
         title
@@ -106,13 +107,11 @@ query {
 </page-query>
 
 <script>
-import Author from "@/components/Author.vue";
 import OfferCard from "@/components/OfferCard.vue";
 import CounterCard from "@/components/CounterCard.vue";
 
 export default {
   components: {
-    Author,
     OfferCard,
     CounterCard,
   },
@@ -130,13 +129,25 @@ export default {
           endValue: 700000,
           title: "Metrów położonych kabli",
           icon: "swap_calls",
+          iconalt: "ikona kabli",
         },
-        { endValue: 700000, title: "Lat doświadczenia", icon: "access_time" },
-        { endValue: 700000, title: "Wypitych kaw", icon: "local_cafe" },
+        {
+          endValue: 700000,
+          title: "Lat doświadczenia",
+          icon: "access_time",
+          iconalt: "ikona zegaru",
+        },
+        {
+          endValue: 700000,
+          title: "Wypitych kaw",
+          icon: "local_cafe",
+          iconalt: "ikona kubka kawy",
+        },
         {
           endValue: 700000,
           title: "Przewiniętych silników",
           icon: "shutter_speed",
+          iconalt: "ikona silnika",
         },
       ],
     };
@@ -170,54 +181,26 @@ export default {
   min-height: 100vh;
   width: 100%;
   padding: 15% 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   @include md {
     padding: 0;
   }
 
   &__container {
-    height: 100%;
     color: var(--title-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   &__message {
-    margin: 0;
+    margin: 0 auto;
     color: white;
 
     @include sm {
       margin-bottom: 1em;
     }
-    font-family: "Montserrat", "New York,", serif !important;
-  }
-
-  &__button {
-    font-weight: bold;
-    border: 2px solid var(--title-color);
-    padding: 7px 20px;
-    color: white !important;
-    border-color: white;
-    transition: background-color var(--transition-time-long) ease,
-      color var(--transition-time-long) ease,
-      border-color var(--transition-time-long) ease;
-
-    &:hover {
-      background-color: white;
-      color: black !important;
-    }
   }
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 
   &__container {
@@ -230,10 +213,7 @@ export default {
   }
 
   &__row {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
     flex-wrap: wrap;
 
     @include md {

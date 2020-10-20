@@ -3,16 +3,13 @@
     <g-link :to="offer.path">
       <g-image
         alt="Cover image"
-        v-if="offer.cover_image"
+        v-if="offer.card_image"
         class="offer-card__image"
-        :src="offer.cover_image"
+        :src="offer.card_image"
         fit="contain"
       />
       <div class="offer-card__overlay">
-        <span class="offer-card__title">
-          <h3>{{ offer.title }}</h3>
-        </span>
-        <span class="offer-card__blocker"> </span>
+        <h3 class="offer-card__title">{{ offer.title }}</h3>
       </div>
     </g-link>
   </div>
@@ -32,12 +29,9 @@ export default {
 <style lang="scss" scoped>
 .offer-card {
   height: 300px;
-  overflow: hidden;
   margin: calc(var(--space) / 4) calc(var(--space) / 2);
-  text-align: center;
-  color: white;
-  position: relative;
   width: calc(100% - (var(--space)));
+  position: relative;
 
   @include md {
     margin: calc(var(--space) / 4);
@@ -45,8 +39,6 @@ export default {
   }
 
   @include lg {
-    height: 300px;
-    margin: calc(var(--space) / 4);
     width: calc(100% / 3 - var(--space) / 4 * 2);
   }
 
@@ -63,13 +55,6 @@ export default {
     cursor: pointer;
   }
 
-  &:hover .offer-card__blocker {
-    opacity: 0.9;
-    cursor: pointer;
-  }
-  &:hover .offer-card__title {
-    opacity: 1;
-  }
   &:hover .offer-card__title {
     transform: translate(-50%, -50%);
   }
@@ -96,28 +81,9 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 80%);
-    opacity: 0;
-    transition: opacity 0.7s ease-out,
-      transform var(--transition-time-long) ease;
-
-    pointer-events: none;
-
-    > h3 {
-      color: white;
-    }
-  }
-
-  &__blocker {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 69%);
-    transition: var(--transition-time-long);
-    pointer-events: none;
-    height: 30%;
-    width: 100%;
-    background: inherit;
+    transform: translate(-50%, -50%);
+    transition: transform var(--transition-time-long) ease;
+    color: white;
   }
 }
 

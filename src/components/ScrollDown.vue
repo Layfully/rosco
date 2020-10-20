@@ -5,9 +5,9 @@
       el: anchor,
       offset: () => (isMobile() ? -76 : -111),
     }"
-    class="scroll-down"
+    class="flex--set flex--column flex--align-items-center"
   >
-    <div class="mouse">
+    <div class="mouse flex--set">
       <span></span>
     </div>
     <div class="arrow"></div>
@@ -27,19 +27,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scroll-down {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .mouse {
   width: 1.3rem;
   height: 3rem;
   border: 2px solid #fff;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
-  display: flex;
 
   & span {
     width: 0.6rem;

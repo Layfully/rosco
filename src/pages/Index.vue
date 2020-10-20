@@ -2,7 +2,7 @@
   <Layout>
     <template #heading>
       <header
-        v-show="!pageVisited"
+        v-if="!pageVisited"
         class="main__image flex--set flex--content-center flex--align-items-center"
         :style="{
           backgroundImage:

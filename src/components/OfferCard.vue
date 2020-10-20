@@ -3,9 +3,9 @@
     <g-link :to="offer.path">
       <g-image
         alt="Cover image"
-        v-if="offer.cover_image"
+        v-if="offer.card_image"
         class="offer-card__image"
-        :src="offer.cover_image"
+        :src="offer.card_image"
         fit="contain"
       />
       <div class="offer-card__overlay">
@@ -81,7 +81,7 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, -50%);
     transition: transform var(--transition-time-long) ease;
     color: white;
   }

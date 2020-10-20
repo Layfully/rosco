@@ -2,7 +2,7 @@
   <Layout>
     <main>
       <header
-        class="main__image flex--align-items-center"
+        class="main__image flex--set flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(' +

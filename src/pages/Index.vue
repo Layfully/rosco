@@ -83,8 +83,7 @@ query {
         title
         date (format: "D. MMMM YYYY")
         timeToRead
-        description
-        cover_image (width: 400, height: 300, quality:100, fit: outside)
+        card_image (width: 400, height: 300, quality:100, fit: outside)
         ...on Offer {
         id
         title
@@ -192,7 +191,7 @@ export default {
   }
 
   &__message {
-    margin: 0;
+    margin: 0 auto;
     color: white;
 
     @include sm {

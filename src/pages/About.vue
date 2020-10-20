@@ -31,8 +31,7 @@
         </div>
       </header>
       <article id="content">
-        <div class="about page-container" v-html="$page.pageData.content">
-        </div>
+        <div class="about page-container" v-html="$page.pageData.content"></div>
       </article>
     </main>
   </Layout>
@@ -40,7 +39,7 @@
 
 <page-query>
 query {
-  pageData: pageData(path: "/content/pages/about/") {
+  pageData(path: "/content/pages/about/") {
     main_image
     description
     title

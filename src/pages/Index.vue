@@ -94,7 +94,7 @@ query {
     }
   }
 
-  pageData: pageData(path: "/content/pages/home/"){
+  pageData(path: "/content/pages/home/"){
     welcome_screen {
       welcome_text
       welcome_button

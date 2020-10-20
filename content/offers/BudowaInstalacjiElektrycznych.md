@@ -1,6 +1,5 @@
 ---
 title: Budowa instalacji elektrycznych
-date: 2019-01-07T00:00:00.000Z
 published: true
 card_image: ../../static/images/uploads/InstalacjeElektryczneKarta.webp
 offer_image: ../../static/images/uploads/InstalacjeElektryczne.webp
@@ -23,4 +22,3 @@ Realizujemy generalne wykonawstwo w zakresie instalacji elektrycznych budownictw
 11. SAP.
 12. BMS.
 13. Odgromowe i uziemiające.
-

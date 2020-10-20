@@ -114,15 +114,7 @@ query {
   posts: allOffer(filter: { published: { eq: true }}) {
     edges {
       node {
-        id
         title
-        timeToRead
-        card_image (width: 770, height: 380, blur: 10)
-        ...on Offer {
-          id
-          title
-          path
-        }
         path
       }
     }

@@ -38,8 +38,6 @@ export default {
 query Offer ($id: ID!) {
   offer: offer (id: $id) {
     title
-    path
-    timeToRead
     content
     offer_image (width: 1349, height: 286)
   }

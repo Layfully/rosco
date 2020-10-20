@@ -51,7 +51,6 @@
         class="footer__container flex--set flex--align-items-center"
       >
         <section class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
         <section

@@ -31,12 +31,7 @@
         </div>
       </header>
       <article id="content">
-        <div class="about page-container">
-          <h2 class="text-center margin-space-auto">
-            Opis działalności firmy Rosco Serwis
-          </h2>
-          <hr class="margin-space-auto" />
-          <section v-html="$page.pageData.content"></section>
+        <div class="about page-container" v-html="$page.pageData.content">
         </div>
       </article>
     </main>

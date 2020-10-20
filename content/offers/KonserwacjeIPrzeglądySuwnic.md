@@ -1,6 +1,5 @@
 ---
 title: Konserwacje i przeglądy suwnic
-date: 2019-01-07T00:00:00.000Z
 published: true
 card_image: ../../static/images/uploads/SuwnicaKarta.webp
 offer_image: ../../static/images/uploads/Suwnica.webp
@@ -13,4 +12,4 @@ Od wielu lat prowadzimy prace związane z konserwacją, przeglądami i usuwaniem
 1. Przeglądy, pomiary elektryczne, ocena stanu instalacji sterowniczych i siłowych suwnic.
 2. Naprawymechanizmów podnoszenia, jazdy wciągarki, jazdy suwnicy dla układów klasycznych i falownikowych.
 3. Przygotowanie suwnicy do odbioru po wykonanej naprawie i modernizacji z dostawą ciężarów oraz wykonaniem prób obciążeniowych zgodnych z wymaganiami UDT.
-4. Uczestnictwo w odbiorze technicznym z zapewnieniem ciężarów do badań, obsługi operatora i konserwatora w zależności od potrzeb klienta. 
+4. Uczestnictwo w odbiorze technicznym z zapewnieniem ciężarów do badań, obsługi operatora i konserwatora w zależności od potrzeb klienta.

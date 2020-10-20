@@ -4,9 +4,9 @@ main_image: ../../../static/images/uploads/onas1.webp
 description: "
 Firma Rosco Serwis Sp. z o.o. istnieje na rynku od 2020 roku, powstała w wyniku podziału branży elektrycznej spółki Erbet. Tworzy ją wysokiej klasy zespół doświadczonych i wykwalifikowanych pracowników, którzy swoje umiejętności zdobywali przez wiele lat działając w branży elektrycznej, specjalizując się w utrzymaniu ruchu w zakładzie produkcyjnym oraz realizując liczne projekty w zakresie kompleksowej budowy i uruchomienia infrastruktury elektrycznej.
 "
-content:
-  "
-
+---
+  <h2 class="text-center margin-space-auto">Opis działalności firmy Rosco Serwis</h2>  
+  <hr class="margin-space-auto"/>
 
   Głównym profilem naszej działalności jest:
 
@@ -29,4 +29,3 @@ content:
   * Budowa, modernizacja i remonty sieci elektroenergetycznych średniego i niskiego napięcia
 
   * Budownictwo przemysłowe i remonty budowlane"
----

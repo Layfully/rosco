@@ -1,6 +1,5 @@
 ---
 title: Utrzymanie ruchu w zakładach przemysłowych
-date: 2020-08-21T07:42:28.562Z
 published: true
 card_image: ../../static/images/uploads/zaklad_przemyslowy.webp
 offer_image: ../../static/images/uploads/ZakladPrzemyslowy.webp
@@ -10,7 +9,7 @@ Głównym i podstawowym obszarem naszego działania stanowi świadczenie
 usług z zakresu utrzymania ruchu w zakresie instalacji elektrycznych
 na zakładach przemysłowych. Obecnie nasze działania koncentrują się na
 obsłudze dwóch kluczowych kontrachentów, z którymi współpraca układa
-się w niez  
+się w niez
 
 **Zakres naszej działalności w tym obszarze obejmuje:**
 

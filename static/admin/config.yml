@@ -14,7 +14,6 @@ collections:
     extension: "md"
     fields: # The fields for each document, usually in front matter
       - { label: "Tytuł", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime" }
       - {
           label: "Opublikowana",
           name: "published",
@@ -89,6 +88,28 @@ collections:
           - {
               label: Nagłówek nad formularzem,
               name: form_title,
+              widget: string,
+            }
+
+      - name: notFound
+        label: Nie Znaleziono
+        file: content/pages/notFound/index.md
+        fields:
+          - { label: Kod numeru błędu, name: error_number, widget: string }
+          - {
+              label: Treść nagłówka wyświetlonego pod numerem 404,
+              name: error_title,
+              widget: string,
+            }
+          - {
+              label: Treść przycisku służącego do przejścia na stronę główną,
+              name: home_button_title,
+              widget: string,
+            }
+
+          - {
+              label: Treść przycisku służącego do przejścia na stronę kontaktową,
+              name: contact_button_title,
               widget: string,
             }
 

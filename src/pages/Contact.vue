@@ -34,8 +34,7 @@
 
         <div class="contact page-container flex--set">
           <section>
-            <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
-            <p v-html="$page.pageData.contact_content"></p>
+            <span v-html="$page.pageData.content"></span>
             <p
               class="footer__contact"
               v-for="(contact_detail, i) in $static.contact_data
@@ -135,7 +134,7 @@
 query {
   pageData: pageData(path: "/content/pages/contact/") {
     contact_title
-    contact_content
+    content
     form_title
   }
 }

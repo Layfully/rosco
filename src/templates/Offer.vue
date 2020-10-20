@@ -12,8 +12,7 @@
       >
         <h1>{{ $page.offer.title }}</h1>
       </header>
-      <article class="page-container" v-html="$page.offer.content">
-      </article>
+      <article class="page-container" v-html="$page.offer.content"></article>
     </main>
   </Layout>
 </template>
@@ -39,9 +38,6 @@ export default {
 query Offer ($id: ID!) {
   offer: offer (id: $id) {
     title
-    path
-    date (format: "D. MMMM YYYY")
-    timeToRead
     content
     offer_image (width: 1349, height: 286)
   }
@@ -51,7 +47,7 @@ query Offer ($id: ID!) {
 <style lang="scss" scoped>
 .offer__title {
   padding: 100px;
-  background-size:cover;
+  background-size: cover;
   background-position-x: center;
 
   & > h1 {

@@ -96,14 +96,13 @@ collections:
               required: true,
             }
 
-          - {
-              label: "Liczniki",
-              name: "counters",
-              widget: "list",
-              fields: 
-                - { label: Wartość licznika, name: counter_value, widget: number }
-                - { label: Tytuł licznika, name: counter_title, widget: string }
-            }
+          - label: "Liczniki",
+            name: "counters",
+            widget: "list",
+            fields: 
+              - { label: Wartość licznika, name: counter_value, widget: number }
+              - { label: Tytuł licznika, name: counter_title, widget: string }
+            
 
       - name: contact
         label: Kontakt

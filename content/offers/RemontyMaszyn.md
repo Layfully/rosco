@@ -1,6 +1,5 @@
 ---
 title: Remonty i naprawy maszyn i urządzeń elektrycznych
-date: 2019-01-07T00:00:00.000Z
 published: true
 card_image: ../../static/images/uploads/silniki.webp
 offer_image: ../../static/images/uploads/RemontSilnikow.webp

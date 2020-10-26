@@ -79,22 +79,14 @@ query {
   posts: allOffer(filter: { published: { eq: true }}) {
     edges {
       node {
-        id
         title
-        date (format: "D. MMMM YYYY")
-        timeToRead
         card_image (width: 400, height: 300, quality:100, fit: outside)
-        ...on Offer {
-        id
-        title
-        path
-        }
         path
       }
     }
   }
 
-  pageData: pageData(path: "/content/pages/home/"){
+  pageData(path: "/content/pages/home/"){
     welcome_screen {
       welcome_text
       welcome_button

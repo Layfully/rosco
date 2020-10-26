@@ -175,5 +175,10 @@ collections:
               name: "contacts",
               widget: "list",
               fields:
-              - { label: "Nazwa", name: "contact", widget: "markdown" }
+              - { 
+                  label: "Nazwa",
+                  name: "contact",
+                  widget: "markdown",
+                  required: true 
+                }
             }

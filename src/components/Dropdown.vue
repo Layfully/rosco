@@ -13,7 +13,7 @@
       <div
         v-for="(item, i) in items"
         :key="i"
-        class="dropdown__menu__item"
+        class="dropdown__menu__item flex--set flex--content-center"
         :class="{ dropdown__menu__item__active: isActive(item.node.path) }"
       >
         <g-link :to="item.node.path">{{ item.node.title }}</g-link>
@@ -50,38 +50,33 @@ export default {
 <style lang="scss">
 .dropdown {
   position: relative;
-  text-align: center;
 
   svg {
     transition: transform var(--transition-time);
   }
 
   &:hover > svg {
-    transform: rotate(90deg);
+    transform: rotateZ(90deg);
   }
 
   &:hover > &__menu {
     opacity: 1;
-    height: auto;
   }
-
+  
   &:hover > &__menu > &__menu__item {
-    display: flex;
-  }
+    visibility: visible;
+    transform: translateY(0px);
+}
 
   &__triangle {
-    fill: var(--title-color);
-    margin-left: calc(var(--space) / 6);
-    margin-bottom: 3px;
+    margin-left: calc(var(--space) / 10);
+    margin-bottom: 1px;
   }
 
   &__menu {
     opacity: 0;
     height: 0px;
-    transition: var(--transition-time);
-    background-color: var(--bg-color);
-    border-radius: var(--radius);
-    z-index: 100;
+    
 
     @include md {
       border: 1px solid var(--border-color);
@@ -93,11 +88,12 @@ export default {
     }
 
     &__item {
+
       background-color: var(--bg-color);
       padding: 10px 14px;
-      display: none;
-      justify-content: center;
-      transition: background-color var(--transition-time) ease;
+      transition: background-color var(--transition-time) ease, transform var(--transition-time-long) ease;      
+      visibility: hidden;
+      transform: translateY(20px);
 
       @include md {
         font-size: 0.8em;

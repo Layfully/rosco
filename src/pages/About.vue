@@ -2,7 +2,7 @@
   <Layout>
     <main>
       <header
-        class="main__image"
+        class="main__image flex--set flex--align-items-center"
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(' +
@@ -10,7 +10,9 @@
             ')',
         }"
       >
-        <div class="main__image__container text-center">
+        <div
+          class="main__image__container flex--column flex--align-items-center text-center"
+        >
           <transition name="fade-image" appear>
             <h1 class="main__image__message text-large space-bottom">
               {{ $page.pageData.title }}
@@ -29,13 +31,7 @@
         </div>
       </header>
       <article id="content">
-        <div class="about page-container">
-          <h2 class="text-center margin-space-auto">
-            Opis działalności firmy Rosco Serwis
-          </h2>
-          <hr class="margin-space-auto" />
-          <section v-html="$page.pageData.content"></section>
-        </div>
+        <div class="about page-container" v-html="$page.pageData.content"></div>
       </article>
     </main>
   </Layout>
@@ -43,7 +39,7 @@
 
 <page-query>
 query {
-  pageData: pageData(path: "/content/pages/about/") {
+  pageData(path: "/content/pages/about/") {
     main_image
     description
     title
@@ -74,9 +70,5 @@ export default {
 
 li {
   margin-left: 0.5rem;
-}
-
-#app {
-  background: url("~@/assets/image/background.webp");
 }
 </style>

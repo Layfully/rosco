@@ -13,10 +13,7 @@
 
           <div>
             <slot name="footer">
-              <button
-                class="contact__form__fieldset__input modal__button"
-                @click="$emit('close')"
-              >
+              <button class="button button--black" @click="$emit('close')">
                 OK
               </button>
             </slot>
@@ -73,13 +70,6 @@
       color: var(--success-color);
     }
   }
-
-  &__button {
-    &:hover {
-      background: var(--submit-color-hover);
-      cursor: pointer;
-    }
-  }
 }
 p {
   white-space: pre-line;
@@ -94,7 +84,6 @@ p {
 
 .modal-enter .modal__container,
 .modal-leave-active .modal__container {
-  -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 </style>

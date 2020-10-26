@@ -1,9 +1,13 @@
 <template>
-  <div class="counter-card">
+  <div class="counter-card flex--set flex--column flex--align-items-center">
     <transition name="slide">
-      <span v-if="isVisible" class="material-icons icon-big">{{
-        counter.icon
-      }}</span>
+      <span
+        v-if="isVisible"
+        role="img"
+        :aria-label="counter.iconalt"
+        class="icon-big"
+        >{{ counter.icon }}</span
+      >
     </transition>
     <CountTo
       ref="counter"
@@ -14,7 +18,7 @@
       v-view.once="viewHandler"
       class="counter-card__counter"
     ></CountTo>
-    <span class="counter-card__title">{{ counter.title }}</span>
+    <h3 class="counter-card__title">{{ counter.title }}</h3>
   </div>
 </template>
 
@@ -54,16 +58,15 @@ export default {
 <style lang="scss" scoped>
 .counter-card {
   margin: var(--space) 0;
-  font-family: "Montserrat";
-  text-align: center;
+  font-family: "Montserrat", "Verdana", "sans-serif";
+  font-weight: 600;
+  letter-spacing: 0.03rem;
   color: white;
-  position: relative;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
   font-size: 0.75em;
-  align-items: center;
+
+  > h3 {
+    color: white;
+  }
 
   @include md {
     width: 25%;
@@ -72,17 +75,12 @@ export default {
 
   @include lg {
     margin: calc(var(--space));
-
     width: calc(25% - (var(--space) * 3));
   }
 
   &__counter {
     font-size: 1.5rem;
     margin: calc(var(--space) / 4) 0;
-  }
-
-  &__title {
-    font-weight: bolder;
   }
 }
 
@@ -92,16 +90,16 @@ export default {
 }
 .enter {
   opacity: 1;
-} /* Enter and leave animations can use different */
-/* durations and timing functions.              */
+}
+
 .slide-fade-enter-active {
   transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }

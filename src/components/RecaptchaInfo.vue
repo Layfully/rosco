@@ -19,8 +19,6 @@
   margin: var(--space) 0;
   background: var(--bg-color-dark);
   padding: 15px;
-  display: flex;
-  align-items: center;
 
   @include sm {
     margin: 0;

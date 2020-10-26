@@ -6,15 +6,14 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
   - name: "offers" # Used in routes, e.g., /admin/collections/blog
     label: "Oferty" # Used in the UI
-    media_folder: '/static/images/uploads'
-    public_folder: '../../static/images/uploads'
+    media_folder: "/static/images/uploads"
+    public_folder: "../../static/images/uploads"
     folder: "content/offers" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     extension: "md"
     fields: # The fields for each document, usually in front matter
       - { label: "Tytuł", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime" }
       - {
           label: "Opublikowana",
           name: "published",
@@ -22,13 +21,18 @@ collections:
           default: true,
         }
       - {
-          label: "Zdjęcie",
-          name: "cover_image",
+          label: "Zdjęcie minatury oferty",
+          name: "card_image",
           widget: "image",
           required: true,
         }
-      - { label: "Opis", name: "description", widget: "markdown" }
-      - { label: "Zawartość", name: "body", widget: "markdown" }
+      - {
+          label: "Tło nagłówka oferty",
+          name: "offer_image",
+          widget: "image",
+          required: true,
+        }
+      - { label: "Treść", name: "body", widget: "markdown" }
 
   - name: "pages"
     label: "Strony"
@@ -87,6 +91,28 @@ collections:
               widget: string,
             }
 
+      - name: notFound
+        label: Nie Znaleziono
+        file: content/pages/notFound/index.md
+        fields:
+          - { label: Kod numeru błędu, name: error_number, widget: string }
+          - {
+              label: Treść nagłówka wyświetlonego pod numerem 404,
+              name: error_title,
+              widget: string,
+            }
+          - {
+              label: Treść przycisku służącego do przejścia na stronę główną,
+              name: home_button_title,
+              widget: string,
+            }
+
+          - {
+              label: Treść przycisku służącego do przejścia na stronę kontaktową,
+              name: contact_button_title,
+              widget: string,
+            }
+
   - name: "footer"
     label: "Stopka"
     files:
@@ -96,7 +122,7 @@ collections:
         fields:
           - { label: Nagłówek, name: title, widget: string }
           - { label: Notka o firmie, name: content, widget: markdown }
-          
+
       - name: "contact_details"
         label: "Lista kontaktów"
         file: "content/pages/footer/footer_contact_details.md"

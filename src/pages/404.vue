@@ -1,24 +1,41 @@
 <template>
   <Layout :showFooter="false">
-    <main class="error__container">
+    <main class="error__container flex--set flex--align-items-center">
       <section class="page-container text-center">
         <header>
-          <h1 class="error-number">404</h1>
-          <h2>Oops! Ta strona nie istnieje.</h2>
+          <h1 class="error-number">{{ $static.pageData.error_number }}</h1>
+          <h2>{{ $static.pageData.error_title }}</h2>
         </header>
-        <p>
-          Przykro nam. Ale nie można znaleźć strony, której szukasz. Proszę
-          sprawdzić wprowadzony adres i spróbować ponownie, lub skorzystać z
-          nawigacji.
-        </p>
-        <div class="button__container">
-          <g-link to="/" class="button">Powrót do strony głównej </g-link>
-          <g-link to="/kontakt" class="button">Skontaktuj się z nami </g-link>
+        <span v-html="$static.pageData.content"></span>
+        <div class="button__container flex--set">
+          <!-- flex classes on button may be not needed review it-->
+          <g-link
+            to="/"
+            class="button flex--content-center flex--align-items-center"
+            >{{ $static.pageData.home_button_title }}
+          </g-link>
+          <g-link
+            to="/kontakt"
+            class="button flex--content-center flex--align-items-center"
+            >{{ $static.pageData.contact_button_title }}
+          </g-link>
         </div>
       </section>
     </main>
   </Layout>
 </template>
+
+<static-query>
+query {
+  pageData(path: "/content/pages/not-found/") {
+    error_number
+    error_title
+    contact_button_title
+    home_button_title
+    content
+  }
+}
+</static-query>
 
 <script>
 export default {};
@@ -28,7 +45,7 @@ export default {};
 .error-number {
   font-size: 6rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.3)),
-    url("https://www.texturesbackgrounds.com/files/large/electric-power-background.jpg");
+    url("~@/assets/image/electricpower.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -41,7 +58,6 @@ export default {};
 }
 
 .button__container {
-  display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
 
@@ -59,11 +75,7 @@ export default {};
 }
 
 .error__container {
-  flex: 1;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 
   height: calc(100vh - var(--header-height));
   margin: 0 5px;
@@ -73,14 +85,12 @@ export default {};
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  align-items: center;
-  justify-content: center;
 
   border: 2px solid var(--title-color);
   padding: calc(var(--space) / 4) 5px;
   margin: 0 10px;
 
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
 
   border-color: black;
@@ -89,8 +99,7 @@ export default {};
   font-size: 0.95rem;
 
   transition: background-color var(--transition-time-long) ease,
-    color var(--transition-time-long) ease,
-    border-color var(--transition-time-long) ease;
+    color var(--transition-time-long) ease;
 
   @include sm {
     font-size: 1rem;

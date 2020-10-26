@@ -2,15 +2,22 @@
   <div id="app">
     <slot name="heading" />
 
-    <header id="content-start" class="header">
+    <header
+      id="content-start"
+      class="header flex--set flex--align-items-center"
+    >
       <div>
         <Logo v-if="showLogo" />
       </div>
       <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
         <ul class="header__menu__list">
-          <transition-group name="slide" appear tag="li">
-            <span v-for="link in singleLinks" :key="link.name" class>
+          <transition-group name="slide" appear tag="li" class="flex--set">
+            <span
+              v-for="link in singleLinks"
+              :key="link.name"
+              class="flex--set"
+            >
               <g-link
                 :to="link.src"
                 class="header__menu__link"
@@ -25,23 +32,25 @@
         </ul>
       </nav>
       <div class="header__menu__buttons">
-        <label for="nav-toggle" class="header__menu__toggle__label">
+        <label
+          for="nav-toggle"
+          class="header__menu__toggle__label flex--set flex--column"
+        >
           <span></span>
           <span></span>
           <span></span>
         </label>
-        <div>
-          <ToggleTheme />
-        </div>
       </div>
     </header>
 
     <slot />
 
-    <footer class="footer">
-      <div v-if="showFooter" class="footer__container">
+    <footer class="footer flex--column">
+      <div
+        v-if="showFooter"
+        class="footer__container flex--set flex--align-items-center"
+      >
         <section class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">{{ $static.footer_about.title }}</h4>
           <div v-html="$static.footer_about.content"></div>
         </section>
         <section
@@ -57,7 +66,9 @@
 
             <span v-for="link in dropdownLinks" :key="link.name">
               <div>
-                <div class="footer__dropdown__container content-box">
+                <div
+                  class="footer__dropdown__container content-box flex--set flex--column"
+                >
                   <h5>{{ link.name }}</h5>
                   <g-link
                     v-for="(item, i) in link.src"
@@ -74,7 +85,7 @@
         <section class="footer__column space-bottom-small content-box">
           <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
           <p
-            class="footer__text footer__contact-center"
+            class="footer__text footer__contact flex--set flex--content-center"
             v-for="(contact_detail, i) in $static.contact_data.contact_details"
             :key="'contact-' + i"
             v-html="contact_detail.contact"
@@ -103,17 +114,7 @@ query {
   posts: allOffer(filter: { published: { eq: true }}) {
     edges {
       node {
-        id
         title
-        date (format: "D. MMMM YYYY")
-        timeToRead
-        description
-        cover_image (width: 770, height: 380, blur: 10)
-        ...on Offer {
-          id
-          title
-          path
-        }
         path
       }
     }
@@ -135,7 +136,6 @@ query {
 
 <script>
 import Logo from "~/components/Logo.vue";
-import ToggleTheme from "~/components/ToggleTheme.vue";
 import Dropdown from "~/components/Dropdown.vue";
 
 export default {
@@ -160,7 +160,6 @@ export default {
   },
   components: {
     Logo,
-    ToggleTheme,
     Dropdown,
   },
   computed: {
@@ -186,11 +185,6 @@ export default {
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   padding: calc(var(--space) / 2);
   text-align: center;
   font-size: 0.8em;
@@ -201,11 +195,8 @@ export default {
   padding-bottom: calc(var(--space) / 4);
 
   &__container {
-    display: flex;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+
     @include lg {
       flex-direction: row;
       align-items: stretch;
@@ -249,30 +240,16 @@ export default {
   &__dropdown__container {
     background: var(--bg-color);
     padding: 5px;
-    display: flex;
-    flex-direction: column;
     > * {
       margin: 5px 0;
     }
   }
 
   &__contact {
-    display: flex;
-    align-items: center;
     margin-bottom: 0.9em;
-    justify-content: center;
 
     > span {
       margin-right: var(--icon-space);
-    }
-
-    @include md {
-      justify-content: flex-start;
-    }
-
-    &-center {
-      @extend .footer__contact;
-      justify-content: center;
     }
   }
 
@@ -284,10 +261,7 @@ export default {
 
 .header {
   background: var(--header-color);
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
   top: -1px;
@@ -320,33 +294,21 @@ export default {
 
       display: flex;
       justify-content: flex-end;
-      align-items: center;
     }
 
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
-      flex-direction: column;
-
-      @include md {
-        display: flex;
-      }
 
       li {
         flex-direction: column;
 
         text-align: center;
-        display: flex;
-        justify-content: center;
 
         @include md {
           margin-bottom: 0;
           flex-direction: row;
-        }
-
-        & > span {
-          display: flex;
         }
       }
     }
@@ -355,8 +317,7 @@ export default {
       transition: var(--transition-time) !important;
       margin: 0 15px;
       font-size: 0.9rem;
-      font-family: "Montserrat";
-      line-height: calc(var(--header-height) - 1px) !important;
+      line-height: var(--header-height) !important;
       color: var(--title-color) !important;
       width: calc(100% - 30px);
 
@@ -407,12 +368,6 @@ export default {
       }
     }
 
-    &__buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     &__toggle {
       position: absolute !important;
       top: -9999px !important;
@@ -443,8 +398,6 @@ export default {
       }
 
       &__label {
-        display: flex;
-        flex-direction: column;
         cursor: pointer;
 
         @include md {
@@ -456,7 +409,6 @@ export default {
         }
 
         span {
-          display: flex;
           width: 29px;
           height: 2px;
           margin: 2.5px 0;

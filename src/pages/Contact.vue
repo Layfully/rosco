@@ -32,10 +32,9 @@
           ></iframe>
         </div>
 
-        <div class="contact page-container">
+        <div class="contact page-container flex--set">
           <section>
-            <h3 class="text-center">{{ $page.pageData.contact_title }}</h3>
-            <p v-html="$page.pageData.contact_content"></p>
+            <span v-html="$page.pageData.content"></span>
             <p
               class="footer__contact"
               v-for="(contact_detail, i) in $static.contact_data
@@ -47,17 +46,15 @@
           <section>
             <form class="contact__form" @submit.prevent="sendEmail">
               <h3 class="text-center">{{ $page.pageData.form_title }}</h3>
-              <fieldset class="contact__form__fieldset">
-                <legend class="contact__form__fieldset__legend">
+              <fieldset class="contact__fieldset flex--set flex--column">
+                <legend class="contact__fieldset__legend">
                   Formularz kontaktowy
                 </legend>
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="sender"
+                <label class="contact__fieldset__label-required" for="sender"
                   >Imię i nazwisko</label
                 >
                 <input
-                  class="contact__form__fieldset__input"
+                  class="contact__fieldset__input"
                   v-model="formData.sender"
                   id="sender"
                   name="sender"
@@ -65,13 +62,11 @@
                   placeholder="Podaj imię i nazwisko"
                   required
                 />
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="email"
+                <label class="contact__fieldset__label-required" for="email"
                   >Adres e-mail</label
                 >
                 <input
-                  class="contact__form__fieldset__input"
+                  class="contact__fieldset__input"
                   v-model="formData.email"
                   id="email"
                   name="email"
@@ -80,25 +75,23 @@
                   required
                 />
                 <label
-                  class="contact__form__fieldset__label-required"
+                  class="contact__fieldset__label-required"
                   for="emailConfirmation"
                   >Potwierdź email</label
                 >
                 <input
-                  class="contact__form__fieldset__input"
+                  class="contact__fieldset__input"
                   v-model="formData.emailConfirmation"
                   id="emailConfirmation"
                   name="emailConfirmation"
                   type="email"
                   placeholder="Potwierdź email"
                 />
-                <label
-                  class="contact__form__fieldset__label-required"
-                  for="message"
+                <label class="contact__fieldset__label-required" for="message"
                   >Wiadomość</label
                 >
                 <textarea
-                  class="contact__form__fieldset__input-textarea"
+                  class="contact__fieldset__input-textarea"
                   v-model="formData.message"
                   id="message"
                   name="message"
@@ -108,7 +101,7 @@
                   required
                 />
                 <input
-                  class="contact__form__fieldset__input"
+                  class="button button--black"
                   type="submit"
                   name="submit"
                   value="Wyślij"
@@ -141,7 +134,7 @@
 query {
   pageData: pageData(path: "/content/pages/contact/") {
     contact_title
-    contact_content
+    content
     form_title
   }
 }
@@ -283,7 +276,6 @@ query {
 
 <style lang="scss">
 .contact {
-  display: flex;
   flex-direction: column;
   padding-bottom: calc(var(--space) / 2);
   align-items: center;
@@ -325,103 +317,72 @@ query {
     filter: var(--google-map-filter);
   }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
+  &__fieldset {
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    border: groove 2px ThreeDFace;
+    padding-block-start: 0.35em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    padding-inline-start: 0.75em;
+    min-inline-size: min-content;
 
-    &__fieldset {
-      display: flex;
-      flex-direction: column;
-      margin-inline-start: 2px;
-      margin-inline-end: 2px;
-      border: groove 2px ThreeDFace;
-      padding-block-start: 0.35em;
-      padding-inline-end: 0.75em;
-      padding-block-end: 0.625em;
-      padding-inline-start: 0.75em;
-      min-inline-size: min-content;
+    padding: 0 var(--space) var(--space);
 
-      padding: 0 calc(var(--space));
+    @include sm {
+      padding: 0 calc(var(--space) / 2) calc(var(--space) / 2);
+    }
+
+    &__legend {
+      color: var(--title-color);
+      font-weight: bold;
+    }
+    &__label {
+      margin: 0 0 3px 0;
+      padding: 0;
+      font-weight: bold;
+      color: var(--title-color);
+
+      &-required {
+        @extend .contact__fieldset__label;
+        &:after {
+          color: #e32;
+          content: "*";
+          display: inline;
+        }
+      }
+    }
+
+    &__input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--title-color);
+      color: var(--title-color);
+      background-color: var(--bg-color);
+      padding: calc(var(--space) / 3);
+      transition: box-shadow var(--transition-time) ease-in-out;
+      outline: none;
+      font-size: 0.8rem;
 
       @include sm {
-        padding: 0 25px 25px;
+        padding: 10px 15px;
       }
 
-      &__legend {
+      &::placeholder {
+        opacity: 0.8;
         color: var(--title-color);
-        font-weight: bold;
       }
-      &__label {
-        margin: 0 0 3px 0;
-        padding: 0;
-        font-weight: bold;
-        color: var(--title-color);
 
-        &-required {
-          @extend .contact__form__fieldset__label;
-          &:after {
-            color: #e32;
-            content: "*";
-            display: inline;
-          }
-        }
+      &:focus {
+        -moz-box-shadow: 0 0 8px var(--link-border-color);
+        -webkit-box-shadow: 0 0 8px var(--link-border-color);
+        box-shadow: 0 0 8px var(--link-border-color);
+        border: 1px solid var(--body-color);
       }
-      &__input {
-        width: 100%;
-        box-sizing: border-box;
-        border: 1px solid var(--title-color);
-        color: var(--title-color);
-        background-color: var(--bg-color);
-        padding: calc(var(--space) / 3);
-        transition: box-shadow var(--transition-time) ease-in-out;
-        outline: none;
-        font-size: 0.8rem;
 
-        @include sm {
-          padding: 10px 15px;
-        }
-
-        &::placeholder {
-          opacity: 0.8;
-          color: var(--title-color);
-        }
-
-        &[type="submit"] {
-          background: var(--submit-color);
-          padding: calc(var(--space) / 2) var(--space);
-          margin: calc(var(--space)) 0;
-          border: 1px solid var(--title-color);
-          color: var(--title-color);
-          text-transform: uppercase;
-          font-weight: bold;
-          transition: background-color var(--transition-time-long) ease,
-            color var(--transition-time-long) ease,
-            border-color var(--transition-time-long) ease;
-
-          @include sm {
-            padding: 10px;
-            margin: 0;
-            margin-top: 20px;
-          }
-
-          &:hover {
-            background: black;
-            color: white;
-            cursor: pointer;
-          }
-        }
-
-        &:focus {
-          -moz-box-shadow: 0 0 8px var(--link-border-color);
-          -webkit-box-shadow: 0 0 8px var(--link-border-color);
-          box-shadow: 0 0 8px var(--link-border-color);
-          border: 1px solid var(--body-color);
-        }
-
-        &-textarea {
-          @extend .contact__form__fieldset__input;
-          resize: vertical;
-        }
+      &-textarea {
+        @extend .contact__fieldset__input;
+        resize: vertical;
       }
     }
   }

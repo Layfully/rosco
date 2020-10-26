@@ -37,9 +37,9 @@ collections:
   - name: "pages"
     label: "Strony"
     files:
-      - name: "about"
-        label: "O firmie"
-        file: "content/pages/about/index.md"
+      - name: about
+        label: O firmie
+        file: content/pages/about/index.md
         fields:
           - { label: "Tytuł", name: "title", widget: "string", required: true }
           - {
@@ -177,6 +177,6 @@ collections:
               - {
                   label: "Nazwa",
                   name: "contact",
-                  widget: "markdown",
+                  widget: "string",
                   required: true,
                 }

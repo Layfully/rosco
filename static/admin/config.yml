@@ -86,7 +86,7 @@ collections:
                   label: "Obraz tła",
                   name: "welcome_image",
                   widget: "image",
-                  allow_multiple: "false",
+                  allow_multiple: false,
                 }
 
           - {

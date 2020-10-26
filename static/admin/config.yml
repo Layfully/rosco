@@ -81,28 +81,24 @@ collections:
                   widget: "string",
                   required: true,
                 }
-
               - {
                   label: "Obraz tła",
                   name: "welcome_image",
                   widget: "image",
                   allow_multiple: false,
                 }
-
           - {
               label: "Tytuł nad ofertami",
               name: "offer_title",
               widget: "string",
               required: true,
             }
-
-          - label: "Liczniki",
-            name: "counters",
-            widget: "list",
-            fields: 
+          - label: "Liczniki"
+            name: "counters"
+            widget: "list"
+            fields:
               - { label: Wartość licznika, name: counter_value, widget: number }
               - { label: Tytuł licznika, name: counter_title, widget: string }
-            
 
       - name: contact
         label: Kontakt

@@ -6,13 +6,25 @@
           <h1 class="error-number">{{ $static.pageData.error_number }}</h1>
           <h2>{{ $static.pageData.error_title }}</h2>
         </header>
+        <<<<<<< HEAD
+        <p>
+          Przykro nam, ale strona, której szukasz nie istnieje. Prosimy o
+          sprawdzenie wprowadzonego adresu, lub o skorzystanie z nawigacji.
+        </p>
+        =======
         <span v-html="$static.pageData.content"></span>
+        >>>>>>> 2f343cdc5ea4c5face493bcae12f558a1168a5a7
         <div class="button__container flex--set">
           <!-- flex classes on button may be not needed review it-->
           <g-link
             to="/"
             class="button flex--content-center flex--align-items-center"
-            >{{ $static.pageData.home_button_title }}
+            <<<<<<<
+            HEAD
+            >Powrót do strony głównej ======= >{{
+              $static.pageData.home_button_title
+            }}
+            >>>>>>> 2f343cdc5ea4c5face493bcae12f558a1168a5a7
           </g-link>
           <g-link
             to="/kontakt"

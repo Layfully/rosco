@@ -21,7 +21,7 @@ collections:
           default: true,
         }
       - {
-          label: "Zdjęcie minatury oferty",
+          label: "Zdjęcie miniatury oferty",
           name: "card_image",
           widget: "image",
           required: true,
@@ -41,8 +41,25 @@ collections:
         label: "O firmie"
         file: "content/pages/about/index.md"
         fields:
-          - { label: Tytuł, name: title, widget: string }
-          - { label: Tekst o firmie, name: content, widget: markdown }
+          - { label: "Tytuł", name: "title", widget: "string", required: true }
+          - {
+              label: "Zdjęcie w tle",
+              name: "main_image",
+              widget: "image",
+              required: true,
+            }
+          - {
+              label: "Opis nad zdjęciem",
+              name: "description",
+              widget: "markdown",
+              required: true,
+            }
+          - {
+              label: "Opis działalności",
+              name: "body",
+              widget: "markdown",
+              required: true,
+            }
 
       - name: home
         label: Strona Główna
@@ -52,65 +69,86 @@ collections:
             name: welcome_screen
             widget: object
             fields:
-              - label: Tekst powitalny
-                name: welcome_text
-                widget: string
+              - {
+                  label: "Tekst powitalny",
+                  name: "welcome_text",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "Teskt w przycisku",
+                  name: "welcome_button",
+                  widget: "string",
+                  required: true,
+                }
 
-              - label: Teskt Przycisk
-                name: welcome_button
-                widget: string
+              - {
+                  label: "Obraz tła",
+                  name: "welcome_image",
+                  widget: "image",
+                  allow_multiple: "false",
+                }
 
-              - label: Obraz tła
-                name: welcome_image
-                widget: image
-                allow_multiple: false
-
-          - label: Tytuł nad ofertami
-            name: offer_title
-            widget: string
+          - {
+              label: "Tytuł nad ofertami",
+              name: "offer_title",
+              widget: "string",
+              required: true,
+            }
 
       - name: contact
         label: Kontakt
         file: content/pages/contact/index.md
         fields:
           - {
-              label: Nagłówek nad danymi kontaktowymi,
-              name: contact_title,
-              widget: string,
+              label: "Nagłówek nad danymi kontaktowymi",
+              name: "contact_title",
+              widget: "string",
+              required: true,
             }
 
           - {
-              label: Tekst informacyjny,
-              name: contact_content,
-              widget: markdown,
+              label: "Nagłówek nad formularzem",
+              name: "form_title",
+              widget: "string",
+              required: true,
             }
 
           - {
-              label: Nagłówek nad formularzem,
-              name: form_title,
-              widget: string,
+              label: "Tekst informacyjny",
+              name: "body",
+              widget: "markdown",
+              required: true,
             }
 
       - name: notFound
         label: Nie Znaleziono
         file: content/pages/notFound/index.md
         fields:
-          - { label: Kod numeru błędu, name: error_number, widget: string }
           - {
-              label: Treść nagłówka wyświetlonego pod numerem 404,
-              name: error_title,
-              widget: string,
+              label: "Kod numeru błędu",
+              name: "error_number",
+              widget: "string",
+              required: true,
             }
           - {
-              label: Treść przycisku służącego do przejścia na stronę główną,
-              name: home_button_title,
-              widget: string,
+              label: "Treść nagłówka wyświetlonego pod numerem 404",
+              name: "error_title",
+              widget: "string",
+              required: true,
+            }
+          - {
+              label: "Treść przycisku służącego do przejścia na stronę główną",
+              name: "home_button_title",
+              widget: "string",
+              required: true,
             }
 
           - {
-              label: Treść przycisku służącego do przejścia na stronę kontaktową,
-              name: contact_button_title,
-              widget: string,
+              label: "Treść przycisku służącego do przejścia na stronę kontaktową",
+              name: "contact_button_title",
+              widget: "string",
+              required: true,
             }
 
   - name: "footer"
@@ -120,16 +158,22 @@ collections:
         label: "O firmie"
         file: "content/pages/footer/footer_about.md"
         fields:
-          - { label: Nagłówek, name: title, widget: string }
-          - { label: Notka o firmie, name: content, widget: markdown }
+          - {
+              label: "Notka o firmie",
+              name: "body",
+              widget: "markdown",
+              required: true,
+            }
 
       - name: "contact_details"
         label: "Lista kontaktów"
         file: "content/pages/footer/footer_contact_details.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - label: kontakt
-            name: contacts
-            widget: list
-            fields:
-              - { label: Nazwa, name: contact, widget: markdown }
+          - { label: "Title", name: "title", widget: "string", required: true }
+          - {
+              label: "Kontakty",
+              name: "contacts",
+              widget: "list",
+              fields:
+              - { label: "Nazwa", name: "contact", widget: "markdown" }
+            }

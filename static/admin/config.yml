@@ -170,15 +170,13 @@ collections:
         file: "content/pages/footer/footer_contact_details.md"
         fields:
           - { label: "Title", name: "title", widget: "string", required: true }
-          - {
-              label: "Kontakty",
-              name: "contacts",
-              widget: "list",
-              fields:
-              - { 
-                  label: "Nazwa",
-                  name: "contact",
-                  widget: "markdown",
-                  required: true 
-                }
-            }
+          - label: "Kontakty",
+            name: "contacts",
+            widget: "list",
+            fields:
+            - { 
+                label: "Nazwa",
+                name: "contact",
+                widget: "markdown",
+                required: true 
+              }

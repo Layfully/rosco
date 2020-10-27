@@ -11,7 +11,7 @@ Realizujemy generalne wykonawstwo w zakresie instalacji elektrycznych budownictw
 
 1. Głównego zasilania w zakresie NN i ŚN.
 2. Rozdzielnie główne NN i ŚN.
-3. Rodzielnice obiektowe.
+3. Rozdzielnice obiektowe.
 4. Zasilanie ruchome urządzeń za pomocą firanek kablowych, prowadników.
 5. Zasilania rezerwowe - agregaty prądotwórcze, lub UPS.
 6. Oświetlenia ogólnego i awaryjnego.

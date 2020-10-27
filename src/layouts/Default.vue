@@ -83,13 +83,35 @@
           </nav>
         </section>
         <section class="footer__column space-bottom-small content-box">
-          <h4 class="space-bottom-small">{{ $static.contact_data.title }}</h4>
+          <h4 class="space-bottom-small">{{ $static.footer_contact.title }}</h4>
           <p
             class="footer__text footer__contact flex--set flex--content-center"
-            v-for="(contact_detail, i) in $static.contact_data.contact_details"
+            v-for="(contact_detail, i) in $static.contact_data.contacts"
             :key="'contact-' + i"
-            v-html="contact_detail.contact"
-          ></p>
+          >
+            <span class="icon">{{ contact_detail.icon }}</span>
+            <a
+              v-if="contact_detail.type === 'telefon'"
+              class="footer__link"
+              :href="'tel:+48' + contact_detail.contact"
+              >(+48) {{ contact_detail.contact }}</a
+            >
+            <a
+              v-else-if="contact_detail.type === 'adres'"
+              class="footer__link"
+              href="https://www.google.com/maps/place/ROSCO+SERWIS/@49.5845913,20.6657033,17z/data=!3m1!4b1!4m5!3m4!1s0x473de57ba4cdad8f:0x2704aba2804e3887!8m2!3d49.5845913!4d20.667892"
+              >Węgierska 188, 33-300 Nowy Sącz</a
+            >
+            <a
+              v-else-if="contact_detail.type === 'email'"
+              class="footer__link"
+              :href="'mailto:' + contact_detail.contact"
+              >{{ contact_detail.contact }}</a
+            >
+            <template v-else>
+              {{ contact_detail.contact }}
+            </template>
+          </p>
         </section>
       </div>
       <div class="footer__meta text-center">
@@ -124,11 +146,16 @@ query {
     title
     content
   }
-
-  contact_data: pageData(path: "/content/pages/footer/footer-contact-details/") {
+  
+  footer_contact: pageData(path: "/content/pages/footer/footer-contact") {
     title
-    contact_details {
+  }
+
+  contact_data: configData(path: "/content/config/contact/") {
+    contacts {
       contact
+      icon
+      type
     }
   }
 }

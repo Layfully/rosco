@@ -84,6 +84,7 @@ query {
     offer_title
 
     counters {
+      icon
       title
       value
     }

@@ -5,12 +5,16 @@ welcome_screen:
   main_image: /uploads/landing_photo.webp
 offer_title: Nasza Oferta
 counters:
-  - title: Lat doświadczenia
+  - icon: access_time
+    title: Lat doświadczenia
     value: 40
-  - title: Metrów położonych kabli
+  - icon: swap_calls
+    title: Metrów położonych kabli
     value: 400000
-  - title: Przewiniętych silników
+  - icon: shutter_speed
+    title: Przewiniętych silników
     value: 10000
-  - title: Wypitych kaw
+  - icon: local_cafe
+    title: Wypitych kaw
     value: 250000
 ---

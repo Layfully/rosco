@@ -6,7 +6,7 @@
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)), url(' +
-            $page.offer.offer_image.src +
+            $page.offer.offer_image +
             ')',
         }"
       >

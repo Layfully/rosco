@@ -7,7 +7,7 @@
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
-            $page.pageData.welcome_screen.welcome_image +
+            $page.pageData.welcome_screen.main_image +
             ')',
         }"
       >
@@ -78,7 +78,7 @@ query {
     welcome_screen {
       welcome_text
       welcome_button
-      welcome_image
+      main_image
     }
 
     offer_title

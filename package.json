@@ -15,6 +15,7 @@
     "axios": "^0.20.0",
     "gridsome": "^0.7.21",
     "gridsome-plugin-netlify-cms": "^1.0.9",
+    "gridsome-plugin-netlify-cms-paths": "^0.3.1",
     "netlify-cms": "^2.10.66",
     "netlify-cms-widget-material-icons": "^4.0.3",
     "netlify-plugin-csp-generator": "^1.2.2",

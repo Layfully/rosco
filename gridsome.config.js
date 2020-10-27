@@ -27,6 +27,7 @@ module.exports = {
       options: {
         typeName: "Offer",
         path: "content/offers/*.md",
+        coverField: "card_image",
       },
     },
     {
@@ -34,6 +35,20 @@ module.exports = {
       options: {
         typeName: "PageData",
         path: "content/pages/**/*.md",
+        coverField: "main_image",
+      },
+    },
+    {
+      use: "gridsome-plugin-netlify-cms",
+      options: {
+        publicPath: "/admin",
+        plugins: ["netlify-cms-widget-material-icons"],
+      },
+    },
+    {
+      use: "gridsome-plugin-netlify-cms-paths",
+      options: {
+        contentTypes: ["Offer", "PageData"],
       },
     },
     {

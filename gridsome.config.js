@@ -36,6 +36,13 @@ module.exports = {
         path: "content/pages/**/*.md",
       },
     },
+    {
+      use: "gridsome-plugin-netlify-cms",
+      options: {
+        publicPath: "/admin",
+        plugins: ["netlify-cms-widget-material-icons"],
+      },
+    },
   ],
 
   transformers: {

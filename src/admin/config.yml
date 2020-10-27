@@ -97,8 +97,8 @@ collections:
             name: "counters"
             widget: "list"
             fields:
-              - { label: Wartość licznika, name: counter_value, widget: number }
-              - { label: Tytuł licznika, name: counter_title, widget: string }
+              - { label: Wartość licznika, name: title, widget: number }
+              - { label: Tytuł licznika, name: value, widget: string }
 
       - name: contact
         label: Kontakt

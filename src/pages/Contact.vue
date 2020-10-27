@@ -37,11 +37,32 @@
             <span v-html="$page.pageData.content"></span>
             <p
               class="footer__contact"
-              v-for="(contact_detail, i) in $static.contact_data
-                .contact_details"
+              v-for="(contact_detail, i) in $static.contact_data.contacts"
               :key="'contact-' + i"
-              v-html="contact_detail.contact"
-            ></p>
+            >
+              <span class="icon">{{ contact_detail.icon }}</span>
+              <a
+                v-if="contact_detail.type === 'telefon'"
+                class="footer__link"
+                :href="'tel:+48' + contact_detail.contact"
+                >(+48) {{ contact_detail.contact }}</a
+              >
+              <a
+                v-else-if="contact_detail.type === 'adres'"
+                class="footer__link"
+                href="https://www.google.com/maps/place/ROSCO+SERWIS/@49.5845913,20.6657033,17z/data=!3m1!4b1!4m5!3m4!1s0x473de57ba4cdad8f:0x2704aba2804e3887!8m2!3d49.5845913!4d20.667892"
+                >Węgierska 188, 33-300 Nowy Sącz</a
+              >
+              <a
+                v-else-if="contact_detail.type === 'email'"
+                class="footer__link"
+                :href="'mailto:' + contact_detail.contact"
+                >{{ contact_detail.contact }}</a
+              >
+              <template v-else>
+                {{ contact_detail.contact }}
+              </template>
+            </p>
           </section>
           <section>
             <form class="contact__form" @submit.prevent="sendEmail">
@@ -124,7 +145,6 @@
           </h4>
           <div slot="body" v-html="modalMessage.body"></div>
         </modal>
-        <!--<section v-html="$page.pageData.content"></section>-->
       </article>
     </main>
   </Layout>
@@ -139,6 +159,18 @@ query {
   }
 }
 </page-query>
+
+<static-query>
+query {
+  contact_data: configData(path: "/content/config/contact/") {
+    contacts {
+      contact
+      icon
+      type
+    }
+  }
+}
+</static-query>
 
 <script>
 import Modal from "@/components/Modal.vue";
@@ -262,17 +294,6 @@ export default {
   },
 };
 </script>
-
-<static-query>
-query {
-  contact_data: pageData(path: "/content/pages/footer/footer-contact-details/") {
-    title
-    contact_details {
-      contact
-    }
-  }
-}
-</static-query>
 
 <style lang="scss">
 .contact {

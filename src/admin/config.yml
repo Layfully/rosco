@@ -162,11 +162,45 @@ collections:
               required: true,
             }
 
+  - name: "config"
+    label: "Zbiory danych"
+    files:
+      - name: "contact_data"
+        label: "Dane kontaktowe"
+        file: "content/config/contact.md"
+        fields:
+          - label: "Kontakty"
+            name: "contacts"
+            widget: "list"
+            fields:
+              - {
+                  label: "Zawartość",
+                  name: "contact",
+                  widget: "string",
+                  required: true,
+                  hint: "Zawartość kontaktu, może być to np. numer telefonu czy NIP",
+                }
+              - {
+                  label: "Ikona",
+                  name: "icon",
+                  widget: "material-icons",
+                  required: true,
+                  hint: "Ikona wyświetlająca się obok kontaktu",
+                }
+              - {
+                  label: "Typ kontaktu",
+                  name: "type",
+                  widget: "select",
+                  options: ["telefon", "e-mail", "adres", "inny"],
+                  required: true,
+                  hint: "Typ kontatku decyduje o akcji wykonywanej po nacisnięciu na niego (dzwonienie, wysyłanie maila, etc.)",
+                }
+
   - name: "footer"
     label: "Stopka"
     files:
       - name: "about"
-        label: "O firmie"
+        label: "Sekcja o firmie"
         file: "content/pages/footer/footer_about.md"
         fields:
           - {
@@ -176,18 +210,13 @@ collections:
               required: true,
             }
 
-      - name: "contact_details"
-        label: "Lista kontaktów"
-        file: "content/pages/footer/footer_contact_details.md"
+      - name: "contact"
+        label: "Sekcja kontaktowa"
+        file: "content/pages/footer/footer_contact.md"
         fields:
-          - { label: "Title", name: "title", widget: "string", required: true }
-          - label: "Kontakty"
-            name: "contacts"
-            widget: "list"
-            fields:
-              - {
-                  label: "Nazwa",
-                  name: "contact",
-                  widget: "string",
-                  required: true,
-                }
+          - {
+              label: "Nagłówek",
+              name: "title",
+              widget: "string",
+              required: true,
+            }

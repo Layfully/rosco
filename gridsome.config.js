@@ -39,6 +39,13 @@ module.exports = {
       },
     },
     {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "ConfigData",
+        path: "content/config/**/*.md",
+      },
+    },
+    {
       use: "gridsome-plugin-netlify-cms",
       options: {
         publicPath: "/admin",

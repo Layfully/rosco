@@ -8,7 +8,7 @@ contacts:
     type: "adres"
   - contact: "k.igielski@roscoserwis.pl"
     icon: email
-    type: "email"
+    type: "e-mail"
   - contact: "NIP: 734 357 88 31"
     icon: menu_book
     type: "inny"

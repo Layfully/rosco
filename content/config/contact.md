@@ -18,4 +18,6 @@ contacts:
   - contact: "KRS:0000822991"
     icon: menu_book
     type: "inny"
+
+site-creator-link: https://pl.linkedin.com/in/adrian-gaborek
 ---

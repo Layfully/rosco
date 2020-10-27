@@ -196,6 +196,11 @@ collections:
                   hint: "Typ kontatku decyduje o akcji wykonywanej po nacisnięciu na niego (dzwonienie, wysyłanie maila, etc.)",
                 }
 
+          - label: "Link do designera"
+            name: site-creator-link
+            widget: "string"
+            required: true
+
   - name: "footer"
     label: "Stopka"
     files:

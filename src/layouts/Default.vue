@@ -124,7 +124,11 @@
         |
         <span class="footer__links">
           Designed by
-          <a class="footer__link" href="//www.suits.at">Adrian Gaborek</a>
+          <a
+            class="footer__link"
+            :href="$static.contact_data.site - creator - link"
+            >Adrian Gaborek</a
+          >
         </span>
       </div>
     </footer>
@@ -157,6 +161,7 @@ query {
       icon
       type
     }
+    site-creator-link
   }
 }
 </static-query>

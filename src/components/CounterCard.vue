@@ -4,7 +4,7 @@
       <span
         v-if="isVisible"
         role="img"
-        :aria-label="counter.iconalt"
+        :aria-label="counter.title"
         class="icon-big"
         >{{ counter.icon }}</span
       >
@@ -12,7 +12,7 @@
     <CountTo
       ref="counter"
       :startVal="0"
-      :endVal="counter.endValue"
+      :endVal="counter.value"
       :duration="3000"
       :autoplay="false"
       v-view.once="viewHandler"

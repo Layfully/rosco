@@ -38,18 +38,6 @@
         <h1>{{ $page.pageData.offer_title }}</h1>
 
         <div class="grid__container">
-          <!--
-          <div class="grid__row" v-for="i in offerRowCount" :key="'row-' + i">
-            <OfferCard
-              v-for="offer in $page.posts.edges.slice(
-                (i - 1) * offerRowCount,
-                i * offerRowCount
-              )"
-              :key="offer.node.id"
-              :offer="offer.node"
-            />
-          </div>
--->
           <div class="grid__row flex--set flex--content-center">
             <OfferCard
               v-for="offer in $page.posts.edges"
@@ -63,7 +51,7 @@
 
           <section class="grid__row flex--set flex--content-center">
             <CounterCard
-              v-for="(counter, i) in counters"
+              v-for="(counter, i) in $page.pageData.counters"
               :key="'counter' + i"
               :counter="counter"
             />
@@ -94,6 +82,11 @@ query {
     }
 
     offer_title
+
+    counters {
+      title
+      value
+    }
   }
 }
 </page-query>

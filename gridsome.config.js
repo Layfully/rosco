@@ -42,7 +42,7 @@ module.exports = {
       use: "gridsome-plugin-netlify-cms",
       options: {
         publicPath: "/admin",
-        plugins: ["netlify-cms-widget-material-icons"],
+        modulePath: `src/admin/index.js`,
       },
     },
     {

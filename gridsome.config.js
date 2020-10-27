@@ -43,6 +43,8 @@ module.exports = {
       options: {
         publicPath: "/admin",
         modulePath: `src/admin/index.js`,
+        htmlPath: "src/admin/index.html",
+        configPath: "src/admin/config.yml",
       },
     },
     {

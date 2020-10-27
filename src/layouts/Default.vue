@@ -103,7 +103,7 @@
               >Węgierska 188, 33-300 Nowy Sącz</a
             >
             <a
-              v-else-if="contact_detail.type === 'email'"
+              v-else-if="contact_detail.type === 'e-mail'"
               class="footer__link"
               :href="'mailto:' + contact_detail.contact"
               >{{ contact_detail.contact }}</a

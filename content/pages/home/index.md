@@ -15,6 +15,6 @@ counters:
     title: 10000
     value: Przewiniętych silników
   - icon: local_cafe
-    title: 250000
+    title: 2500000
     value: Wypitych kaw
 ---

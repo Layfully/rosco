@@ -98,6 +98,11 @@ collections:
             name: "counters"
             widget: "list"
             fields:
+              - {
+                  label: Ikona nad licznikiem,
+                  name: icon,
+                  widget: material-icons,
+                }
               - { label: Wartość licznika, name: title, widget: number }
               - { label: Tytuł licznika, name: value, widget: string }
 

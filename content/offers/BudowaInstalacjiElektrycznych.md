@@ -1,8 +1,8 @@
 ---
 title: Budowa instalacji elektrycznych
 published: true
-card_image: ../../static/images/uploads/InstalacjeElektryczneKarta.webp
-offer_image: ../../static/images/uploads/InstalacjeElektryczne.webp
+card_image: /uploads/InstalacjeElektryczneKarta.webp
+offer_image: /uploads/InstalacjeElektryczne.webp
 ---
 
 Realizujemy generalne wykonawstwo w zakresie instalacji elektrycznych budownictwa przemysłowego, magazynowego, biurowego czy użyteczności publicznej.

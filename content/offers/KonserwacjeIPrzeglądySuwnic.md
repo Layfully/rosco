@@ -1,8 +1,8 @@
 ---
 title: Konserwacje i przeglądy suwnic
 published: true
-card_image: ../../static/images/uploads/SuwnicaKarta.webp
-offer_image: ../../static/images/uploads/Suwnica.webp
+card_image: /uploads/SuwnicaKarta.webp
+offer_image: /uploads/Suwnica.webp
 ---
 
 Od wielu lat prowadzimy prace związane z konserwacją, przeglądami i usuwaniem awari suwnic. Nasi pracownicy posiadają odpowiednie uprawnienia UDT do wykonywania takich prac.

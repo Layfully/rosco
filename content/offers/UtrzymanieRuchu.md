@@ -1,8 +1,8 @@
 ---
 title: Utrzymanie ruchu w zakładach przemysłowych
 published: true
-card_image: ../../static/images/uploads/zaklad_przemyslowy.webp
-offer_image: ../../static/images/uploads/ZakladPrzemyslowy.webp
+card_image: /uploads/zaklad_przemyslowy.webp
+offer_image: /uploads/ZakladPrzemyslowy.webp
 ---
 
 Głównym i podstawowym obszarem naszego działania stanowi świadczenie

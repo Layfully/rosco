@@ -1,8 +1,8 @@
 ---
 title: Remonty i naprawy maszyn i urządzeń elektrycznych
 published: true
-card_image: ../../static/images/uploads/silniki.webp
-offer_image: ../../static/images/uploads/RemontSilnikow.webp
+card_image: /uploads/silniki.webp
+offer_image: /uploads/RemontSilnikow.webp
 ---
 
 1. Remonty i konserwacja silników elektrycznych wszystkich typów.

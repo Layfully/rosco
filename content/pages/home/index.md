@@ -6,15 +6,15 @@ welcome_screen:
 offer_title: Nasza Oferta
 counters:
   - icon: access_time
-    title: 40
-    value: Lat doświadczenia
+    title: Lat doświadczenia
+    value: 40
   - icon: swap_calls
-    title: 400000
-    value: Metrów położonych kabli
+    title: Metrów położonych kabli
+    value: 400000
   - icon: shutter_speed
-    title: 10000
-    value: Przewiniętych silników
+    title: Przewiniętych silników
+    value: 10000
   - icon: local_cafe
-    title: 2500000
-    value: Wypitych kaw
+    title: Wypitych kaw
+    value: 2500000
 ---

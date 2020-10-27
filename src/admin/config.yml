@@ -103,8 +103,8 @@ collections:
                   name: icon,
                   widget: material-icons,
                 }
-              - { label: Wartość licznika, name: title, widget: number }
-              - { label: Tytuł licznika, name: value, widget: string }
+              - { label: Wartość licznika, name: value, widget: number }
+              - { label: Tytuł licznika, name: title, widget: string }
 
       - name: contact
         label: Kontakt

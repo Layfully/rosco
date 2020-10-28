@@ -9,7 +9,7 @@
         fit="contain"
       />
       <div class="offer-card__overlay">
-        <h3 class="offer-card__title">{{ offer.title }}</h3>
+        <h2 class="offer-card__title">{{ offer.title }}</h2>
       </div>
     </g-link>
   </div>

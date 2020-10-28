@@ -24,32 +24,56 @@ export default {
       title: this.$page.offer.title,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.$page.offer.meta_description,
         },
         // OpenGraph data (Most widely used)
-        {property: 'og:title', content: 'Rosco Serwis - ' + this.$page.offer.title},
-        {property: 'og:site_name', content: 'Rosco Serwis'},
-        // The list of types is available here: http://ogp.me/#types
-        {property: 'og:type', content: 'website'},
-        // Should the the same as your canonical link, see below.
-        {property: 'og:url', content: 'https://www.roscoserwis.pl'.concat(this.$page.offer.path)},
-        {property: 'og:image', content: 'https://www.roscoserwis.pl'.concat(this.$page.offer.offer_image)},
-        // Often the same as your meta description, but not always.
-        {property: 'og:description', content: this.$page.offer.meta_description},
-        
+        {
+          property: "og:title",
+          content: "Rosco Serwis - " + this.$page.offer.title,
+        },
+        { property: "og:site_name", content: "Rosco Serwis" },
+        { property: "og:type", content: "website" },
+        {
+          property: "og:url",
+          content: window.location.origin + this.$page.offer.path,
+        },
+        {
+          property: "og:image",
+          content: window.location.origin + this.$page.offer.offer_image,
+        },
+        {
+          property: "og:description",
+          content: this.$page.offer.meta_description,
+        },
+
         // Twitter card
-        {name: 'twitter:card', content: 'summary'},
-        {name: 'twitter:site', content: 'https://www.roscoserwis.pl'.concat(this.$page.offer.path)},
-        {name: 'twitter:title', content: 'Rosco Serwis - ' + this.$page.offer.title},
-        {name: 'twitter:description', content: this.$page.offer.meta_description},
-        {name: 'twitter:image:src', content: 'https://www.roscoserwis.pl'.concat(this.$page.offer.offer_image)},
+        { name: "twitter:card", content: "summary" },
+        {
+          name: "twitter:site",
+          content: window.location.origin + this.$page.offer.path,
+        },
+        {
+          name: "twitter:title",
+          content: "Rosco Serwis - " + this.$page.offer.title,
+        },
+        {
+          name: "twitter:description",
+          content: this.$page.offer.meta_description,
+        },
+        {
+          name: "twitter:image:src",
+          content: window.location.origin + this.$page.offer.offer_image,
+        },
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.roscoserwis.pl'.concat(this.$page.offer.path) }
-      ]
+        {
+          rel: "canonical",
+          href: window.location.origin + this.$page.offer.path,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

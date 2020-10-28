@@ -107,6 +107,10 @@ export default {
       { rel: 'canonical', href: 'https://www.roscoserwis.pl/'}
     ],
     meta: [
+      { 
+        name: 'description',
+        content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'
+      }
       // OpenGraph data (Most widely used)
       {property: 'og:title', content: 'Rosco Serwis - Strona Główna'},
       {property: 'og:site_name', content: 'Rosco Serwis'},

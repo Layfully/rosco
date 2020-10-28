@@ -57,12 +57,13 @@ export default {
 
 <style lang="scss" scoped>
 .counter-card {
-  margin: var(--space) 0;
+  margin: 1rem 0;
   font-family: "Montserrat", "Verdana", "sans-serif";
   font-weight: 600;
   letter-spacing: 0.03rem;
   color: white;
   font-size: 0.75em;
+  width: 50%;
 
   > h3 {
     color: white;
@@ -70,17 +71,11 @@ export default {
 
   @include md {
     width: 25%;
-    margin: calc(var(--space) / 4) 0;
-  }
-
-  @include lg {
-    margin: calc(var(--space));
-    width: calc(25% - (var(--space) * 3));
   }
 
   &__counter {
     font-size: 1.5rem;
-    margin: calc(var(--space) / 4) 0;
+    margin-top: calc(var(--space) / 4);
   }
 }
 

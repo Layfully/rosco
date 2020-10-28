@@ -21,9 +21,8 @@
           <transition name="fade-image" appear>
             <p
               class="page-container main__image__message text-medium space-bottom"
-            >
-              {{ $page.pageData.description }}
-            </p>
+              v-html="$page.pageData.description"
+            ></p>
           </transition>
           <transition name="fade-image" appear>
             <ScrollDown anchor="#content" />

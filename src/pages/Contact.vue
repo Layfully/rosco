@@ -182,7 +182,12 @@ export default {
   name: "About",
   metaInfo: {
     title: "Kontakt",
-    link: [{ rel: "canonical", href: window.location.origin + "/kontakt/" }],
+    link: [
+      {
+        rel: "canonical",
+        href: process.isClient ? window.location.origin + "/kontakt/" : "",
+      },
+    ],
     meta: [
       {
         name: "description",
@@ -193,10 +198,15 @@ export default {
       { property: "og:title", content: "Rosco Serwis - Kontakt" },
       { property: "og:site_name", content: "Rosco Serwis" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: window.location.origin + "/kontakt/" },
+      {
+        property: "og:url",
+        content: process.isClient ? window.location.origin + "/kontakt/" : "",
+      },
       {
         property: "og:image",
-        content: window.location.origin + "/uploads/InstalacjeElektryczne.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/InstalacjeElektryczne.webp"
+          : "",
       },
       {
         property: "og:description",
@@ -206,7 +216,10 @@ export default {
 
       // Twitter card
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: window.location.origin + "/kontakt/" },
+      {
+        name: "twitter:site",
+        content: process.isClient ? window.location.origin + "/kontakt/" : "",
+      },
       { name: "twitter:title", content: "Rosco Serwis - Kontakt" },
       {
         name: "twitter:description",
@@ -215,7 +228,9 @@ export default {
       },
       {
         name: "twitter:image:src",
-        content: window.location.origin + "/uploads/InstalacjeElektryczne.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/InstalacjeElektryczne.webp"
+          : "",
       },
     ],
   },

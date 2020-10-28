@@ -54,7 +54,12 @@ export default {
   name: "About",
   metaInfo: {
     title: "O firmie",
-    link: [{ rel: "canonical", href: window.location.origin + "/o-firmie/" }],
+    link: [
+      {
+        rel: "canonical",
+        href: process.isClient ? window.location.origin + "/o-firmie/" : "",
+      },
+    ],
     meta: [
       {
         name: "description",
@@ -65,10 +70,15 @@ export default {
       { property: "og:title", content: "Rosco Serwis - O firmie" },
       { property: "og:site_name", content: "Rosco Serwis" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: window.location.origin + "/o-firmie/" },
+      {
+        property: "og:url",
+        content: process.isClient ? window.location.origin + "/o-firmie/" : "",
+      },
       {
         property: "og:image",
-        content: window.location.origin + "/uploads/onas1.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/onas1.webp"
+          : "",
       },
       {
         property: "og:description",
@@ -78,7 +88,10 @@ export default {
 
       // Twitter card
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: window.location.origin + "/o-firmie/" },
+      {
+        name: "twitter:site",
+        content: process.isClient ? window.location.origin + "/o-firmie/" : "",
+      },
       { name: "twitter:title", content: "Rosco Serwis - O firmie" },
       {
         name: "twitter:description",
@@ -87,7 +100,9 @@ export default {
       },
       {
         name: "twitter:image:src",
-        content: window.location.origin + "/uploads/onas1.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/onas1.webp"
+          : "",
       },
     ],
   },

@@ -36,11 +36,15 @@ export default {
         { property: "og:type", content: "website" },
         {
           property: "og:url",
-          content: window.location.origin + this.$page.offer.path,
+          content: process.isClient
+            ? window.location.origin + this.$page.offer.path
+            : "",
         },
         {
           property: "og:image",
-          content: window.location.origin + this.$page.offer.offer_image,
+          content: process.isClient
+            ? window.location.origin + this.$page.offer.offer_image
+            : "",
         },
         {
           property: "og:description",
@@ -51,7 +55,9 @@ export default {
         { name: "twitter:card", content: "summary" },
         {
           name: "twitter:site",
-          content: window.location.origin + this.$page.offer.path,
+          content: process.isClient
+            ? window.location.origin + this.$page.offer.path
+            : "",
         },
         {
           name: "twitter:title",
@@ -63,13 +69,17 @@ export default {
         },
         {
           name: "twitter:image:src",
-          content: window.location.origin + this.$page.offer.offer_image,
+          content: process.isClient
+            ? window.location.origin + this.$page.offer.offer_image
+            : "",
         },
       ],
       link: [
         {
           rel: "canonical",
-          href: window.location.origin + this.$page.offer.path,
+          href: process.isClient
+            ? window.location.origin + this.$page.offer.path
+            : "",
         },
       ],
     };

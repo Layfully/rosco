@@ -60,6 +60,33 @@ module.exports = {
     },
     {
       use: '@gridsome/plugin-sitemap',
+      options: {
+        '*': {
+          priorit: 0.8,
+          lastmod: Date.now()
+        },
+        '/': {
+          priority: 1,
+          lastmod: Date.now()
+        }
+      }
+    },
+    {
+      use: 'gridsome-plugin-robots-txt',
+      options: {
+        policy: [
+          {
+            userAgent: "Googlebot",
+            allow: "/",
+            crawlDelay: 2
+          },
+          {
+            userAgent: "*",
+            allow: "/",
+            crawlDelay: 10,
+          }
+        ]
+      }
     }
   ],
 

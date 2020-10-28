@@ -82,7 +82,7 @@ export default {
       position: absolute;
       transform: translateX(-50%);
       left: 50%;
-      width: 250%;
+      width: 240%;
       top: 100%;
     }
 

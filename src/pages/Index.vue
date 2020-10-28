@@ -104,56 +104,32 @@ export default {
   metaInfo: {
     title: "Strona główna",
     link: [
-      {
-        rel: "canonical",
-        href: process.isClient ? window.location.origin + "/" : "",
-      },
+      { rel: 'canonical', href: 'https://www.roscoserwis.pl/'}
     ],
     meta: [
-      {
-        name: "description",
-        content:
-          "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
-      },
+      { 
+        name: 'description',
+        content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'
+      }
       // OpenGraph data (Most widely used)
-      { property: "og:title", content: "Rosco Serwis - Strona Główna" },
-      { property: "og:site_name", content: "Rosco Serwis" },
-      { property: "og:type", content: "website" },
-      {
-        property: "og:url",
-        content: process.isClient ? window.location.origin + "/" : "",
-      },
-      {
-        property: "og:image",
-        content: process.isClient
-          ? window.location.origin + "/uploads/landing_photo.webp"
-          : "",
-      },
-      {
-        property: "og:description",
-        content:
-          "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
-      },
-
+      {property: 'og:title', content: 'Rosco Serwis - Strona Główna'},
+      {property: 'og:site_name', content: 'Rosco Serwis'},
+      // The list of types is available here: http://ogp.me/#types
+      {property: 'og:type', content: 'website'},
+      // Should the the same as your canonical link, see below.
+      {property: 'og:url', content: 'https://www.roscoserwis.pl/'},
+      {property: 'og:image', content: 'https://www.roscoserwis.pl/uploads/landing_photo.webp'},
+      // Often the same as your meta description, but not always.
+      {property: 'og:description', content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'},
+      
       // Twitter card
-      { name: "twitter:card", content: "summary" },
-      {
-        name: "twitter:site",
-        content: process.isClient ? window.location.origin + "/" : "",
-      },
-      { name: "twitter:title", content: "Rosco Serwis - Strona Główna" },
-      {
-        name: "twitter:description",
-        content:
-          "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
-      },
-      {
-        name: "twitter:image:src",
-        content: process.isClient
-          ? window.location.origin + "/uploads/landing_photo.webp"
-          : "",
-      },
-    ],
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:site', content: 'https://www.roscoserwis.pl/'},
+      {name: 'twitter:title', content: 'Rosco Serwis - Strona Główna'},
+      {name: 'twitter:description', content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'},
+      {name: 'twitter:image:src', content: 'https://www.roscoserwis.pl/uploads/landing_photo.webp'},
+
+    ]
   },
 
   data() {
@@ -193,8 +169,6 @@ export default {
     this.pageVisited = JSON.parse(localStorage.getItem("pageVisited"))
       ? true
       : false;
-
-    console.log();
   },
   computed: {
     offerRowCount() {

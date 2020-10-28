@@ -33,19 +33,20 @@ export default {
           content: "Rosco Serwis - " + this.$page.offer.title,
         },
         { property: "og:site_name", content: "Rosco Serwis" },
+        // The list of types is available here: http://ogp.me/#types
         { property: "og:type", content: "website" },
+        // Should the the same as your canonical link, see below.
         {
           property: "og:url",
-          content: process.isClient
-            ? window.location.origin + this.$page.offer.path
-            : "",
+          content: "https://www.roscoserwis.pl".concat(this.$page.offer.path),
         },
         {
           property: "og:image",
-          content: process.isClient
-            ? window.location.origin + this.$page.offer.offer_image
-            : "",
+          content: "https://www.roscoserwis.pl".concat(
+            this.$page.offer.offer_image
+          ),
         },
+        // Often the same as your meta description, but not always.
         {
           property: "og:description",
           content: this.$page.offer.meta_description,
@@ -55,9 +56,7 @@ export default {
         { name: "twitter:card", content: "summary" },
         {
           name: "twitter:site",
-          content: process.isClient
-            ? window.location.origin + this.$page.offer.path
-            : "",
+          content: "https://www.roscoserwis.pl".concat(this.$page.offer.path),
         },
         {
           name: "twitter:title",
@@ -69,17 +68,15 @@ export default {
         },
         {
           name: "twitter:image:src",
-          content: process.isClient
-            ? window.location.origin + this.$page.offer.offer_image
-            : "",
+          content: "https://www.roscoserwis.pl".concat(
+            this.$page.offer.offer_image
+          ),
         },
       ],
       link: [
         {
           rel: "canonical",
-          href: process.isClient
-            ? window.location.origin + this.$page.offer.path
-            : "",
+          href: "https://www.roscoserwis.pl".concat(this.$page.offer.path),
         },
       ],
     };

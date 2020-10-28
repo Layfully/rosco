@@ -35,6 +35,7 @@ collections:
           required: true,
         }
       - { label: "Treść", name: "body", widget: "markdown" }
+      - { label: "Opis meta-description", name: meta_description, widget: "markdown" }
 
   - name: "pages"
     label: "Strony"

@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="grid__container gradient">
-          <h1>Rosco Serwis w liczbach</h1>
+          <h2>Rosco Serwis w liczbach</h2>
 
           <section class="grid__row flex--set flex--content-center flex--wrap">
             <CounterCard
@@ -102,7 +102,30 @@ export default {
     CounterCard,
   },
   metaInfo: {
-    title: "Home",
+    title: "Strona główna",
+    link: [
+      { rel: 'canonical', href: 'https://www.roscoserwis.pl/'}
+    ],
+    meta: [
+      // OpenGraph data (Most widely used)
+      {property: 'og:title', content: 'Rosco Serwis - Strona Główna'},
+      {property: 'og:site_name', content: 'Rosco Serwis'},
+      // The list of types is available here: http://ogp.me/#types
+      {property: 'og:type', content: 'website'},
+      // Should the the same as your canonical link, see below.
+      {property: 'og:url', content: 'https://www.roscoserwis.pl/'},
+      {property: 'og:image', content: 'https://www.roscoserwis.pl/uploads/landing_photo.webp'},
+      // Often the same as your meta description, but not always.
+      {property: 'og:description', content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'},
+      
+      // Twitter card
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:site', content: 'https://www.roscoserwis.pl/'},
+      {name: 'twitter:title', content: 'Rosco Serwis - Strona Główna'},
+      {name: 'twitter:description', content: 'Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!'},
+      {name: 'twitter:image:src', content: 'https://www.roscoserwis.pl/uploads/landing_photo.webp'},
+
+    ]
   },
 
   data() {
@@ -189,7 +212,7 @@ export default {
     margin: calc(var(--space) / 4) 0;
     width: 100%;
 
-    & > h1 {
+    & > h1, h2 {
       color: white !important;
     }
   }

@@ -103,7 +103,12 @@ export default {
   },
   metaInfo: {
     title: "Strona główna",
-    link: [{ rel: "canonical", href: window.location.href }],
+    link: [
+      {
+        rel: "canonical",
+        href: process.isClient ? window.location.origin + "/" : "",
+      },
+    ],
     meta: [
       {
         name: "description",
@@ -114,10 +119,15 @@ export default {
       { property: "og:title", content: "Rosco Serwis - Strona Główna" },
       { property: "og:site_name", content: "Rosco Serwis" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: window.location.origin + "/" },
+      {
+        property: "og:url",
+        content: process.isClient ? window.location.origin + "/" : "",
+      },
       {
         property: "og:image",
-        content: window.location.origin + "/uploads/landing_photo.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/landing_photo.webp"
+          : "",
       },
       {
         property: "og:description",
@@ -127,7 +137,10 @@ export default {
 
       // Twitter card
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: window.location.href },
+      {
+        name: "twitter:site",
+        content: process.isClient ? window.location.origin + "/" : "",
+      },
       { name: "twitter:title", content: "Rosco Serwis - Strona Główna" },
       {
         name: "twitter:description",
@@ -136,7 +149,9 @@ export default {
       },
       {
         name: "twitter:image:src",
-        content: window.location.origin + "/uploads/landing_photo.webp",
+        content: process.isClient
+          ? window.location.origin + "/uploads/landing_photo.webp"
+          : "",
       },
     ],
   },
@@ -179,7 +194,7 @@ export default {
       ? true
       : false;
 
-    console.log(window.location);
+    console.log();
   },
   computed: {
     offerRowCount() {

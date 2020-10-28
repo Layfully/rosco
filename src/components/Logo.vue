@@ -1,8 +1,7 @@
-<template>
-  <g-link to="/">
+<template functional>
+  <g-link class="logo" to="/">
     <g-image
       src="@/assets/image/rosco_logo.webp"
-      class="logo__image"
       alt="Rosco"
       height="65"
       width="250"
@@ -17,17 +16,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .logo {
-  &__image {
-    max-width: 65%;
+  width: 80px;
+  display: flex;
 
-    filter: var(--logo-filter-shadow) var(--logo-filter-brightness)
-      var(--logo-filter-invert);
+  filter: var(--logo-filter-shadow) var(--logo-filter-brightness)
+    var(--logo-filter-invert);
 
-    @include md {
-      max-width: 80%;
-    }
+  @include md {
+    width: 110px;
   }
 }
 </style>

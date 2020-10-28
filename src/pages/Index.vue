@@ -38,7 +38,7 @@
         <h1>{{ $page.pageData.offer_title }}</h1>
 
         <div class="grid__container">
-          <div class="grid__row flex--set flex--content-center">
+          <div class="grid__row flex--set flex--content-center flex--wrap">
             <OfferCard
               v-for="offer in $page.posts.edges"
               :key="offer.node.id"
@@ -49,7 +49,7 @@
         <div class="grid__container gradient">
           <h1>Rosco Serwis w liczbach</h1>
 
-          <section class="grid__row flex--set flex--content-center">
+          <section class="grid__row flex--set flex--content-center flex--wrap">
             <CounterCard
               v-for="(counter, i) in $page.pageData.counters"
               :key="'counter' + i"
@@ -177,12 +177,8 @@ export default {
   }
 
   &__message {
-    margin: 0 auto;
+    margin: 0 auto var(--space);
     color: white;
-
-    @include sm {
-      margin-bottom: 1em;
-    }
   }
 }
 
@@ -199,13 +195,9 @@ export default {
   }
 
   &__row {
-    flex-direction: column;
-    flex-wrap: wrap;
-
     @include md {
       margin: 0 auto;
       width: 79%;
-      flex-direction: row;
     }
   }
 }

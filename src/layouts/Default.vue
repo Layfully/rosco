@@ -6,9 +6,8 @@
       id="content-start"
       class="header flex--set flex--align-items-center"
     >
-      <div>
-        <Logo v-if="showLogo" />
-      </div>
+      <Logo v-if="showLogo" />
+
       <input type="checkbox" id="nav-toggle" class="header__menu__toggle" />
       <nav class="header__menu">
         <ul class="header__menu__list">
@@ -347,6 +346,7 @@ export default {
       transition: var(--transition-time) !important;
       margin: 0 15px;
       font-size: 0.9rem;
+      font-family: "Montserrat", "Verdana", "sans-serif";
       line-height: var(--header-height) !important;
       color: var(--title-color) !important;
       width: calc(100% - 30px);

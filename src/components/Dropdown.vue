@@ -62,11 +62,11 @@ export default {
   &:hover > &__menu {
     opacity: 1;
   }
-  
+
   &:hover > &__menu > &__menu__item {
     visibility: visible;
     transform: translateY(0px);
-}
+  }
 
   &__triangle {
     margin-left: calc(var(--space) / 10);
@@ -76,7 +76,6 @@ export default {
   &__menu {
     opacity: 0;
     height: 0px;
-    
 
     @include md {
       border: 1px solid var(--border-color);
@@ -88,10 +87,10 @@ export default {
     }
 
     &__item {
-
       background-color: var(--bg-color);
       padding: 10px 14px;
-      transition: background-color var(--transition-time) ease, transform var(--transition-time-long) ease;      
+      transition: background-color var(--transition-time) ease,
+        transform var(--transition-time-long) ease;
       visibility: hidden;
       transform: translateY(20px);
 

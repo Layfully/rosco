@@ -10,7 +10,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 module.exports = {
   siteName: "Rosco",
   siteUrl: "https://roscoserwis.pl",
-  siteDescription: "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
 
   templates: {
     Offer: "/:title",

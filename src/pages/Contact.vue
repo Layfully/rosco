@@ -182,29 +182,42 @@ export default {
   name: "About",
   metaInfo: {
     title: "Kontakt",
-    description: "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
-    link: [
-      { rel: 'canonical', href: 'https://www.roscoserwis.pl/kontakt/'}
-    ],
+    link: [{ rel: "canonical", href: window.location.origin + "/kontakt/" }],
     meta: [
+      {
+        name: "description",
+        content:
+          "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
+      },
       // OpenGraph data (Most widely used)
-      {property: 'og:title', content: 'Rosco Serwis - Kontakt'},
-      {property: 'og:site_name', content: 'Rosco Serwis'},
-      // The list of types is available here: http://ogp.me/#types
-      {property: 'og:type', content: 'website'},
-      // Should the the same as your canonical link, see below.
-      {property: 'og:url', content: 'https://www.roscoserwis.pl/kontakt/'},
-      {property: 'og:image', content: 'https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.webp'},
-      // Often the same as your meta description, but not always.
-      {property: 'og:description', content: 'Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.'},
-      
+      { property: "og:title", content: "Rosco Serwis - Kontakt" },
+      { property: "og:site_name", content: "Rosco Serwis" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: window.location.origin + "/kontakt/" },
+      {
+        property: "og:image",
+        content: window.location.origin + "/uploads/InstalacjeElektryczne.webp",
+      },
+      {
+        property: "og:description",
+        content:
+          "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
+      },
+
       // Twitter card
-      {name: 'twitter:card', content: 'summary'},
-      {name: 'twitter:site', content: 'https://www.roscoserwis.pl/kontakt/'},
-      {name: 'twitter:title', content: 'Rosco Serwis - Kontakt'},
-      {name: 'twitter:description', content: 'Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.'},
-      {name: 'twitter:image:src', content: 'https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.webp'},
-    ]
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: window.location.origin + "/kontakt/" },
+      { name: "twitter:title", content: "Rosco Serwis - Kontakt" },
+      {
+        name: "twitter:description",
+        content:
+          "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
+      },
+      {
+        name: "twitter:image:src",
+        content: window.location.origin + "/uploads/InstalacjeElektryczne.webp",
+      },
+    ],
   },
   components: {
     Modal,

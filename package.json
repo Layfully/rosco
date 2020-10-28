@@ -17,6 +17,7 @@
     "gridsome": "^0.7.21",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-netlify-cms-paths": "^0.3.1",
+    "gridsome-plugin-pwa": "^0.0.18",
     "gridsome-plugin-robots-txt": "^1.0.2",
     "netlify-cms": "^2.10.66",
     "netlify-cms-widget-material-icons": "^4.0.3",

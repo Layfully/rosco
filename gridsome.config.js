@@ -58,6 +58,9 @@ module.exports = {
         contentTypes: ["Offer", "PageData"],
       },
     },
+    {
+      use: '@gridsome/plugin-sitemap',
+    }
   ],
 
   transformers: {

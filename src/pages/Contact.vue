@@ -182,11 +182,14 @@ export default {
   name: "About",
   metaInfo: {
     title: "Kontakt",
-    description: "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
     link: [
       { rel: 'canonical', href: 'https://www.roscoserwis.pl/kontakt/'}
     ],
     meta: [
+      {
+        name: 'description',
+        content: 'Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.',
+      },
       // OpenGraph data (Most widely used)
       {property: 'og:title', content: 'Rosco Serwis - Kontakt'},
       {property: 'og:site_name', content: 'Rosco Serwis'},

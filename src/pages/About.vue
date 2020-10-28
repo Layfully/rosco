@@ -54,11 +54,14 @@ export default {
   name: "About",
   metaInfo: {
     title: "O firmie",
-    description: "Rosco Serwis to firma, która powstała w roku 2020 w wyniku podziału branży elektrycznej Erbetu. Chcesz wiedzieć więcej? Odwiedź tą stronę.",
     link: [
       { rel: 'canonical', href: 'https://www.roscoserwis.pl/o-firmie/'}
     ],
     meta: [
+      {
+        name: 'description',
+        content: 'Rosco Serwis to firma, która powstała w roku 2020 w wyniku podziału branży elektrycznej Erbetu. Chcesz wiedzieć więcej? Odwiedź tą stronę.',
+      },
       // OpenGraph data (Most widely used)
       {property: 'og:title', content: 'Rosco Serwis - O firmie'},
       {property: 'og:site_name', content: 'Rosco Serwis'},

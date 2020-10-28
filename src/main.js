@@ -85,6 +85,12 @@ export default function (Vue, { router, head, isClient }) {
     href: LatoRegular
   })
 
+  head.meta.push({
+    name: 'keywords',
+    content: 'Usługi elektryczne, pomiary, remonty silników, obsługa techniczna, instalacje elektryczne, konserwacje suwnic, przeglądy suwnic, utrzymanie ruchu przemysłowego, firma elektryczna'
+  })
+
+  head.htmlAttrs = { lang: 'pl-PL'}
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
 }

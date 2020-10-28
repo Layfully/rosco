@@ -3,6 +3,7 @@ title: Utrzymanie ruchu w zakładach przemysłowych
 published: true
 card_image: /uploads/zaklad_przemyslowy.webp
 offer_image: /uploads/ZakladPrzemyslowy.webp
+meta_description: Oferujemy kompleksowe usługi w zakresie utrzymania ruchu przemysłowego. Naszym największym jest firma Tokai Cobex, to dzięki nam ich produkcja działa bez zarzutu.
 ---
 Głównym obszarem naszego działania stanowi świadczenie
 usług z zakresu utrzymania ruchu w zakresie instalacji elektrycznych

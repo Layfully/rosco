@@ -9,9 +9,8 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 
 module.exports = {
   siteName: "Rosco",
-
-  siteDescription:
-    "A simple, hackable & minimalistic starter for Gridsome that uses Netlify CMS for content.",
+  siteUrl: "https://roscoserwis.pl",
+  siteDescription: "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
 
   templates: {
     Offer: "/:title",

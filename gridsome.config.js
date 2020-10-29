@@ -9,7 +9,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 
 module.exports = {
   siteName: "Rosco",
-  siteUrl: "https://roscoserwis.pl",
+  siteUrl: "https://wwww.roscoserwis.pl",
 
   templates: {
     Offer: "/:title",

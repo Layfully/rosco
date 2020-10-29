@@ -90,33 +90,6 @@ module.exports = {
     },
     {
       use: "gridsome-plugin-pwa",
-      options: {
-        // Service Worker Options
-        disableServiceWorker: false,
-        serviceWorkerPath: "service-worker.js",
-        cachedFileTypes: "js,json,css,html,png,jpg,jpeg,webp,svg,gif",
-        disableTemplatedUrls: false, // Optional
-
-        // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
-        manifestPath: "/manifest.json",
-        title: "Rosco Serwis",
-        startUrl: "/",
-        display: "standalone",
-        statusBarStyle: "default",
-        themeColor: "#000080",
-        backgroundColor: "#ffffff",
-        icon: "favicon.png",
-        shortName: "Rosco",
-        description: "Rosco Serwis - firma elektryczna",
-        categories: ["business"],
-        lang: "pl-PL",
-        dir: "auto",
-        maskableIcon: true,
-        svgFavicon: "favicon.png",
-        msTileColor: "#666600",
-        appleMaskIcon: "favicon.png",
-        appleMaskIconColor: "#666600",
-      },
     },
   ],
 

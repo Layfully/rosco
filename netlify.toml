@@ -20,7 +20,7 @@ package = "netlify-plugin-csp-generator"
     baseUri = "'self'"
     connectSrc = "'self' https://www.netlifystatus.com"
     frameSrc = "'self' https://www.google.com  https://www.google.com/recaptcha/"
-    workerSrc = "'none'"
+    workerSrc = "'self'"
     mediaSrc = "'self'"
     manifestSrc = "'self'"
 

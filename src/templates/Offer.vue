@@ -25,6 +25,7 @@ export default {
       meta: [
         {
           name: "description",
+          key: "description",
           content: this.$page.offer.meta_description,
         },
         // OpenGraph data (Most widely used)

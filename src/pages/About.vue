@@ -58,6 +58,7 @@ export default {
     meta: [
       {
         name: "description",
+        key: "description",
         content:
           "Rosco Serwis to firma, która powstała w roku 2020 w wyniku podziału branży elektrycznej Erbetu. Chcesz wiedzieć więcej? Odwiedź tą stronę.",
       },

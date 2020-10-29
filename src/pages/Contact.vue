@@ -186,6 +186,7 @@ export default {
     meta: [
       {
         name: "description",
+        key: "description",
         content:
           "Skontaktuj się z Rosco Serwis. Odpowiadamy na pytania od poniedziałku do piątku w godzinach 7:00 - 15:00.",
       },

@@ -107,6 +107,7 @@ export default {
     meta: [
       {
         name: "description",
+        key: "description",
         content:
           "Rosco Serwis jest liderem w branży elektrycznej w Nowym Sączu - Poznaj naszą szeroką ofertę i skontaktuj się z nami!",
       },

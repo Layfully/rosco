@@ -59,65 +59,65 @@ module.exports = {
       },
     },
     {
-      use: '@gridsome/plugin-sitemap',
+      use: "@gridsome/plugin-sitemap",
       options: {
-        '*': {
+        "*": {
           priorit: 0.8,
-          lastmod: Date.now()
+          lastmod: Date.now(),
         },
-        '/': {
+        "/": {
           priority: 1,
-          lastmod: Date.now()
-        }
-      }
+          lastmod: Date.now(),
+        },
+      },
     },
     {
-      use: 'gridsome-plugin-robots-txt',
+      use: "gridsome-plugin-robots-txt",
       options: {
         policy: [
           {
             userAgent: "Googlebot",
             allow: "/",
-            crawlDelay: 2
+            crawlDelay: 2,
           },
           {
             userAgent: "*",
             allow: "/",
             crawlDelay: 10,
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
     {
-      use: 'gridsome-plugin-pwa',
+      use: "gridsome-plugin-pwa",
       options: {
         // Service Worker Options
         disableServiceWorker: false,
-        serviceWorkerPath: 'service-worker.js',
-        cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,webp,svg,gif',
-        disableTemplatedUrls: false,       // Optional
+        serviceWorkerPath: "service-worker.js",
+        cachedFileTypes: "js,json,css,html,png,jpg,jpeg,webp,svg,gif",
+        disableTemplatedUrls: false, // Optional
 
         // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
-        manifestPath: 'manifest.json',
-        title: 'Rosco Serwis',
-        startUrl: '/',
-        display: 'standalone',
-        statusBarStyle: 'default',
-        themeColor: '#000080',
-        backgroundColor: '#ffffff',
-        icon: 'favicon.png',
-        shortName: 'Rosco',
-        description: 'Rosco Serwis - firma elektryczna',
-        categories: ['business'],
-        lang: 'pl-PL',
-        dir: 'auto',
+        manifestPath: "/manifest.json",
+        title: "Rosco Serwis",
+        startUrl: "/",
+        display: "standalone",
+        statusBarStyle: "default",
+        themeColor: "#000080",
+        backgroundColor: "#ffffff",
+        icon: "favicon.png",
+        shortName: "Rosco",
+        description: "Rosco Serwis - firma elektryczna",
+        categories: ["business"],
+        lang: "pl-PL",
+        dir: "auto",
         maskableIcon: true,
-        svgFavicon: 'favicon.png',
-        msTileColor: '#666600',
-        appleMaskIcon: 'favicon.png',
-        appleMaskIconColor: '#666600',
-      }
-    }
+        svgFavicon: "favicon.png",
+        msTileColor: "#666600",
+        appleMaskIcon: "favicon.png",
+        appleMaskIconColor: "#666600",
+      },
+    },
   ],
 
   transformers: {

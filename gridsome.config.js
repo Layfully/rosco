@@ -96,7 +96,7 @@ module.exports = {
         display: "standalone",
         statusBarStyle: "default",
         manifestPath: "manifest.json",
-        disableServiceWorker: true,
+        disableServiceWorker: false,
         serviceWorkerPath: "service-worker.js",
         cachedFileTypes: "js,json,css,html,png,webp,jpg,jpeg,svg",
         shortName: "Rosco",

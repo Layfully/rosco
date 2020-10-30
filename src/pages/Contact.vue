@@ -43,19 +43,19 @@
               <span class="icon">{{ contact_detail.icon }}</span>
               <a
                 v-if="contact_detail.type === 'telefon'"
-                class="footer__link"
+                class="footer__link link--hover-small"
                 :href="'tel:+48' + contact_detail.contact"
                 >(+48) {{ contact_detail.contact }}</a
               >
               <a
                 v-else-if="contact_detail.type === 'adres'"
-                class="footer__link"
+                class="footer__link link--hover-small"
                 href="https://www.google.com/maps/place/ROSCO+SERWIS/@49.5845913,20.6657033,17z/data=!3m1!4b1!4m5!3m4!1s0x473de57ba4cdad8f:0x2704aba2804e3887!8m2!3d49.5845913!4d20.667892"
                 >Węgierska 188, 33-300 Nowy Sącz</a
               >
               <a
                 v-else-if="contact_detail.type === 'e-mail'"
-                class="footer__link"
+                class="footer__link link--hover-small"
                 :href="'mailto:' + contact_detail.contact"
                 >{{ contact_detail.contact }}</a
               >

@@ -21,9 +21,6 @@ body {
 a:not(.button) {
   color: var(--link-color);
   line-height: 1.5;
-  &:hover {
-    opacity: 1;
-  }
   text-decoration: none;
 }
 

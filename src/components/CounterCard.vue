@@ -11,6 +11,7 @@
     </transition>
     <CountTo
       ref="counter"
+      separator=""
       :startVal="0"
       :endVal="counter.value"
       :duration="3000"

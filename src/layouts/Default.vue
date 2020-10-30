@@ -49,16 +49,16 @@
         v-if="showFooter"
         class="footer__container flex--set flex--align-items-center"
       >
-        <section class="footer__column space-bottom-small content-box">
+        <section class="footer__column content-box">
           <div v-html="$static.footer_about.content"></div>
         </section>
         <section
-          class="footer__column footer__menu space-bottom-small content-box"
+          class="footer__column footer__menu content-box"
         >
           <h4 class="space-bottom-small">Menu</h4>
           <nav>
             <p v-for="link in singleLinks" :key="link.name">
-              <g-link :to="link.src" class="footer__link">{{
+              <g-link :to="link.src" class="footer__link link--hover">{{
                 link.name
               }}</g-link>
             </p>
@@ -73,7 +73,7 @@
                     v-for="(item, i) in link.src"
                     :key="i"
                     :to="item.node.path"
-                    class="footer__link"
+                    class="footer__link link--hover"
                     >{{ item.node.title }}</g-link
                   >
                 </div>
@@ -81,7 +81,7 @@
             </span>
           </nav>
         </section>
-        <section class="footer__column space-bottom-small content-box">
+        <section class="footer__column content-box">
           <h4 class="space-bottom-small">{{ $static.footer_contact.title }}</h4>
           <p
             class="footer__text footer__contact flex--set flex--content-center"
@@ -91,19 +91,19 @@
             <span class="icon">{{ contact_detail.icon }}</span>
             <a
               v-if="contact_detail.type === 'telefon'"
-              class="footer__link"
+              class="footer__link link--hover"
               :href="'tel:+48' + contact_detail.contact"
               >(+48) {{ contact_detail.contact }}</a
             >
             <a
               v-else-if="contact_detail.type === 'adres'"
-              class="footer__link"
+              class="footer__link link--hover"
               href="https://www.google.com/maps/place/ROSCO+SERWIS/@49.5845913,20.6657033,17z/data=!3m1!4b1!4m5!3m4!1s0x473de57ba4cdad8f:0x2704aba2804e3887!8m2!3d49.5845913!4d20.667892"
               >Węgierska 188, 33-300 Nowy Sącz</a
             >
             <a
               v-else-if="contact_detail.type === 'e-mail'"
-              class="footer__link"
+              class="footer__link link--hover"
               :href="'mailto:' + contact_detail.contact"
               >{{ contact_detail.contact }}</a
             >
@@ -118,13 +118,13 @@
 
         <span class="footer__copyright">
           Wszystkie prawa zastrzeżone Copyright ©
-          {{ new Date().getFullYear() }} Rosco sp. z o.o.
+          {{ new Date().getFullYear() }} Rosco Serwis sp. z o.o.
         </span>
         |
         <span class="footer__links">
           Designed by
-          <a class="footer__link" :href="$static.contact_data.site_creator_link"
-            >Adrian Gaborek</a
+          <a class="footer__link link--hover-small" :href="$static.contact_data.site_creator_link.href"
+            >{{$static.contact_data.site_creator_link.title}}</a
           >
         </span>
       </div>
@@ -158,7 +158,10 @@ query {
       icon
       type
     }
-    site_creator_link
+    site_creator_link {
+      title
+      href
+    }
   }
 }
 </static-query>
@@ -214,14 +217,10 @@ export default {
 }
 
 .footer {
-  padding: calc(var(--space) / 2);
   text-align: center;
   font-size: 0.8em;
 
-  padding-top: calc(var(--space) / 4);
-  padding-left: calc(var(--space));
-  padding-right: calc(var(--space));
-  padding-bottom: calc(var(--space) / 4);
+  padding: calc(var(--space) / 8) var(--space);
 
   &__container {
     flex-direction: column;
@@ -241,11 +240,10 @@ export default {
   }
 
   &__column {
-    padding: 0px calc(var(--space) / 2) calc(var(--space) / 4)
-      calc(var(--space) / 2);
-
-    margin-left: calc(var(--space) / 4);
-    margin-right: calc(var(--space) / 4);
+    padding: 0px calc(var(--space) / 2);
+    margin-left: calc(var(--space) / 8);
+    margin-right: calc(var(--space) / 8);
+    margin-bottom: calc(var(--space) / 8);
     width: 100%;
   }
 
@@ -255,9 +253,6 @@ export default {
     &-alt-color {
       @extend .footer__link;
       color: var(--link-alt-color) !important;
-    }
-    &:hover {
-      border-color: var(--body-color);
     }
   }
 
@@ -373,14 +368,14 @@ export default {
           border-bottom: 3px solid;
           border-color: transparent;
           transition: var(--transition-time);
-          margin-top: -3px;
+          margin: -3px 0 0 0 !important;
         }
         &:hover {
           background-color: initial;
           &:after {
             visibility: visible;
             width: 100%;
-            border-color: var(--link-border-color);
+            border-color: var(--link-border-color) !important;
           }
         }
         &__active {

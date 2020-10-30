@@ -19,5 +19,7 @@ contacts:
     icon: menu_book
     type: "inny"
 
-site-creator-link: https://pl.linkedin.com/in/adrian-gaborek
+site-creator-link:
+ - href: https://pl.linkedin.com/in/adrian-gaborek
+ - title: Adrian Gaborek
 ---

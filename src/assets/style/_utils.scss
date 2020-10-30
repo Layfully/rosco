@@ -97,3 +97,30 @@
 .flex--wrap {
   flex-wrap: wrap;
 }
+
+.link--hover {
+  &:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    width: 0;
+    border-bottom: 3px solid;
+    border-color: transparent;
+    transition: var(--transition-time);
+    margin: 0 auto; 
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+      visibility: visible;
+      border-color: var(--body-color);
+    }
+  }
+}
+
+.link--hover-small {
+  &:hover {
+      border-color: var(--body-color);
+  }
+}

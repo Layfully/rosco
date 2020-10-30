@@ -123,8 +123,8 @@
         |
         <span class="footer__links">
           Designed by
-          <a class="footer__link link--hover-small" :href="$static.contact_data.site_creator_link"
-            >Adrian Gaborek</a
+          <a class="footer__link link--hover-small" :href="$static.contact_data.site_creator_link.href"
+            >{{$static.contact_data.site_creator_link.title}}</a
           >
         </span>
       </div>
@@ -158,7 +158,10 @@ query {
       icon
       type
     }
-    site_creator_link
+    site_creator_link {
+      title
+      href
+    }
   }
 }
 </static-query>

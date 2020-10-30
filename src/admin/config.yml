@@ -199,8 +199,20 @@ collections:
 
           - label: "Link do designera"
             name: site-creator-link
-            widget: "string"
-            required: true
+            widget: "object"
+            fields: 
+              - {
+                  label: "Link do strony",
+                  name: "href",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "Tytuł linku",
+                  name: "title",
+                  widget: "string",
+                  required: true,
+                }
 
   - name: "footer"
     label: "Stopka"

@@ -351,6 +351,15 @@ export default {
   & > section {
     width: 100%;
     flex: 2;
+
+    &:first-of-type {
+      text-align: center;
+
+      @include sm {
+        text-align:start;
+      }
+    }
+
     @include md {
       max-width: 500px;
     }

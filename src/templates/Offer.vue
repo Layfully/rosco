@@ -2,7 +2,7 @@
   <Layout :showFooter="false">
     <main>
       <header
-        class="offer__title text-center"
+        class="offer__title text-center flex--set flex--content-center"
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)), url(' +

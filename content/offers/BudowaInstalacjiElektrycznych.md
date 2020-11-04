@@ -2,7 +2,9 @@
 title: Budowa instalacji elektrycznych
 published: true
 card_image: /uploads/InstalacjeElektryczneKarta.webp
+card_image_png: /uploads/InstalacjeElektryczneKarta.png
 offer_image: /uploads/InstalacjeElektryczne.webp
+offer_image_png: /uploads/InstalacjeElektryczne.png
 meta_description: Rosco Serwis realizuje wykonawstwo instalacji elektrycznych na terenie Nowego Sącza. Zainstalowane przez nas instalacje cechują się przede wszystkim komfortem i bezpieczeństwem.
 ---
 

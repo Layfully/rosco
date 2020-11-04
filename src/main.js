@@ -18,6 +18,25 @@ import MontserratRegular from "~/assets/fonts/MontserratRegular.woff2"
 import MontserratSemiBold from "~/assets/fonts/MontserratSemiBold.woff2"
 import LatoRegular from "~/assets/fonts/LatoRegular.woff2"
 
+
+  function check_webp_feature (feature, callback) {
+    var kTestImages = {
+        lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
+        lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
+        alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+        animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+    };
+    var img = new Image();
+    img.onload = function () {
+        var result = (img.width > 0) && (img.height > 0);
+        callback(feature, result);
+    };
+    img.onerror = function () {
+        callback(feature, false);
+    };
+    img.src = "data:image/webp;base64," + kTestImages[feature];
+  }
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
   Vue.directive("scrollAnimation", ScrollAnimation);
@@ -34,6 +53,15 @@ export default function (Vue, { router, head, isClient }) {
     x: false,
     y: true,
   });
+
+  if (isClient) {
+    check_webp_feature('lossy', function (feature, isSupported) {
+      if (isSupported) {
+        Vue.prototype.$hasWebpSupport = isSupported
+      }  
+    });
+  }
+
   Vue.use(VueReCaptcha, {
     siteKey: "6Le8cskZAAAAAIYn4d6487DGYYuM90XKJ79SMIHs",
   });

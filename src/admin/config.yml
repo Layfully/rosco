@@ -23,14 +23,26 @@ collections:
           default: true,
         }
       - {
-          label: "Zdjęcie miniatury oferty",
+          label: "Zdjęcie miniatury oferty (Webp)",
           name: "card_image",
           widget: "image",
           required: true,
         }
       - {
-          label: "Tło nagłówka oferty",
+          label: "Zdjęcie miniatury oferty (Png, Jpg)",
+          name: "card_image_png",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Tło nagłówka oferty (Webp)",
           name: "offer_image",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Tło nagłówka oferty (Png, Jpg)",
+          name: "offer_image_png",
           widget: "image",
           required: true,
         }
@@ -46,8 +58,14 @@ collections:
         fields:
           - { label: "Tytuł", name: "title", widget: "string", required: true }
           - {
-              label: "Zdjęcie w tle",
+              label: "Zdjęcie w tle (Webp)",
               name: "main_image",
+              widget: "image",
+              required: true,
+            }
+          - {
+              label: "Zdjęcie w tle (Png, jpg)",
+              name: "main_image_png",
               widget: "image",
               required: true,
             }
@@ -85,8 +103,14 @@ collections:
                   required: true,
                 }
               - {
-                  label: "Obraz tła",
+                  label: "Obraz tła (Webp)",
                   name: "main_image",
+                  widget: "image",
+                  allow_multiple: false,
+                }
+              - {
+                  label: "Obraz tła (Png, jpg)",
+                  name: "main_image_png",
                   widget: "image",
                   allow_multiple: false,
                 }
@@ -96,6 +120,32 @@ collections:
               widget: "string",
               required: true,
             }
+
+          - {
+              label: "Obraz tła całej strony(Webp)",
+              name: "site_image",
+              widget: "image",
+              allow_multiple: false,
+            }
+          - {
+              label: "Obraz tła całej strony(Png, jpg)",
+              name: "site_image_png",
+              widget: "image",
+              allow_multiple: false,
+            }
+          - {
+              label: "Obraz tła liczników(Webp)",
+              name: "counter_background",
+              widget: "image",
+              allow_multiple: false,
+            }
+          - {
+              label: "Obraz tła liczników(Png, jpg)",
+              name: "counter_background_png",
+              widget: "image",
+              allow_multiple: false,
+            }
+
           - label: "Liczniki"
             name: "counters"
             widget: "list"
@@ -161,6 +211,18 @@ collections:
               name: "contact_button_title",
               widget: "string",
               required: true,
+            }
+          - {
+              label: "Obraz tła napisu 404(Webp)",
+              name: "error_background",
+              widget: "image",
+              allow_multiple: false,
+            }
+          - {
+              label: "Obraz tła napisu 404(Png, jpg)",
+              name: "error_background_png",
+              widget: "image",
+              allow_multiple: false,
             }
 
   - name: "config"

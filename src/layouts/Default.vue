@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{backgroundImage: 'url(' + siteImg + ')' }">
     <slot name="heading" />
 
     <header
@@ -163,6 +163,11 @@ query {
       href
     }
   }
+
+  site_data: pageData(path: "/content/pages/home/") {
+    site_image
+    site_image_png
+  }
 }
 </static-query>
 
@@ -201,6 +206,9 @@ export default {
     dropdownLinks() {
       return this.links.filter((link) => Array.isArray(link.src));
     },
+    siteImg() {
+      return this.$hasWebpSupport ? this.$static.site_data.site_image : this.$static.site_data.site_image_png
+    }
   },
 };
 </script>

@@ -6,7 +6,7 @@
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(' +
-            $page.pageData.main_image.src +
+            mainImg +
             ')',
         }"
       >
@@ -40,6 +40,7 @@
 query {
   pageData(path: "/content/pages/about/") {
     main_image
+    main_image_png
     description
     title
     content
@@ -71,7 +72,7 @@ export default {
       { property: "og:url", content: "https://www.roscoserwis.pl/o-firmie/" },
       {
         property: "og:image",
-        content: "https://www.roscoserwis.pl/uploads/onas1.webp",
+        content: "https://www.roscoserwis.pl/uploads/onas1.png",
       },
       // Often the same as your meta description, but not always.
       {
@@ -91,13 +92,18 @@ export default {
       },
       {
         name: "twitter:image:src",
-        content: "https://www.roscoserwis.pl/uploads/onas1.webp",
+        content: "https://www.roscoserwis.pl/uploads/onas1.png",
       },
     ],
   },
   components: {
     ScrollDown,
   },
+  computed: {
+    mainImg() {
+      return this.$hasWebpSupport ? this.$page.pageData.main_image.src : this.$page.pageData.main_image_png.src
+    }
+  }
 };
 </script>
 

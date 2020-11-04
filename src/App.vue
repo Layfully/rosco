@@ -31,10 +31,6 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  background: url("~@/assets/image/background.webp");
-}
-
 .fade-enter-active {
   transition: opacity 1s, transform var(--transition-time-long);
 }

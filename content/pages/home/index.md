@@ -3,7 +3,13 @@ welcome_screen:
   welcome_text: Witaj w Rosco Serwis
   welcome_button: Pokaż więcej
   main_image: /uploads/landing_photo.webp
+  main_image_png: /uploads/landing_photo.png
 offer_title: Nasza Oferta
+site_image: /uploads/background.webp
+site_image_png: /uploads/background.png
+counter_background: /uploads/bar.webp
+counter_background_png: /uploads/bar.png
+
 counters:
   - icon: access_time
     title: Lat doświadczenia pracowników

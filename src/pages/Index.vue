@@ -7,7 +7,7 @@
         :style="{
           backgroundImage:
             'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(' +
-            $page.pageData.welcome_screen.main_image +
+              mainImg +
             ')',
         }"
       >
@@ -46,9 +46,8 @@
             />
           </div>
         </div>
-        <div class="grid__container gradient">
+        <div class="grid__container gradient" :style="{backgroundImage: 'url(' + counterImage + ')'}">
           <h2>Rosco Serwis w liczbach</h2>
-
           <section class="grid__row flex--set flex--content-center flex--wrap">
             <CounterCard
               v-for="(counter, i) in $page.pageData.counters"
@@ -69,6 +68,7 @@ query {
       node {
         title
         card_image (width: 400, height: 300, quality:100, fit: outside)
+        card_image_png (width: 400, height: 300, quality:100, fit: outside)
         path
       }
     }
@@ -79,9 +79,12 @@ query {
       welcome_text
       welcome_button
       main_image
+      main_image_png
     }
 
     offer_title
+    counter_background
+    counter_background_png
 
     counters {
       icon
@@ -120,7 +123,7 @@ export default {
       { property: "og:url", content: "https://www.roscoserwis.pl/" },
       {
         property: "og:image",
-        content: "https://www.roscoserwis.pl/uploads/landing_photo.webp",
+        content: "https://www.roscoserwis.pl/uploads/landing_photo.png",
       },
       // Often the same as your meta description, but not always.
       {
@@ -140,7 +143,7 @@ export default {
       },
       {
         name: "twitter:image:src",
-        content: "https://www.roscoserwis.pl/uploads/landing_photo.webp",
+        content: "https://www.roscoserwis.pl/uploads/landing_photo.png",
       },
     ],
   },
@@ -183,23 +186,27 @@ export default {
       ? true
       : false;
   },
-  computed: {
-    offerRowCount() {
-      return Math.ceil(this.$page.posts.edges.length / this.offersPerRow);
-    },
-  },
   methods: {
     pageVisitedHanlder() {
       this.pageVisited = true;
       localStorage.setItem("pageVisited", this.pageVisited);
     },
   },
+  computed: {
+    mainImg() {
+      return this.$hasWebpSupport ? this.$page.pageData.welcome_screen.main_image : this.$page.pageData.welcome_screen.main_image_png
+    },
+    counterImage() {
+      return this.$hasWebpSupport ? this.$page.pageData.counter_background : this.$page.pageData.counter_background_png
+    },
+    offerRowCount() {
+      return Math.ceil(this.$page.posts.edges.length / this.offersPerRow);
+    },
+  }
 };
 </script>
 <style lang="scss">
 .main__image {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
-    url("/images/uploads/landing_photo.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -244,7 +251,6 @@ export default {
 }
 
 .gradient {
-  background: url("~@/assets/image/bar.webp");
   background-size: cover;
   background-attachment: fixed;
 }

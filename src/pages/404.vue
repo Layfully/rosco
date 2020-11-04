@@ -3,7 +3,7 @@
     <main class="error__container flex--set flex--align-items-center">
       <section class="page-container text-center">
         <header>
-          <h1 class="error-number">{{ $static.pageData.error_number }}</h1>
+          <h1 class="error-number" :style="{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.3)), url(' + errorBackground + ')'}">{{ $static.pageData.error_number }}</h1>
           <h2>{{ $static.pageData.error_title }}</h2>
         </header>
         <span v-html="$static.pageData.content"></span>
@@ -32,6 +32,8 @@ query {
   pageData(path: "/content/pages/not-found/") {
     error_number
     error_title
+    error_background
+    error_background_png
     contact_button_title
     home_button_title
     content
@@ -46,14 +48,17 @@ export default {
     title: "Nie znaleziono",
     description: "Rosco Serwis - Chyba zbłądziłeś, możesz się odnaleźć przy pomocy nawigacji",    
   },
+  computed:{
+    errorBackground() {
+      return this.$hasWebpSupport ? this.$static.pageData.error_background : this.$static.pageData.error_background_png
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .error-number {
   font-size: 6rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.3)),
-    url("~@/assets/image/electricpower.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

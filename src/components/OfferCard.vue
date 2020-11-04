@@ -3,9 +3,9 @@
     <g-link :to="offer.path">
       <g-image
         alt="Cover image"
-        v-if="offer.card_image"
+        v-if="cardImg"
         class="offer-card__image"
-        :src="offer.card_image"
+        :src="cardImg"
         fit="contain"
       />
       <div class="offer-card__overlay">
@@ -23,6 +23,11 @@ export default {
       required: true,
     },
   },
+  computed: {
+    cardImg() {
+      return this.$hasWebpSupport ? this.offer.card_image : this.offer.card_image_png
+    }
+  }
 };
 </script>
 

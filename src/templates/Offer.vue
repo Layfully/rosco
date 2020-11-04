@@ -6,7 +6,7 @@
         :style="{
           backgroundImage:
             'linear-gradient(50deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)), url(' +
-            $page.offer.offer_image +
+               bgImage +
             ')',
         }"
       >
@@ -70,7 +70,7 @@ export default {
         {
           name: "twitter:image:src",
           content: "https://www.roscoserwis.pl".concat(
-            this.$page.offer.offer_image
+            this.$page.offer.offer_image_png
           ),
         },
       ],
@@ -82,6 +82,11 @@ export default {
       ],
     };
   },
+  computed: {
+    bgImage() {
+      return this.$hasWebpSupport ? this.$page.offer.offer_image : this.$page.offer.offer_image_png
+    }
+  }
 };
 </script>
 
@@ -92,6 +97,7 @@ query Offer ($id: ID!) {
     content
     meta_description
     offer_image (width: 1349, height: 286)
+    offer_image_png (width: 1349, height: 286)
     path
   }
 }

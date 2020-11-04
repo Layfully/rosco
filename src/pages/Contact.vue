@@ -200,7 +200,7 @@ export default {
       {
         property: "og:image",
         content:
-          "https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.webp",
+          "https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.png",
       },
       // Often the same as your meta description, but not always.
       {
@@ -221,7 +221,7 @@ export default {
       {
         name: "twitter:image:src",
         content:
-          "https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.webp",
+          "https://www.roscoserwis.pl/uploads/InstalacjeElektryczne.png",
       },
     ],
   },

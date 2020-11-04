@@ -9,18 +9,3 @@ package = "netlify-plugin-csp-generator"
 
   [plugins.inputs]
   buildDir = "dist"
-
-    [plugins.inputs.policies]
-    defaultSrc = "'self'"
-    fontSrc = "'self' data: https://roscoserwis.pl/ https://www.roscoserwis.pl/ https://fonts.gstatic.com/"
-    imgSrc = "'self' data: blob:"
-    scriptSrc = "'report-sample' 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://identity.netlify.com/ 'unsafe-eval'"
-    styleSrc = "'report-sample' 'self' https://fonts.googleapis.com/ 'unsafe-hashes' 'unsafe-inline'"
-    objectSrc = "'none'"
-    baseUri = "'self'"
-    connectSrc = "'self' https://www.netlifystatus.com"
-    frameSrc = "'self' https://www.google.com  https://www.google.com/recaptcha/"
-    workerSrc = "'self'"
-    mediaSrc = "'self'"
-    manifestSrc = "'self'"
-

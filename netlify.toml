@@ -3,9 +3,3 @@
   publish = "dist"
 [build.environment]
   NODE_VERSION = "10"
-
-[[plugins]]
-package = "netlify-plugin-csp-generator"
-
-  [plugins.inputs]
-  buildDir = "dist"

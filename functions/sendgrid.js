@@ -48,7 +48,7 @@ exports.handler = function(event, context, callback) {
   const senderName = body.senderName;
 
   client.setApiKey(SENDGRID_API_KEY);
-
+  console.log(body)
   console.log("Token:" + recaptchaToken);
   if (isHuman(recaptchaToken)) {
     console.log("is human");

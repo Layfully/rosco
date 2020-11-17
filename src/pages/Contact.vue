@@ -292,6 +292,7 @@ export default {
 
       this.$recaptcha("sendEmail")
         .then((token) => {
+          console.log(token)
           axios
             .post("/.netlify/functions/sendgrid", {
               recaptchaToken: token,

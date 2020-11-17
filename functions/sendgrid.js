@@ -47,6 +47,7 @@ exports.handler = function(event, context, callback) {
   } <br/> Treść wiadomości: ${body.message}`;
   const senderName = body.senderName;
 
+  console.log(SENDGRID_API_KEY);
   client.setApiKey(SENDGRID_API_KEY);
   console.log(body)
   console.log("Token:" + recaptchaToken);

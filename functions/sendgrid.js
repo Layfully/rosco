@@ -11,7 +11,7 @@ function sendEmail(client, message, emailSender, senderName) {
         name: senderName,
       },
       subject: "Rosco serwis - strona, prośba o kontakt",
-      to: "k.igielski@roscoserwis.pl",
+      to: "biuro@roscoserwis.pl",
       html: `${message}`,
     };
     client

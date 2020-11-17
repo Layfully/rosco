@@ -41,7 +41,7 @@ function isHuman(recaptchaToken) {
 exports.handler = function(event, context, callback) {
   const body = JSON.parse(event.body);
   const recaptchaToken = body.recaptchaToken;
-  const emailSender = "RoscoStrona@em2257.roscoserwis.pl";
+  const emailSender = "RoscoStrona@em855.roscoserwis.pl";
   const message = `Prośba o kontakt z maila: ${
     body.emailSender
   } <br/> Treść wiadomości: ${body.message}`;

@@ -12,10 +12,10 @@ contacts:
   - contact: "NIP: 7343583401"
     icon: menu_book
     type: inny
-  - contact: "REGON: 385289456"
+  - contact: "REGON: 386382212"
     icon: menu_book
     type: inny
-  - contact: KRS:0000822991
+  - contact: KRS:0000846661
     icon: menu_book
     type: inny
 site-creator-link:

@@ -9,7 +9,7 @@ contacts:
   - contact: biuro@roscoserwis.pl
     icon: email
     type: e-mail
-  - contact: "NIP: 734 357 88 31"
+  - contact: "NIP: 7343583401"
     icon: menu_book
     type: inny
   - contact: "REGON: 385289456"

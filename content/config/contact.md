@@ -1,6 +1,6 @@
 ---
 contacts:
-  - contact: 603 615 587
+  - contact: 18 222 02 76
     icon: call
     type: telefon
   - contact: Węgierska 188, 33-300 Nowy Sącz
